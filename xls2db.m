@@ -1,4 +1,4 @@
-function test = readtodb(file)
+function test = xls2db(file)
 %
 %
 %
