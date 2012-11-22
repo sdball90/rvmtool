@@ -1,41 +1,34 @@
 function [result,status] = sqlitecmd(connection,sql_string)
+% SQLITECMD runs a sql query for a database connection
 %
-%
-%
+% INPUT
+%	CONNECTION is a database connection object
+%	SQL_STRING is a string containing a sql query
+% OUTPUT
+%	RESULT is the result of the sql query
+%	STATUS is an integer value specifying a possible error
+%	    1 if there is an error, 0 if no error
 %
 result = {};
 status = 0;
 
-%check that the driver is loaded
+% Check that the driver is loaded
 if ~exist('org.sqlite.JDBC','class')
   [path,file,ext] = fileparts(mfilename('fullpath'));
   javaaddpath([path,filesep,'sqlite-jdbc.jar'], '-end');
 end
 
-%check query to see if read or write
+% Run sql command and check for error
+% Do not check errors on begin and commit statements
+curs = exec(connection,sql_string);
+if (~isempty(curs.Message) && ...
+	isempty(regexpi(sql_string,'\s*(commit)|(begin)','start')))
+  status = 1;
+  warning(char(curs.Message))
+end
+
+% If select statement, return result of query
 if regexpi(sql_string,'\s*select\s+','start')
-
-  %check to see if there is a limit
-   nrows = floor(str2double(...
-      regexprep(...
-      regexpi(sql_string,'limit\s+\d+','match'),...
-        'limit\s+','','once','ignorecase')...
-      ));
-
-  %if limit isn't defined figure out the maximum number of rows
-  if isempty(nrows)
-    table_name = regexprep(regexpi(sql_string,'from\s+\w+','match'),'from\s+','','once','ignorecase');
-    setdbprefs('DataReturnFormat','numeric');
-    temp_string = sprintf('%s%s%s','SELECT COUNT(*) FROM ',table_name{1},' ;');
-    nrows = fetch(connection,temp_string,1);
-  end
-
-  setdbprefs('DataReturnFormat','cellarray');
-  result = fetch(connection,sql_string,nrows);
-
-else
-   curs = exec(connection,sql_string);
-   if ~isempty(curs.Message);
-     status = 1; %FIXME the message should probably be shown
-   end
+   curs = fetch(curs);
+   result = curs.Data;
 end

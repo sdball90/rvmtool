@@ -14,10 +14,10 @@ function error = xls2db(file)
 %		1 if there is an error, 0 if no error
 %
 error = 0;
+
 % Open database file and drop current table
 conn = sqliteopen('test.db');
 sqlitecmd(conn,'drop table t');
-sqlitecmd(conn,'commit');
 
 % Read XLS file to a matrix RAW and get size
 [raw,raw,raw] = xlsread(file);
@@ -32,7 +32,9 @@ cmd = sprintf('create table t(tblid integer primary key%s)',index);
 [status,status] = sqlitecmd(conn,cmd);
 sqlitecmd(conn,'commit');
 error = or(error,status);
+
 % Read data from matrix into database
+sqlitecmd(conn,'begin transaction');
 for i = 2:length
     input = sprintf('%d',i-1);
     for j = 1:width
@@ -46,14 +48,14 @@ for i = 2:length
             data = sprintf('%d',cell2mat(raw(i,j)));
         end
         
-	    % Strip data cell of single quotes and add to input string
-        data = strrep(data,'''','');
+	    % Fix input of single quotes and add to input string
+        data = strrep(data,'''','''''');
         input = sprintf('%s,''%s''',input,data);
     end
     cmd = sprintf('insert into t (tblid%s) values (%s)',index,input);
     [status,status] = sqlitecmd(conn,cmd);
     error = or(error,status);
 end
-
 sqlitecmd(conn,'commit');
+
 sqliteclose(conn);
