@@ -22,7 +22,6 @@ database_name = ''; %not needed
 user_name = ''; %not needed
 password = ''; %not needed
 driver = 'org.sqlite.JDBC';
-autocommit = 'off';
 database_url = sprintf('jdbc:sqlite:%s', db_file);
 connection = database(database_name,...
                       user_name,...
