@@ -22,7 +22,7 @@ end
 % Do not check errors on begin and commit statements
 curs = exec(connection,sql_string);
 if (~isempty(curs.Message) && ...
-	isempty(regexpi(sql_string,'\s*(commit)|(begin)','start')))
+	isempty(regexpi(sql_string,'\s*(commit)|(begin)|(drop)','start')))
   status = 1;
   warning(char(curs.Message))
 end
