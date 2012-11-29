@@ -16,8 +16,13 @@ function error = xls2db(file)
 error = 0;
 
 % Open database file and drop current table
-conn = sqliteopen('test.db');
-sqlitecmd(conn,'drop table t');
+conn = 0;
+sqliteopen('test.db');
+try
+    sqlitecmd('drop table t');
+catch
+    warning('No table t to drop')
+end
 
 % Read XLS file to a matrix RAW and get size
 [raw,raw,raw] = xlsread(file);
@@ -28,13 +33,14 @@ index = '';
 for i = 1:width
     index = sprintf('%s,''%s''',index,char(raw(1,i)));
 end
+sqlitecmd('begin transaction');
 cmd = sprintf('create table t(tblid integer primary key%s)',index);
-[status,status] = sqlitecmd(conn,cmd);
-sqlitecmd(conn,'commit');
+[status,status] = sqlitecmd(cmd);
+sqlitecmd('commit');
 error = or(error,status);
 
 % Read data from matrix into database
-sqlitecmd(conn,'begin transaction');
+sqlitecmd('begin transaction');
 for i = 2:length
     input = sprintf('%d',i-1);
     for j = 1:width
@@ -53,9 +59,9 @@ for i = 2:length
         input = sprintf('%s,''%s''',input,data);
     end
     cmd = sprintf('insert into t (tblid%s) values (%s)',index,input);
-    [status,status] = sqlitecmd(conn,cmd);
+    [status,status] = sqlitecmd(cmd);
     error = or(error,status);
 end
-sqlitecmd(conn,'commit');
+sqlitecmd('commit');
 
-sqliteclose(conn);
+sqliteclose();
