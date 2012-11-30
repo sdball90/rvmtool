@@ -1,7 +1,6 @@
-function status = sqliteopen(db_file)
+function dbid = sqliteopen(db_file)
 %
 %
 %
-status = 0;
-mksqlite('open',db_file);
+dbid = mksqlite(0, 'open', db_file);
 mksqlite('PRAGMA synchronous = OFF');

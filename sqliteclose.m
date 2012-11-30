@@ -1,6 +1,6 @@
-function status = sqliteclose()
+function status = sqliteclose(dbid)
 %
 %
 %
 status = 0;
-mksqlite('close');
+mksqlite(dbid,'close');
