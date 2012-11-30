@@ -1,4 +1,17 @@
 function varargout = rvmtool(varargin)
+% rvmtool is the graphical user interface to the tool
+%
+% Programmer: Phillip Shaw
+% Version: 0.1 (28 November 2012)
+%
+% varargout = rvmtool(varargin)
+%
+% INPUT:
+%	varargin are any input arguments
+%
+% OUTPUT:
+%	varargout are any output arguments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % RVMTOOL MATLAB code for rvmtool.fig
 %      RVMTOOL, by itself, creates a new RVMTOOL or raises the existing
 %      singleton*.
@@ -78,8 +91,11 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 % hObject    handle to cmd_getFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-file = uigetfile('','Browse for file');
+set(handles.statusField,'String','');
+[file,path] = uigetfile('*.xlsx','Browse for file');
+handles.filename = file;
 set(handles.inputFile,'String',file);
+guidata(hObject, handles);
 
 
 % --- Executes on button press in cmd_runTool.
@@ -88,3 +104,6 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
+xls2db(handles.filename);
+set(handles.statusField,'String','Successfully imported data.');
+guidata(hObject,handles);
