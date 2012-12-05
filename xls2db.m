@@ -1,4 +1,4 @@
-function error = xls2db(file)
+function [rownum,column_names,error] = xls2db(file)
 % XLS2DB takes a XLS spreadsheet and inputs data into sqlite database
 %
 % Programmer: Dennis Magee
@@ -21,12 +21,15 @@ sqlitecmd(dbid,'drop table if exists t');
 
 % Read XLS file to a matrix RAW and get size
 [~,~,raw] = xlsread(file);
-[length,width] = size(raw);
+[rownum,colnum] = size(raw);
+column_names = cell([1,colnum+1]);
+column_names(1,1) = cellstr('tblid');
 
 % Create table and add columns
 index = '';
-for i = 1:width
+for i = 1:colnum
     index = sprintf('%s,''%s''',index,char(raw(1,i)));
+    column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
 end
 sqlitecmd(dbid,'begin transaction');
 cmd = sprintf('create table t(tblid integer primary key%s)',index);
@@ -36,9 +39,9 @@ error = or(error,status);
 
 % Read data from matrix into database
 sqlitecmd(dbid,'begin transaction');
-for i = 2:length
+for i = 2:rownum
     input = sprintf('%d',i-1);
-    for j = 1:width
+    for j = 1:colnum
 
 	    % Determine if data cell is empty, string, or number
         if (isnan(cell2mat(raw(i,j)))==1)
