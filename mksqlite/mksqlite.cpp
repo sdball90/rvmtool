@@ -432,12 +432,12 @@ void mexFunction(int nlhs, mxArray*plhs[], int nrhs, const mxArray*prhs[])
 	/*
 	 * Print Version Information
 	 */
-	if (! FirstStart)
-    {
-    	FirstStart = true;
-
-        mexPrintf (MSG_HELLO, sqlite3_libversion());
-    }
+	/*if (! FirstStart)
+     *{
+     *	FirstStart = true;
+     *
+     *   mexPrintf (MSG_HELLO, sqlite3_libversion());
+     }*/
     
     int db_id = 0;
     int CommandPos = 0;
