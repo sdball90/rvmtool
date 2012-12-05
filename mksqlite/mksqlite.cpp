@@ -207,8 +207,6 @@ static char* strnewdup(const char* s)
     
     if (convertUTF8)
     {
-        char *p;
-
     	if (s)
         {
             int buflen = utf2latin( (unsigned char*)s, NULL );
@@ -991,9 +989,9 @@ void mexFunction(int nlhs, mxArray*plhs[], int nrhs, const mxArray*prhs[])
                 int ndims[2];
                 
                 ndims[0] = rowcount;
-                ndims[1] = 1;
+                ndims[1] = ncol;
                 
-                if (( plhs[0] = mxCreateStructArray (2, ndims, ncol, (const char**)fieldnames)) == 0)
+                if (( plhs[0] = mxCreateCellArray (2, ndims)) == 0)
                 {
 					mxFree(command);
                     mexErrMsgTxt(MSG_CANTCREATEOUTPUT);
@@ -1004,21 +1002,25 @@ void mexFunction(int nlhs, mxArray*plhs[], int nrhs, const mxArray*prhs[])
 				 */
                 lastrow = allrows;
                 i = 0;
+				int subs[2];
+				mwIndex index;
                 while(lastrow)
                 {
                     Value* recordvalue = lastrow->m_Values;
                     
                     for (int j = 0; j < ncol; j++, recordvalue++)
                     {
+						subs[0] = i; subs[1] = j;
+						index = mxCalcSingleSubscript(plhs[0],2,subs);
                         if (recordvalue -> m_Type == SQLITE_TEXT)
                         {
                             mxArray* c = mxCreateString(recordvalue->m_StringValue);
-                            mxSetFieldByNumber(plhs[0], i, j, c);
+                            mxSetCell(plhs[0], index, c);
                         }
                         else if (recordvalue -> m_Type == SQLITE_NULL && !NULLasNaN)
                         {
                             mxArray* out_double = mxCreateDoubleMatrix(0,0,mxREAL);
-                            mxSetFieldByNumber(plhs[0], i, j, out_double);
+                            mxSetCell(plhs[0], index, out_double);
                         }
                         else if (recordvalue -> m_Type == SQLITE_BLOB)
                         {
@@ -1026,24 +1028,24 @@ void mexFunction(int nlhs, mxArray*plhs[], int nrhs, const mxArray*prhs[])
                             {
                                 int NumDims[2]={1,1};
                                 NumDims[1]=recordvalue->m_Size;
-                                mxArray*out_uchar8=mxCreateNumericArray(2, NumDims, mxUINT8_CLASS, mxREAL);
+                                mxArray* out_uchar8=mxCreateNumericArray(2, NumDims, mxUINT8_CLASS, mxREAL);
                                 unsigned char *v = (unsigned char *) mxGetData(out_uchar8);
                                 
                                 memcpy(v, recordvalue->m_StringValue, recordvalue->m_Size);
                                     
-                                mxSetFieldByNumber(plhs[0], i, j, out_uchar8);
+                                mxSetCell(plhs[0], index, out_uchar8);
                             }
                             else
                             {
                                 // empty BLOB
                                 mxArray* out_double = mxCreateDoubleMatrix(0,0,mxREAL);
-                                mxSetFieldByNumber(plhs[0], i, j, out_double);
+                                mxSetCell(plhs[0], index, out_double);
                             }
                         }
                         else
                         {
                             mxArray* out_double = mxCreateDoubleScalar(recordvalue->m_NumericValue);
-                            mxSetFieldByNumber(plhs[0], i, j, out_double);
+                            mxSetCell(plhs[0], index, out_double);
                         }
                     }
                     allrows = lastrow;
