@@ -10,8 +10,12 @@ function [result,status] = sqlitecmd(dbid,sql_string)
 %	       1 if there is an error, 0 if no error
 %
 result = mksqlite(dbid,sql_string);
-if (result == 1)
-    status = true;
+if (isnumeric(result))
+    if result==1
+        status = true;
+    else
+        status = false;
+    end
 else
     status = false;
 end

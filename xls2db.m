@@ -17,11 +17,7 @@ error = false;
 
 % Open database file and drop current table
 dbid = sqliteopen('test.db');
-try
-    sqlitecmd(dbid,'drop table t');
-catch
-    warning('No table t to drop');
-end
+sqlitecmd(dbid,'drop table if exists t');
 
 % Read XLS file to a matrix RAW and get size
 [~,~,raw] = xlsread(file);
