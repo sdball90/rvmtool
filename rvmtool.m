@@ -91,11 +91,13 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 % hObject    handle to cmd_getFile (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-set(handles.statusField,'String','');
-[file,path] = uigetfile('*.xlsx','Browse for file');
-handles.filename = file;
-set(handles.inputFile,'String',file);
-guidata(hObject, handles);
+
+set(handles.statusField,'String',''); %empty the status text box
+FilterSet = {'*.*','All Files (*.*)'}; %define filter set 
+[file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
+handles.filename = file; %set filename
+set(handles.inputFile,'String',file); %write filename to input text field
+guidata(hObject, handles); %update handles structure
 
 
 % --- Executes on button press in cmd_runTool.
@@ -104,6 +106,7 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-xls2db(handles.filename);
+xls2db(handles.filename); %run db script
+%write to status field
 set(handles.statusField,'String','Successfully imported data.');
-guidata(hObject,handles);
+guidata(hObject,handles); %update handles structure
