@@ -67,7 +67,7 @@ function rvmtool_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for rvmtool
 handles.output = hObject;
-
+set(handles.cmd_runTool,'Enable','off');
 % Update handles structure
 guidata(hObject, handles);
 
@@ -97,6 +97,7 @@ FilterSet = {'*.*','All Files (*.*)'}; %define filter set
 [file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
 handles.filename = file; %set filename
 set(handles.inputFile,'String',file); %write filename to input text field
+set(handles.cmd_runTool,'Enable','on');
 guidata(hObject, handles); %update handles structure
 
 
