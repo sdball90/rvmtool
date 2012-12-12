@@ -11,7 +11,7 @@ dbid = sqliteopen('test.db');
 for i = 2:colnum
    cmd = sprintf('select "%s" from t',char(column_name(1,i)));
    data = sqlitecmd(dbid,cmd);
-   for j = 1:rownum 
+   for j = 1:rownum
        
    end
 end
