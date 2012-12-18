@@ -95,7 +95,7 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 set(handles.statusField,'String',''); %empty the status text box
 FilterSet = {'*.*','All Files (*.*)'}; %define filter set 
 [file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
-handles.filename = file; %set filename
+handles.filename = strcat(path,file); %set filename
 set(handles.inputFile,'String',file); %write filename to input text field
 set(handles.cmd_runTool,'Enable','on');
 guidata(hObject, handles); %update handles structure
