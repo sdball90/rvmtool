@@ -1,2 +1,2 @@
 This is just a text file that is a test for the matlab function wordcount. Wordcount counts the number of words.
-Hopefully, we can adapt this matlab file and make it function for our own use. I really hate UNM right now. I really do.
+Hopefully, we can adapt this matlab file and make it function for our own use.
