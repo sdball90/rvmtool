@@ -1,17 +1,41 @@
 function varargout = rvmtool(varargin)
-% rvmtool is the graphical user interface to the tool
+%--------------------------------------------------------------------------
+% rvmtool
 %
-% Programmer: Phillip Shaw
-% Version: 0.1 (28 November 2012)
+% This is the graphical user interface code that allows the 
+% user to control the associated program files of the tool,
+% allowing the user to import the data from the spreadsheet and
+% run the code that will plot the found relationships.
 %
-% varargout = rvmtool(varargin)
+% HISTORY:
+% 28 November 2012  Phillip Shaw    Original Code
 %
-% INPUT:
-%	varargin are any input arguments
+% INPUTS:
+% varargin are any input arguments
 %
-% OUTPUT:
-%	varargout are any output arguments
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% OUTPUTS:
+% varargout are any output arguments
+%
+% USAGE:
+% rvmtool
+% 
+% CALLED MODULES:
+% xls2db
+% rfind
+%
+% DESIGN:
+%   initialize GUI
+%   disable RUNTOOL button
+%   IF user selects spreadsheet
+%       enable RUNTOOL button
+%   IF user presses RUNTOOL button
+%       import spreadsheet into database
+%       find relationships
+%       plot relationships in new figures
+%   END
+%   
+% 
+%--------------------------------------------------------------------------
 % RVMTOOL MATLAB code for rvmtool.fig
 %      RVMTOOL, by itself, creates a new RVMTOOL or raises the existing
 %      singleton*.
@@ -67,7 +91,9 @@ function rvmtool_OpeningFcn(hObject, eventdata, handles, varargin)
 
 % Choose default command line output for rvmtool
 handles.output = hObject;
+% disable the runTool button
 set(handles.cmd_runTool,'Enable','off');
+
 % Update handles structure
 guidata(hObject, handles);
 
@@ -97,7 +123,7 @@ FilterSet = {'*.*','All Files (*.*)'}; %define filter set
 [file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
 handles.filename = strcat(path,file); %set filename
 set(handles.inputFile,'String',file); %write filename to input text field
-set(handles.cmd_runTool,'Enable','on');
+set(handles.cmd_runTool,'Enable','on'); %enable runTool button
 guidata(hObject, handles); %update handles structure
 
 
@@ -108,6 +134,8 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 xls2db(handles.filename); %run db script
-%write to status field
-set(handles.statusField,'String','Successfully imported data.');
+
+%UPDATE: remove status field for waitbar
+set(handles.statusField,'String','Successfully imported data.'); %write to status field
+%
 guidata(hObject,handles); %update handles structure
