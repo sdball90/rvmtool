@@ -2,8 +2,9 @@ function [rownum,column_names,error] = xls2db(file)
 %------------------------------------------------------------------------------
 % XLS2DB takes a XLS spreadsheet and inputs data into sqlite database
 %
-% Programmer: Dennis Magee
-% Version: 0.2 (18 December 2012)
+% HISTORY: 
+% 18 December 2012  Dennis Magee    Version 0.2
+% 29 December 2012  Phillip Shaw    Added progress bar
 %
 % [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
 %
@@ -53,6 +54,7 @@ error = or(error,status);
 
 % Read data from cell array into database
 sqlitecmd(dbid,'begin transaction');
+h = waitbar(0,'Please wait...'); % progress bar
 for i = 2:rownum
     input = sprintf('%d',i-1);
     for j = 1:colnum
@@ -70,13 +72,14 @@ for i = 2:rownum
         else
             data = sprintf('%d',cell2mat(raw(i,j)));
         	input = sprintf('%s,%s',input,data);
-        end
-        
+        end    
     end
     cmd = sprintf('insert into t (tblid%s) values (%s)',index,input);
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
+    waitbar((i)/(rownum),h); % update progress bar
 end
 sqlitecmd(dbid,'commit');
 sqliteclose(dbid);
 rownum = rownum - 1;
+delete(h); % close progress bar
