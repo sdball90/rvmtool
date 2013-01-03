@@ -2,8 +2,8 @@ function status = rfind(rownum,column_names)
 %------------------------------------------------------------------------------
 % RFIND looks for relationships between elements in a database
 %
-% Programmers: Dennis Magee, 
-% Version: 0.1 (20 December 2012)
+% HISTORY:
+% 20 December 2012  Dennis Magee   Original Code
 % 
 % STATUS = RFIND(ROWNUM,COLUMN_NAME)
 %
