@@ -2,8 +2,10 @@ function [rownum,column_names,error] = xls2db(file)
 %------------------------------------------------------------------------------
 % XLS2DB takes a XLS spreadsheet and inputs data into sqlite database
 %
-% HISTORY: 
-% 18 December 2012  Dennis Magee    Version 0.2
+% HISTORY:
+% 19 November 2012  Dennis Magee    Original code
+% 29 November 2012  Dennis Magee    Revised to use mksqlite
+% 18 December 2012  Dennis Magee    Fixed storing numbers in database
 % 29 December 2012  Phillip Shaw    Added progress bar
 %
 % [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
