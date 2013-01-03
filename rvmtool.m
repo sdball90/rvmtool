@@ -59,7 +59,7 @@ function varargout = rvmtool(varargin)
 
 % Edit the above text to modify the response to help rvmtool
 
-% Last Modified by GUIDE v2.5 28-Nov-2012 19:00:30
+% Last Modified by GUIDE v2.5 29-Dec-2012 02:22:03
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -94,6 +94,9 @@ handles.output = hObject;
 % disable the runTool button
 set(handles.cmd_runTool,'Enable','off');
 
+% load the prev state of GUI
+loadState(hObject, handles);
+
 % Update handles structure
 guidata(hObject, handles);
 
@@ -121,8 +124,8 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 set(handles.statusField,'String',''); %empty the status text box
 FilterSet = {'*.*','All Files (*.*)'}; %define filter set 
 [file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
-handles.filename = strcat(path,file); %set filename
-set(handles.inputFile,'String',file); %write filename to input text field
+%handles.filename = strcat(path,file); %set filename
+set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
 set(handles.cmd_runTool,'Enable','on'); %enable runTool button
 guidata(hObject, handles); %update handles structure
 
@@ -132,10 +135,49 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % hObject    handle to cmd_runTool (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
-
-xls2db(handles.filename); %run db script
+file = get(handles.inputFile,'string');
+xls2db(file); %run db script
 
 %UPDATE: remove status field for waitbar
 set(handles.statusField,'String','Successfully imported data.'); %write to status field
 %
 guidata(hObject,handles); %update handles structure
+
+
+% --- Executes when user attempts to close figure1.
+function figure1_CloseRequestFcn(hObject, eventdata, handles)
+% hObject    handle to figure1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+saveState(hObject, handles); % call to saveState function
+% Hint: delete(hObject) closes the figure
+delete(hObject);
+
+
+% --- Save the state of the GUI.
+function saveState(hObject, handles)
+% handles   structure with handles and user data (see GUIDATA)
+state.file = get(handles.inputFile, 'string'); % get the full name
+
+save('state.mat', 'state'); % save to state.mat
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+% --- Load the prev state of the GUI.
+function loadState(hObject, handles)
+% handles    structure with handles and user data (see GUIDATA)
+
+prevstate = 'state.mat';
+
+if exist(prevstate)
+    load(prevstate);
+    %handles.filename = state.file;
+    set(handles.inputFile,'String', state.file);
+    set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    delete(prevstate)
+end
+% Update handles structure
+guidata(hObject, handles);
