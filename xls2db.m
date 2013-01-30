@@ -30,6 +30,8 @@ function [rownum,column_names,error] = xls2db(file)
 %------------------------------------------------------------------------------
 error = false;
 
+h = waitbar(0,'Please wait...'); % progress bar
+
 % Open database file and drop current table
 dbid = sqliteopen('test.db');
 sqlitecmd(dbid,'drop table if exists t');
@@ -56,7 +58,7 @@ error = or(error,status);
 
 % Read data from cell array into database
 sqlitecmd(dbid,'begin transaction');
-h = waitbar(0,'Please wait...'); % progress bar
+
 for i = 2:rownum
     input = sprintf('%d',i-1);
     for j = 1:colnum
