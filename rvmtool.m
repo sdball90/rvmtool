@@ -9,6 +9,7 @@ function varargout = rvmtool(varargin)
 %
 % HISTORY:
 % 28 November 2012  Phillip Shaw    Original Code
+% 7 February 2013 Zachart Kaberlein Added more options to GUI
 %
 % INPUTS:
 % varargin are any input arguments
@@ -59,7 +60,7 @@ function varargout = rvmtool(varargin)
 
 % Edit the above text to modify the response to help rvmtool
 
-% Last Modified by GUIDE v2.5 29-Dec-2012 02:22:03
+% Last Modified by GUIDE v2.5 08-Feb-2013 22:38:26
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -94,11 +95,15 @@ handles.output = hObject;
 % disable the runTool button
 set(handles.cmd_runTool,'Enable','off');
 
+%Set specific text field and listbox to invisible
+set(handles.specificTextfield,'Visible','off');
+set(handles.colunmNamelist,'Visible','off');
 % load the prev state of GUI
 loadState(hObject, handles);
 
 % Update handles structure
 guidata(hObject, handles);
+
 
 % UIWAIT makes rvmtool wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
@@ -181,3 +186,51 @@ if exist(prevstate)
 end
 % Update handles structure
 guidata(hObject, handles);
+
+% --- Executes on selection change in colunmNamelist.
+function colunmNamelist_Callback(hObject, eventdata, handles)
+% hObject    handle to colunmNamelist (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns colunmNamelist contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from
+%        colunmNamelist
+
+% --- Executes during object creation, after setting all properties.
+function colunmNamelist_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to colunmNamelist (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in generalRadiobutton.
+function generalRadiobutton_Callback(hObject, eventdata, handles)
+% hObject    handle to generalRadiobutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of generalRadiobutton
+get(hObject, 'Value');
+
+
+
+
+% --- Executes on button press in specificRadiobutton.
+function specificRadiobutton_Callback(hObject, eventdata, handles)
+% hObject    handle to specificRadiobutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of specificRadiobutton
+get(hObject, 'Value');
+set(handles.specificTextfield,'Visible','on');
+set(handles.colunmNamelist,'Visible','on');
+
+
