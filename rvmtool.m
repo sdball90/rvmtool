@@ -9,6 +9,7 @@ function varargout = rvmtool(varargin)
 %
 % HISTORY:
 % 28 November 2012  Phillip Shaw    Original Code
+% 7 February 2013 Zachart Kaberlein Added more options to GUI
 %
 % INPUTS:
 % varargin are any input arguments
@@ -59,7 +60,7 @@ function varargout = rvmtool(varargin)
 
 % Edit the above text to modify the response to help rvmtool
 
-% Last Modified by GUIDE v2.5 29-Dec-2012 02:22:03
+% Last Modified by GUIDE v2.5 10-Feb-2013 13:08:10
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -94,6 +95,10 @@ handles.output = hObject;
 % disable the runTool button
 set(handles.cmd_runTool,'Enable','off');
 
+%Set specific text field and listbox to invisible
+set(handles.specificTextfield,'Visible','off');
+set(handles.columnNamePopup,'Visible','off');
+
 % load the prev state of GUI
 loadState(hObject, handles);
 
@@ -102,7 +107,6 @@ guidata(hObject, handles);
 
 % UIWAIT makes rvmtool wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
-
 
 % --- Outputs from this function are returned to the command line.
 function varargout = rvmtool_OutputFcn(hObject, eventdata, handles) 
@@ -127,7 +131,9 @@ FilterSet = {'*.*','All Files (*.*)'}; %define filter set
 %handles.filename = strcat(path,file); %set filename
 set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
 set(handles.cmd_runTool,'Enable','on'); %enable runTool button
-guidata(hObject, handles); %update handles structure
+
+guidata(hObject, handles);
+
 
 
 % --- Executes on button press in cmd_runTool.
@@ -161,7 +167,6 @@ function saveState(hObject, handles)
 state.file = get(handles.inputFile, 'string'); % get the full name
 
 save('state.mat', 'state'); % save to state.mat
-
 % Update handles structure
 guidata(hObject, handles);
 
@@ -181,3 +186,72 @@ if exist(prevstate)
 end
 % Update handles structure
 guidata(hObject, handles);
+
+% --- Executes on selection change in columnNamePopup.
+function columnNamePopup_Callback(hObject, eventdata, handles)
+% hObject    handle to columnNamePopup (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns columnNamePopup contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from
+%        columnNamePopup
+
+% --- Executes during object creation, after setting all properties.
+function columnNamePopup_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to columnNamePopup (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+% --- Executes on button press in generalRadiobutton.
+function generalRadiobutton_Callback(hObject, eventdata, handles)
+% hObject    handle to generalRadiobutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of generalRadiobutton
+get(hObject, 'Value');
+%If general radio button selected deselect specific radio button and make
+%contents not visible.
+if(get(hObject, 'Value') == get(hObject, 'Max')) 
+    set(handles.specificRadiobutton, 'value', 0);
+    set(handles.specificTextfield,'Visible','off');
+    set(handles.columnNamePopup,'Visible','off');
+end
+
+
+% --- Executes on button press in specificRadiobutton.
+function specificRadiobutton_Callback(hObject, eventdata, handles)
+% hObject    handle to specificRadiobutton (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hint: get(hObject,'Value') returns toggle state of specificRadiobutton
+get(hObject, 'Value');
+%Make specificTextfield and columnNamePopup visible
+set(handles.specificTextfield,'Visible','on');
+set(handles.columnNamePopup,'Visible','on');
+
+%If specific radio button selected deselect general radio button and call
+%getColumnnames to get column names and populate popup menu
+if(get(hObject, 'Value') == get(hObject, 'Max')) 
+    set(handles.generalRadiobutton, 'value', 0);
+    file = get(handles.inputFile,'string');
+    [rownum,column_names, colnum] = getColumnnames(file);
+    [~,~,raw] = xlsread(file);
+    [rownum,colnum] = size(raw);
+    column_names = cell([1,colnum+1]);
+    column_names(1,1) = cellstr('tblid');
+    for i = 1:colnum
+        column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
+    end
+    set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
+end
+guidata(hObject, handles);
+
