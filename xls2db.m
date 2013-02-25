@@ -7,6 +7,7 @@ function [rownum,column_names,error] = xls2db(file)
 % 29 November 2012  Dennis Magee    Revised to use mksqlite
 % 18 December 2012  Dennis Magee    Fixed storing numbers in database
 % 29 December 2012  Phillip Shaw    Added progress bar
+% 24 February 2013  Dennis Magee    Added error check when opening excel file
 %
 % [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
 %
@@ -28,6 +29,8 @@ function [rownum,column_names,error] = xls2db(file)
 %	Insert rows of array into database
 %	Close database file
 %------------------------------------------------------------------------------
+rownum = 0;
+column_names = '';
 error = false;
 
 h = waitbar(0,'Please wait...'); % progress bar
@@ -37,7 +40,19 @@ dbid = sqliteopen('test.db');
 sqlitecmd(dbid,'drop table if exists t');
 
 % Read XLS file to call array RAW and get size
-[~,~,raw] = xlsread(file);
+try
+    waitbar(.1, h, 'Reading Excel File:');
+    [~,~,raw] = xlsread(file);
+catch MException
+    % If there is a fault close the function
+    disp(MException.message);
+    error = true;
+    waitbar(1,h,'Error');
+    delete(h);
+    sqliteclose(dbid);
+    return
+end
+
 [rownum,colnum] = size(raw);
 
 % Save the names of the columns in a cell array

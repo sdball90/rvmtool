@@ -8,8 +8,8 @@ function varargout = rvmtool(varargin)
 % run the code that will plot the found relationships.
 %
 % HISTORY:
-% 28 November 2012  Phillip Shaw    Original Code
-% 7 February 2013 Zachart Kaberlein Added more options to GUI
+% 28 November 2012  Phillip Shaw       Original Code
+% 7  February 2013  Zachart Kaberlein  Added more options to GUI
 %
 % INPUTS:
 % varargin are any input arguments
@@ -142,10 +142,14 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 file = get(handles.inputFile,'string');
-xls2db(file); %run db script
+[rownum,column_names,error] = xls2db(file); %run db script
 
 %UPDATE: remove status field for waitbar
-set(handles.statusField,'String','Successfully imported data.'); %write to status field
+if error == true
+    set(handles.statusField,'String','Error importing data.'); %write to status field
+else
+    set(handles.statusField,'String','Successfully imported data.'); %write to status field
+end
 %
 guidata(hObject,handles); %update handles structure
 
@@ -243,15 +247,37 @@ set(handles.columnNamePopup,'Visible','on');
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
     set(handles.generalRadiobutton, 'value', 0);
     file = get(handles.inputFile,'string');
-    [rownum,column_names, colnum] = getColumnnames(file);
-    [~,~,raw] = xlsread(file);
-    [rownum,colnum] = size(raw);
-    column_names = cell([1,colnum+1]);
-    column_names(1,1) = cellstr('tblid');
-    for i = 1:colnum
-        column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
-    end
+    [column_names, error] = getColumnnames(file);
+    
     set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
 end
 guidata(hObject, handles);
 
+function [column_names,error] = getColumnnames(file)
+column_names = '';
+error = false;
+h = waitbar(0,'Please wait...'); % Progress bar
+% Read XLS file to call array RAW and get size
+try
+    waitbar(.1, h, 'Reading Excel File:');
+    [~,~,raw] = xlsread(file);
+catch MException
+    % If there is a fault close the function
+    disp(MException.message);
+    error = true;
+    waitbar(1,h,'Error');
+    delete(h);
+    return
+end
+[~,colnum] = size(raw);
+
+% Save the names of the columns in a cell array
+column_names = cell([1,colnum+1]);
+column_names(1,1) = cellstr('tblid');
+
+for i = 1:colnum
+    column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
+end
+
+waitbar(1, h, 'Complete');
+delete(h);
