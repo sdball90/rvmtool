@@ -1,4 +1,4 @@
-function [rownum, column_names, table_names, error] = xls2db_v2(file)
+function [rownum, column_names, tables_final, error] = xls2db_v2(file)
 %--------------------------------------------------------------------------
 % XLS2DB Version 2 takes a XLS spreadsheet and inputs data into sqlite
 % database
@@ -70,12 +70,7 @@ for i=1:length(column_names)
     end
 end
 
-for i=1:length(table_names)
-    table_pairs = table_names(i);
-    
-end
 
-
-sqliteclose(dbid);
+sqliteclose(dbid)
 
 delete(h);
