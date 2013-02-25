@@ -9,7 +9,8 @@ function varargout = rvmtool(varargin)
 %
 % HISTORY:
 % 28 November 2012  Phillip Shaw       Original Code
-% 7  February 2013  Zachart Kaberlein  Added more options to GUI
+%  7 February 2013  Zachary Kaberlein  Added more options to GUI
+% 25 February 2013  Dennis Magee       Edit to FilterSet
 %
 % INPUTS:
 % varargin are any input arguments
@@ -126,7 +127,12 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 set(handles.statusField,'String',''); %empty the status text box
-FilterSet = {'*.*','All Files (*.*)'}; %define filter set 
+
+FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
+             '*.xlsx','Excel Workbook (*.xlsx)';...
+             '*.xls','Excel 97-2003 Workbook (*.xls)';...
+             '*.ods','OpenDocument Spreadsheet'}; %define filter set 
+
 [file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
 %handles.filename = strcat(path,file); %set filename
 set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
