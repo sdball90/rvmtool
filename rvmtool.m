@@ -160,6 +160,7 @@ end
 
 rfind(rownum,column_names);
 set(handles.statusField,'String','RFIND successful.'); %write to status field
+plotr(column_names);
 timer = toc;
 mesg = sprintf('Completed in %f seconds',timer);
 set(handles.statusField,'String',mesg); %write to status field
@@ -285,11 +286,10 @@ end
 [~,colnum] = size(raw);
 
 % Save the names of the columns in a cell array
-column_names = cell([1,colnum+1]);
-column_names(1,1) = cellstr('tblid');
+column_names = cell(1,colnum);
 
 for i = 1:colnum
-    column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
+    column_names(i) = cellstr(sprintf('%s',char(raw(1,i))));
 end
 
 waitbar(1, h, 'Complete');
