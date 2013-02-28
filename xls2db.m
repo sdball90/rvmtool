@@ -7,6 +7,7 @@ function [rownum,column_names,error] = xls2db(file)
 % 29 November 2012  Dennis Magee    Revised to use mksqlite
 % 18 December 2012  Dennis Magee    Fixed storing numbers in database
 % 29 December 2012  Phillip Shaw    Added progress bar
+% 24 February 2013  Dennis Magee    Added error check when opening excel file
 %
 % [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
 %
@@ -28,16 +29,36 @@ function [rownum,column_names,error] = xls2db(file)
 %	Insert rows of array into database
 %	Close database file
 %------------------------------------------------------------------------------
+rownum = 0;
+column_names = '';
 error = false;
 
 h = waitbar(0,'Please wait...'); % progress bar
 
 % Open database file and drop current table
 dbid = sqliteopen('test.db');
-sqlitecmd(dbid,'drop table if exists t');
+tables = sqlitecmd(dbid,'show tables');
+if (~isempty(tables))
+    for i = 1:length(tables)
+        cmd = sprintf('drop table if exists ''%s''',char(tables(i)));
+        sqlitecmd(dbid,cmd);
+    end
+end
 
 % Read XLS file to call array RAW and get size
-[~,~,raw] = xlsread(file);
+try
+    waitbar(.1, h, 'Reading Excel File:');
+    [~,~,raw] = xlsread(file);
+catch MException
+    % If there is a fault close the function
+    disp(MException.message);
+    error = true;
+    waitbar(1,h,'Error');
+    delete(h);
+    sqliteclose(dbid);
+    return
+end
+
 [rownum,colnum] = size(raw);
 
 % Save the names of the columns in a cell array
@@ -50,10 +71,8 @@ for i = 1:colnum
     index = sprintf('%s,''%s''',index,char(raw(1,i)));
     column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
 end
-sqlitecmd(dbid,'begin transaction');
 cmd = sprintf('create table t(tblid integer primary key%s)',index);
 [~,status] = sqlitecmd(dbid,cmd);
-sqlitecmd(dbid,'commit');
 error = or(error,status);
 
 % Read data from cell array into database
@@ -81,9 +100,23 @@ for i = 2:rownum
     cmd = sprintf('insert into t (tblid%s) values (%s)',index,input);
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
-    waitbar((i)/(rownum),h); % update progress bar
+    waitbar((i)/(rownum),h,'Creating Database:'); % update progress bar
+    if ( mod(i,1000) == 0 )
+        sqlitecmd(dbid,'commit');
+        sqlitecmd(dbid,'begin transaction');
+    end
 end
 sqlitecmd(dbid,'commit');
+
+sqlitecmd(dbid,'begin transaction');
+for i = 1:colnum
+    cmd = sprintf('create table "%s"(tblid integer primary key,column_value,rownum%s)',...
+        char(raw(1,i)),index);
+    [~,status] = sqlitecmd(dbid,cmd);
+    error = or(error,status);
+end
+sqlitecmd(dbid,'commit');
+
 sqliteclose(dbid);
 rownum = rownum - 1;
 delete(h); % close progress bar

@@ -3,8 +3,10 @@ function status = rfind(rownum,column_names)
 % RFIND looks for relationships between elements in a database
 %
 % HISTORY:
-% 20 December 2012  Dennis Magee   Original Code
-% 
+% 20 December 2012  Dennis Magee    Original Code
+% 25 February 2013  Aaron Caldwell  Change to itterate on rows/columns/splits/columns
+% 27 February 2013  Dennis Magee    Change to store relationships into database
+%
 % STATUS = RFIND(ROWNUM,COLUMN_NAME)
 %
 % INPUT:
@@ -19,29 +21,30 @@ function status = rfind(rownum,column_names)
 % METHOD:
 %------------------------------------------------------------------------------
 status = 0;
+wait_bar = 0;
+h = waitbar(wait_bar,'Finding Relationships:'); % progress bar
 
 % Open the database test.db
 dbid = sqliteopen('test.db');
 
-% Datastructure to hold the results proper
-data_counts = {};
-
 % Calculate the number of columns from the array of column names
-[~,colnum] = size(column_names);
-
+colnum = length(column_names);
+index = '';
+for i = 2:colnum
+    index = sprintf('%s,''%s''',index,char(column_names(i)));
+end
+tblid = ones(1,colnum);
+old = 100;
+sqlitecmd(dbid,'begin transaction');
 % Start finding relationships
 for i = 1:rownum
-    % data structures used to hold each rows relational counts
-    row_counts = {};
-    string_counts = {};
     
     % Get rows based on tblid = i
     cmd = sprintf('select * from t where tblid = %d', i);
     row = sqlitecmd(dbid,cmd);
-    key = {};
-    value = {};
+    
     for j = 2:colnum
-        
+        % Check if row value is a string
         if iscellstr(row(j))
             
             % Skip row if string is empty
@@ -50,46 +53,128 @@ for i = 1:rownum
             end
             
             % split the string on delimeters
-            if(strcmp(char(row(j)),';'))
-                string = regexp(char(row(j)),';','split');
-            else
-                string = regexp(char(row(j)),',','split');    
-            end
+            string = strsplit(char(row(j)));
             
             % calculate the string of strings
-            [~,length] = size(string);
-            result_pairs = {};
-			for k = 1:length
-				% Remove whitespace from beginning and end of the string
-				look = strtrim(string(k));
-				% Fix single quotes in the string
-				look = strrep(look,'''','''''');
-                for l = 2:colnum
-                    % Find all rows containing the string and save the table ids
-                    cmd = sprintf('select count(tblid) from t where "%s" like ''%%%s%%''', ...
-                        char(column_names(1,l)), char(look));   
-                    result = sqlitecmd(dbid,cmd);
-                    result_pairs{end+1} = {char(column_names(1,l)), result};
+            if(iscell(string))
+                strnum = length(string);
+                for k = 1:strnum
+                    
+                    % Remove whitespace from beginning and end of the string
+                    % and fix single quotes in the string
+                    look = fixstr(string(k));
+                    % Skip checking relationships if look is empty or value
+                    % already in database
+                    cmd = sprintf('select count (tblid) from ''%s'' where column_value = ''%s''',...
+                        char(column_names(j)),char(look));
+                    check_val = sqlitecmd(dbid,cmd);
+                    if or(isempty(look),cell2mat(check_val) ~= 0)
+                        continue;
+                    end
+                    % Find relationships and place counts into database
+                    input = findrel(dbid,column_names,char(look));
+                    insert2db(dbid,char(column_names(j)),index,tblid(j),...
+                        char(look),i,input);
+                    tblid(j) = tblid(j) + 1;
                 end
-                string_counts{end+1}= {string(k), result_pairs};
-			end
+                
+            % If the string did not split
+            else
+                % Remove whitespace from beginning and end of the string
+                % and fix single quotes in the string
+                look = fixstr(string);
+                
+                % Skip is value already in database
+                cmd = sprintf('select count (tblid) from "%s" where column_value = ''%s''',...
+                    char(column_names(j)),char(look));
+                check_val = sqlitecmd(dbid,cmd);
+                if (cell2mat(check_val) ~= 0)
+                    continue;
+                end
+                
+                % Find relationships and place counts in database
+                input = findrel(dbid,column_names,char(look));
+                insert2db(dbid,char(column_names(j)),index,tblid(j),...
+                    char(look),i,input);
+                tblid(j) = tblid(j) + 1;
+            end
 
 		% If value in cell is not a string, it is a number
         else
-            result_pairs = {};
-            for l = 2:colnum
-                % Find all rows containing the value and save the table ids
-                cmd = sprintf('select count(tblid) from t where "%s" = %d', ...
-                    char(column_names(1,l)), cell2mat(row(j)));
-                result = sqlitecmd(dbid,cmd);
-                result_pairs{end+1} = {char(column_names(1,l)), result};
+            
+            % Skip if value already in database
+            cmd = sprintf('select count (tblid) from ''%s'' where column_value = %d',...
+                char(column_names(j)),cell2mat(row(j)));
+            check_val = sqlitecmd(dbid,cmd);
+            if (cell2mat(check_val) ~= 0)
+                continue;
             end
-            string_counts{end+1} = {row(j), result_pairs};
+            input = findrel(dbid,column_names,cell2mat(row(j)));
+            % Insert counts into database and increment tblid
+            insert2db(dbid,char(column_names(j)),index,tblid(j),...
+                cell2mat(row(j)),i,input);
+            tblid(j) = tblid(j) + 1;
         end
-    end 
-    data_counts{end+1} = {i,string_counts};
+    end
+    
+    % increase value of progress bar
+    wait_bar = wait_bar + (1/rownum);
+    waitbar(wait_bar,h);
+    
+    % commit to database if over 1000 transactions and not last row
+    if (i ~= rownum)
+        if ( mod(sum(tblid),1000) < old )
+            sqlitecmd(dbid,'commit');
+            sqlitecmd(dbid,'begin transaction');
+        end
+        old = mod(sum(tblid),1000);
+    end
+end
+% Commit last transactions
+sqlitecmd(dbid,'commit');
+% Close database and progress bar
+close(h);
+sqliteclose(dbid);
+
+function out = strsplit(string)
+if(~isempty(regexp(string,'~','once')))
+    out = regexp(string,'~','split');
+elseif(~isempty(regexp(string,'|','once')))
+    out = regexp(string,'|','split');
+elseif(~isempty(regexp(string,';','once')))
+    out = regexp(string,';','split');
+elseif(~isempty(regexp(string,',','once')))
+    out = regexp(string,',','split');
+else
+    out = string;
 end
 
-status = data_counts;
-% Close database
-sqliteclose(dbid);
+function input = findrel(dbid,column_names,value)
+input = '';
+colnum = length(column_names);
+for i = 2:colnum
+    % Find all rows containing the string and count the table ids
+    if ischar(value)
+        cmd = sprintf('select count(tblid) from t where "%s" like ''%%%s%%''', ...
+            char(column_names(i)), value);
+    else
+        cmd = sprintf('select count(tblid) from t where "%s" = %d', ...
+            char(column_names(i)), value);
+    end
+    result = sqlitecmd(dbid,cmd);
+    input = sprintf('%s,%d',input,cell2mat(result));
+end
+
+function insert2db(dbid,table,columns,tblid,value,rownum,counts)
+if ischar(value)
+    cmd = sprintf('insert into "%s" (tblid,column_value,rownum%s) values (%d,''%s'',%d%s)',...
+        table,columns,tblid,value,rownum,counts);
+else
+    cmd = sprintf('insert into "%s" (tblid,column_value,rownum%s) values (%d,%d,%d%s)',...
+        table,columns,tblid,value,rownum,counts);
+end
+sqlitecmd(dbid,cmd);
+
+function out = fixstr(str)
+out = strtrim(str);
+out = strrep(out,'''','''''');
