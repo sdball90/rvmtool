@@ -27,8 +27,8 @@ h = waitbar(0,'Please wait...'); % Progress bar
 
 % Open database file
 try
-    dbid = sqliteopen('test.db');
     waitbar(1, h, 'Opening Database');
+    dbid = sqliteopen('test.db');
 catch MException
     % If there is a fault close the function
     disp(MException);

@@ -8,8 +8,9 @@ function varargout = rvmtool(varargin)
 % run the code that will plot the found relationships.
 %
 % HISTORY:
-% 28 November 2012  Phillip Shaw    Original Code
-% 7 February 2013 Zachart Kaberlein Added more options to GUI
+% 28 November 2012  Phillip Shaw       Original Code
+%  7 February 2013  Zachary Kaberlein  Added more options to GUI
+% 25 February 2013  Dennis Magee       Edit to FilterSet
 %
 % INPUTS:
 % varargin are any input arguments
@@ -126,7 +127,12 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 set(handles.statusField,'String',''); %empty the status text box
-FilterSet = {'*.*','All Files (*.*)'}; %define filter set 
+
+FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
+             '*.xlsx','Excel Workbook (*.xlsx)';...
+             '*.xls','Excel 97-2003 Workbook (*.xls)';...
+             '*.ods','OpenDocument Spreadsheet'}; %define filter set 
+
 [file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
 %handles.filename = strcat(path,file); %set filename
 set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
@@ -135,17 +141,28 @@ set(handles.cmd_runTool,'Enable','on'); %enable runTool button
 guidata(hObject, handles);
 
 
-
 % --- Executes on button press in cmd_runTool.
 function cmd_runTool_Callback(hObject, eventdata, handles)
 % hObject    handle to cmd_runTool (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+tic
+set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
-xls2db(file); %run db script
+[rownum,column_names,error] = xls2db(file); %run db script
 
 %UPDATE: remove status field for waitbar
-set(handles.statusField,'String','Successfully imported data.'); %write to status field
+if error == true
+    set(handles.statusField,'String','Error importing data.'); %write to status field
+else
+    set(handles.statusField,'String','XLS2DB successful.'); %write to status field
+end
+
+rfind(rownum,column_names);
+set(handles.statusField,'String','RFIND successful.'); %write to status field
+timer = toc;
+mesg = sprintf('Completed in %f seconds',timer);
+set(handles.statusField,'String',mesg); %write to status field
 %
 guidata(hObject,handles); %update handles structure
 
@@ -243,15 +260,37 @@ set(handles.columnNamePopup,'Visible','on');
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
     set(handles.generalRadiobutton, 'value', 0);
     file = get(handles.inputFile,'string');
-    [rownum,column_names, colnum] = getColumnnames(file);
-    [~,~,raw] = xlsread(file);
-    [rownum,colnum] = size(raw);
-    column_names = cell([1,colnum+1]);
-    column_names(1,1) = cellstr('tblid');
-    for i = 1:colnum
-        column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
-    end
+    [column_names, error] = getColumnnames(file);
+    
     set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
 end
 guidata(hObject, handles);
 
+function [column_names,error] = getColumnnames(file)
+column_names = '';
+error = false;
+h = waitbar(0,'Please wait...'); % Progress bar
+% Read XLS file to call array RAW and get size
+try
+    waitbar(.1, h, 'Reading Excel File:');
+    [~,~,raw] = xlsread(file);
+catch MException
+    % If there is a fault close the function
+    disp(MException.message);
+    error = true;
+    waitbar(1,h,'Error');
+    delete(h);
+    return
+end
+[~,colnum] = size(raw);
+
+% Save the names of the columns in a cell array
+column_names = cell([1,colnum+1]);
+column_names(1,1) = cellstr('tblid');
+
+for i = 1:colnum
+    column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
+end
+
+waitbar(1, h, 'Complete');
+delete(h);
