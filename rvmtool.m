@@ -141,12 +141,13 @@ set(handles.cmd_runTool,'Enable','on'); %enable runTool button
 guidata(hObject, handles);
 
 
-
 % --- Executes on button press in cmd_runTool.
 function cmd_runTool_Callback(hObject, eventdata, handles)
 % hObject    handle to cmd_runTool (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+tic
+set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
 [rownum,column_names,error] = xls2db(file); %run db script
 
@@ -154,8 +155,14 @@ file = get(handles.inputFile,'string');
 if error == true
     set(handles.statusField,'String','Error importing data.'); %write to status field
 else
-    set(handles.statusField,'String','Successfully imported data.'); %write to status field
+    set(handles.statusField,'String','XLS2DB successful.'); %write to status field
 end
+
+rfind(rownum,column_names);
+set(handles.statusField,'String','RFIND successful.'); %write to status field
+timer = toc;
+mesg = sprintf('Completed in %f seconds',timer);
+set(handles.statusField,'String',mesg); %write to status field
 %
 guidata(hObject,handles); %update handles structure
 

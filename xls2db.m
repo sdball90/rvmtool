@@ -37,7 +37,13 @@ h = waitbar(0,'Please wait...'); % progress bar
 
 % Open database file and drop current table
 dbid = sqliteopen('test.db');
-sqlitecmd(dbid,'drop table if exists t');
+tables = sqlitecmd(dbid,'show tables');
+if (~isempty(tables))
+    for i = 1:length(tables)
+        cmd = sprintf('drop table if exists ''%s''',char(tables(i)));
+        sqlitecmd(dbid,cmd);
+    end
+end
 
 % Read XLS file to call array RAW and get size
 try
@@ -65,10 +71,8 @@ for i = 1:colnum
     index = sprintf('%s,''%s''',index,char(raw(1,i)));
     column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
 end
-sqlitecmd(dbid,'begin transaction');
 cmd = sprintf('create table t(tblid integer primary key%s)',index);
 [~,status] = sqlitecmd(dbid,cmd);
-sqlitecmd(dbid,'commit');
 error = or(error,status);
 
 % Read data from cell array into database
@@ -96,9 +100,23 @@ for i = 2:rownum
     cmd = sprintf('insert into t (tblid%s) values (%s)',index,input);
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
-    waitbar((i)/(rownum),h); % update progress bar
+    waitbar((i)/(rownum),h,'Creating Database:'); % update progress bar
+    if ( mod(i,1000) == 0 )
+        sqlitecmd(dbid,'commit');
+        sqlitecmd(dbid,'begin transaction');
+    end
 end
 sqlitecmd(dbid,'commit');
+
+sqlitecmd(dbid,'begin transaction');
+for i = 1:colnum
+    cmd = sprintf('create table "%s"(tblid integer primary key,column_value,rownum%s)',...
+        char(raw(1,i)),index);
+    [~,status] = sqlitecmd(dbid,cmd);
+    error = or(error,status);
+end
+sqlitecmd(dbid,'commit');
+
 sqliteclose(dbid);
 rownum = rownum - 1;
 delete(h); % close progress bar
