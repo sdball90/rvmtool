@@ -65,9 +65,9 @@ set(gca,'YTick',1:ticks,'YTickLabel',labels,...
     'XLim',[min(values)-1 max(values)+1]);
 title(plot_title);
 
-function pie_chart(values,~,plot_title)
+function pie_chart(values,labels,plot_title)
 figure;
-pie(values);
+pie(values,labels);
 %set(gca,'YTick',1:ticks,'YTickLabel',labels,...
 %    'XLim',[min(values)-1 max(values)+1]);
 title(plot_title);
