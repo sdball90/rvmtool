@@ -74,7 +74,7 @@ for i = 1:rownum
                     look = fixstr(string(k));
                     % Skip checking relationships if look is empty or value
                     % already in database
-                    if (isempty(look))
+                    if (isempty(char(look)))
                         continue;
                     end
                     cmd = sprintf('select count (tblid) from ''%s'' where column_value = ''%s''',...
@@ -96,7 +96,10 @@ for i = 1:rownum
                 % and fix single quotes in the string
                 look = fixstr(string);
                 
-                % Skip is value already in database
+                % Skip is value is empty or already in database
+                if (isempty(char(look)))
+                    continue;
+                end
                 cmd = sprintf('select count (tblid) from "%s" where column_value = ''%s''',...
                     char(column_names(j)),char(look));
                 check_val = sqlitecmd(dbid,cmd);
