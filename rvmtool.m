@@ -24,11 +24,14 @@ function varargout = rvmtool(varargin)
 % CALLED MODULES:
 % xls2db
 % rfind
+% plotr
 %
 % DESIGN:
 %   initialize GUI
 %   disable RUNTOOL button
-%   IF user selects spreadsheet
+%   disable RADIO buttons, SPECIFIC text field, COLUMN_NAME dropdown
+%   IF prev exists, LOAD STATE
+%   ELSEIF user selects spreadsheet
 %       enable RUNTOOL button
 %   IF user presses RUNTOOL button
 %       import spreadsheet into database
@@ -36,6 +39,11 @@ function varargout = rvmtool(varargin)
 %       plot relationships in new figures
 %   END
 %   
+% TODO:
+%   -include radio button states, column names(?), specific text in save 
+%   function.
+%   -implement load of above
+%   -double check order and logic of init and flow steps
 % 
 %--------------------------------------------------------------------------
 % RVMTOOL MATLAB code for rvmtool.fig
@@ -97,8 +105,11 @@ handles.output = hObject;
 set(handles.cmd_runTool,'Enable','off');
 
 %Set specific text field and listbox to invisible
-set(handles.specificTextfield,'Visible','off');
-set(handles.columnNamePopup,'Visible','off');
+set(handles.specificTextfield,'Enable','off');
+set(handles.columnNamePopup,'Enable','off');
+
+set(handles.generalRadiobutton, 'Enable', 'off');
+set(handles.specificRadiobutton,'Enable','off');
 
 % load the prev state of GUI
 loadState(hObject, handles);
@@ -234,13 +245,13 @@ function generalRadiobutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of generalRadiobutton
-get(hObject, 'Value');
+% get(hObject, 'Value');
 %If general radio button selected deselect specific radio button and make
 %contents not visible.
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
-    set(handles.specificRadiobutton, 'value', 0);
-    set(handles.specificTextfield,'Visible','off');
-    set(handles.columnNamePopup,'Visible','off');
+    set(handles.specificRadiobutton, 'Value', 0);
+    set(handles.specificTextfield,'Enable','off');
+    set(handles.columnNamePopup,'Enable','off');
 end
 
 
@@ -251,17 +262,17 @@ function specificRadiobutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of specificRadiobutton
-get(hObject, 'Value');
+% get(hObject, 'Value');
 %Make specificTextfield and columnNamePopup visible
-set(handles.specificTextfield,'Visible','on');
-set(handles.columnNamePopup,'Visible','on');
+set(handles.specificTextfield,'Enable','on');
+set(handles.columnNamePopup,'Enable','on');
 
 %If specific radio button selected deselect general radio button and call
 %getColumnnames to get column names and populate popup menu
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
-    set(handles.generalRadiobutton, 'value', 0);
-    file = get(handles.inputFile,'string');
-    [column_names, error] = getColumnnames(file);
+    set(handles.generalRadiobutton, 'Value', 0);
+    file = get(handles.inputFile,'String');
+    [column_names, ~] = getColumnnames(file);
     
     set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
 end
