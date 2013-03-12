@@ -11,7 +11,7 @@ function varargout = rvmtool(varargin)
 % 28 November 2012  Phillip Shaw       Original Code
 %  7 February 2013  Zachary Kaberlein  Added more options to GUI
 % 25 February 2013  Dennis Magee       Edit to FilterSet
-% 11 March 2013     Phillip Shaw       Reiterate GUI control
+% 11 March 2013     Phillip Shaw       Reiterate GUI control preference
 %
 % INPUTS:
 % varargin are any input arguments
