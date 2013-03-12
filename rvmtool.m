@@ -11,6 +11,7 @@ function varargout = rvmtool(varargin)
 % 28 November 2012  Phillip Shaw       Original Code
 %  7 February 2013  Zachary Kaberlein  Added more options to GUI
 % 25 February 2013  Dennis Magee       Edit to FilterSet
+% 11 March 2013     Phillip Shaw       Reiterate GUI control preference
 %
 % INPUTS:
 % varargin are any input arguments
@@ -24,11 +25,14 @@ function varargout = rvmtool(varargin)
 % CALLED MODULES:
 % xls2db
 % rfind
+% plotr
 %
 % DESIGN:
 %   initialize GUI
 %   disable RUNTOOL button
-%   IF user selects spreadsheet
+%   disable RADIO buttons, SPECIFIC text field, COLUMN_NAME dropdown
+%   IF prev exists, LOAD STATE
+%   ELSEIF user selects spreadsheet
 %       enable RUNTOOL button
 %   IF user presses RUNTOOL button
 %       import spreadsheet into database
@@ -36,6 +40,15 @@ function varargout = rvmtool(varargin)
 %       plot relationships in new figures
 %   END
 %   
+% TODO:
+%   -include radio button states, column names(?), specific text in save 
+%   function. (DONE, except saving specific test requires handles to get
+%   set)
+%   -implement load of above (DONE)
+%   -double check order and logic of init and flow steps (DONE, unless
+%   fault in my logic, DOUBLE CHECK)
+%   -FIX: when closing GUI without doing anything, PATH_TO_FILE string
+%       gets saved as file, INVALID (NOT DONE)
 % 
 %--------------------------------------------------------------------------
 % RVMTOOL MATLAB code for rvmtool.fig
@@ -96,9 +109,11 @@ handles.output = hObject;
 % disable the runTool button
 set(handles.cmd_runTool,'Enable','off');
 
-%Set specific text field and listbox to invisible
-set(handles.specificTextfield,'Visible','off');
-set(handles.columnNamePopup,'Visible','off');
+%Set specific text field and listbox to disabled
+set(handles.specificTextfield,'Enable','off');
+set(handles.columnNamePopup,'Enable','off');
+set(handles.generalRadiobutton, 'Enable', 'off');
+set(handles.specificRadiobutton,'Enable','off');
 
 % load the prev state of GUI
 loadState(hObject, handles);
@@ -137,6 +152,9 @@ FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
 %handles.filename = strcat(path,file); %set filename
 set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
 set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+
+set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
+set(handles.specificRadiobutton,'Enable','on');
 
 guidata(hObject, handles);
 
@@ -183,6 +201,9 @@ delete(hObject);
 function saveState(hObject, handles)
 % handles   structure with handles and user data (see GUIDATA)
 state.file = get(handles.inputFile, 'string'); % get the full name
+state.generalRadiobutton = get(handles.generalRadiobutton, 'value');
+state.specificRadiobutton = get(handles.specificRadiobutton, 'value');
+state.specificTextfield = get(handles.specificTextfield, 'string');
 
 save('state.mat', 'state'); % save to state.mat
 % Update handles structure
@@ -195,12 +216,27 @@ function loadState(hObject, handles)
 
 prevstate = 'state.mat';
 
-if exist(prevstate)
+if exist(prevstate, 'file')
     load(prevstate);
     %handles.filename = state.file;
     set(handles.inputFile,'String', state.file);
+    set(handles.generalRadiobutton, 'value', state.generalRadiobutton);
+    set(handles.specificRadiobutton, 'value', state.specificRadiobutton);
+    set(handles.specificTextfield, 'string', state.specificTextfield);
+    
     set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
+    set(handles.specificRadiobutton,'Enable','on');
     delete(prevstate)
+    
+    % IF SPECIFIC - RUN GETCOLUMNS
+    if(get(handles.specificRadiobutton, 'Value') == 1)  
+      set(handles.specificTextfield,'Enable','on');
+      set(handles.columnNamePopup,'Enable','on');
+      file = get(handles.inputFile,'String');
+      [column_names, ~] = getColumnnames(file);
+      set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
+    end
 end
 % Update handles structure
 guidata(hObject, handles);
@@ -234,13 +270,13 @@ function generalRadiobutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of generalRadiobutton
-get(hObject, 'Value');
+% get(hObject, 'Value');
 %If general radio button selected deselect specific radio button and make
 %contents not visible.
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
-    set(handles.specificRadiobutton, 'value', 0);
-    set(handles.specificTextfield,'Visible','off');
-    set(handles.columnNamePopup,'Visible','off');
+    set(handles.specificRadiobutton, 'Value', 0);
+    set(handles.specificTextfield,'Enable','off');
+    set(handles.columnNamePopup,'Enable','off');
 end
 
 
@@ -251,17 +287,17 @@ function specificRadiobutton_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 % Hint: get(hObject,'Value') returns toggle state of specificRadiobutton
-get(hObject, 'Value');
+% get(hObject, 'Value');
 %Make specificTextfield and columnNamePopup visible
-set(handles.specificTextfield,'Visible','on');
-set(handles.columnNamePopup,'Visible','on');
+set(handles.specificTextfield,'Enable','on');
+set(handles.columnNamePopup,'Enable','on');
 
 %If specific radio button selected deselect general radio button and call
 %getColumnnames to get column names and populate popup menu
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
-    set(handles.generalRadiobutton, 'value', 0);
-    file = get(handles.inputFile,'string');
-    [column_names, error] = getColumnnames(file);
+    set(handles.generalRadiobutton, 'Value', 0);
+    file = get(handles.inputFile,'String');
+    [column_names, ~] = getColumnnames(file);
     
     set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
 end
