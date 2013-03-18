@@ -11,7 +11,8 @@ function varargout = rvmtool(varargin)
 % 28 November 2012  Phillip Shaw       Original Code
 %  7 February 2013  Zachary Kaberlein  Added more options to GUI
 % 25 February 2013  Dennis Magee       Edit to FilterSet
-% 11 March 2013     Phillip Shaw       Reiterate GUI control preference
+% 11 March    2013  Phillip Shaw       Reiterate GUI control preference
+% 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
 %
 % INPUTS:
 % varargin are any input arguments
@@ -224,9 +225,16 @@ if exist(prevstate, 'file')
     set(handles.specificRadiobutton, 'value', state.specificRadiobutton);
     set(handles.specificTextfield, 'string', state.specificTextfield);
     
-    set(handles.cmd_runTool,'Enable','on'); %enable runTool button
-    set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
-    set(handles.specificRadiobutton,'Enable','on');
+    % IF no file in saved state, disable run button
+    if strcmp(state.file,'PATH_TO_FILE')
+        set(handles.cmd_runTool,'Enable','off'); %disable runTool button
+        set(handles.generalRadiobutton, 'Enable', 'off'); % disable buttons
+        set(handles.specificRadiobutton,'Enable','off');
+    else
+        set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+        set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
+        set(handles.specificRadiobutton,'Enable','on');
+    end
     delete(prevstate)
     
     % IF SPECIFIC - RUN GETCOLUMNS
