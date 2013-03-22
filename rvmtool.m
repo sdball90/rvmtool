@@ -13,7 +13,8 @@ function varargout = rvmtool(varargin)
 % 25 February 2013  Dennis Magee       Edit to FilterSet
 % 11 March    2013  Phillip Shaw       Reiterate GUI control preference
 % 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
-%
+% 22 March    2013  Zachary Kaberlein  Added search/filter options
+
 % INPUTS:
 % varargin are any input arguments
 %
@@ -75,7 +76,7 @@ function varargout = rvmtool(varargin)
 
 % Edit the above text to modify the response to help rvmtool
 
-% Last Modified by GUIDE v2.5 10-Feb-2013 13:08:10
+% Last Modified by GUIDE v2.5 22-Mar-2013 13:47:10
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -115,6 +116,12 @@ set(handles.specificTextfield,'Enable','off');
 set(handles.columnNamePopup,'Enable','off');
 set(handles.generalRadiobutton, 'Enable', 'off');
 set(handles.specificRadiobutton,'Enable','off');
+set(handles.DelimeterText,'Enable','off');
+set(handles.DelimeterPopUp,'Enable','off');
+set(handles.NumResultsText,'Enable','off');
+set(handles.NumResultsPopUp,'Enable','off');
+set(handles.OrderResultsText,'Enable','off');
+set(handles.OrderResultsPopUp,'Enable','off');
 
 % load the prev state of GUI
 loadState(hObject, handles);
@@ -241,6 +248,12 @@ if exist(prevstate, 'file')
     if(get(handles.specificRadiobutton, 'Value') == 1)  
       set(handles.specificTextfield,'Enable','on');
       set(handles.columnNamePopup,'Enable','on');
+      set(handles.DelimeterText,'Enable','on');
+      set(handles.DelimeterPopUp,'Enable','on');
+      set(handles.NumResultsText,'Enable','on');
+      set(handles.NumResultsPopUp,'Enable','on');
+      set(handles.OrderResultsText,'Enable','on');
+      set(handles.OrderResultsPopUp,'Enable','on');
       file = get(handles.inputFile,'String');
       [column_names, ~] = getColumnnames(file);
       set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
@@ -285,6 +298,12 @@ if(get(hObject, 'Value') == get(hObject, 'Max'))
     set(handles.specificRadiobutton, 'Value', 0);
     set(handles.specificTextfield,'Enable','off');
     set(handles.columnNamePopup,'Enable','off');
+    set(handles.DelimeterText,'Enable','off');
+    set(handles.DelimeterPopUp,'Enable','off');
+    set(handles.NumResultsText,'Enable','off');
+    set(handles.NumResultsPopUp,'Enable','off');
+    set(handles.OrderResultsText,'Enable','off');
+    set(handles.OrderResultsPopUp,'Enable','off');
 end
 
 
@@ -299,6 +318,14 @@ function specificRadiobutton_Callback(hObject, eventdata, handles)
 %Make specificTextfield and columnNamePopup visible
 set(handles.specificTextfield,'Enable','on');
 set(handles.columnNamePopup,'Enable','on');
+
+%Enable all other search options
+set(handles.DelimeterText,'Enable','on');
+set(handles.DelimeterPopUp,'Enable','on');
+set(handles.NumResultsText,'Enable','on');
+set(handles.NumResultsPopUp,'Enable','on');
+set(handles.OrderResultsText,'Enable','on');
+set(handles.OrderResultsPopUp,'Enable','on');
 
 %If specific radio button selected deselect general radio button and call
 %getColumnnames to get column names and populate popup menu
@@ -338,3 +365,79 @@ end
 
 waitbar(1, h, 'Complete');
 delete(h);
+
+
+% --- Executes during object creation, after setting all properties.
+function DelimeterText_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to DelimeterText (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+
+% --- Executes on selection change in DelimeterPopUp.
+function DelimeterPopUp_Callback(hObject, eventdata, handles)
+% hObject    handle to DelimeterPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns DelimeterPopUp contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from DelimeterPopUp
+
+
+% --- Executes during object creation, after setting all properties.
+function DelimeterPopUp_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to DelimeterPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in NumResultsPopUp.
+function NumResultsPopUp_Callback(hObject, eventdata, handles)
+% hObject    handle to NumResultsPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns NumResultsPopUp contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from NumResultsPopUp
+
+
+% --- Executes during object creation, after setting all properties.
+function NumResultsPopUp_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to NumResultsPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on selection change in OrderResultsPopUp.
+function OrderResultsPopUp_Callback(hObject, eventdata, handles)
+% hObject    handle to OrderResultsPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: contents = cellstr(get(hObject,'String')) returns OrderResultsPopUp contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from OrderResultsPopUp
+
+
+% --- Executes during object creation, after setting all properties.
+function OrderResultsPopUp_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to OrderResultsPopUp (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
