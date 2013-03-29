@@ -14,6 +14,7 @@ function varargout = rvmtool(varargin)
 % 11 March    2013  Phillip Shaw       Reiterate GUI control preference
 % 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
 % 22 March    2013  Zachary Kaberlein  Added search/filter options
+% 28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
 
 % INPUTS:
 % varargin are any input arguments
@@ -43,14 +44,7 @@ function varargout = rvmtool(varargin)
 %   END
 %   
 % TODO:
-%   -include radio button states, column names(?), specific text in save 
-%   function. (DONE, except saving specific test requires handles to get
-%   set)
-%   -implement load of above (DONE)
-%   -double check order and logic of init and flow steps (DONE, unless
-%   fault in my logic, DOUBLE CHECK)
-%   -FIX: when closing GUI without doing anything, PATH_TO_FILE string
-%       gets saved as file, INVALID (NOT DONE)
+% - finish general vs specific code logic
 % 
 %--------------------------------------------------------------------------
 % RVMTOOL MATLAB code for rvmtool.fig
@@ -76,7 +70,7 @@ function varargout = rvmtool(varargin)
 
 % Edit the above text to modify the response to help rvmtool
 
-% Last Modified by GUIDE v2.5 22-Mar-2013 13:47:10
+% Last Modified by GUIDE v2.5 28-Mar-2013 19:52:56
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -172,6 +166,22 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % hObject    handle to cmd_runTool (see GCBO)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
+
+% TODO: At runtime, figure out general or specific search
+% once done, below values can be put to use
+% contents = cellstr(get(handles.columnNamePopup,'String'));
+% colnamedd = contents{get(handles.columnNamePopup,'Value')};
+% 
+% contents = cellstr(get(handles.DelimeterPopup,'String'));
+% delim = contents{get(handles.DelimeterPopup,'Value')};
+% 
+% contents = cellstr(get(handles.NumResultsPopup,'String'));
+% numresult = contents{get(handles.NumResultsPopup,'Value')};
+% 
+% contents = cellstr(get(handles.OrderResultsPopup,'String'));
+% ordresult = contents{get(handles.OrderResultsPopup,'Value')};
+
+
 tic
 set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
@@ -261,6 +271,15 @@ if exist(prevstate, 'file')
 end
 % Update handles structure
 guidata(hObject, handles);
+
+function specificTextfield_Callback(hObject, eventdata, handles)
+% hObject    handle to specificTextfield (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of specificTextfield as text
+%        str2double(get(hObject,'String')) returns contents of specificTextfield as a double
+
 
 % --- Executes on selection change in columnNamePopup.
 function columnNamePopup_Callback(hObject, eventdata, handles)
