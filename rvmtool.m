@@ -14,6 +14,7 @@ function varargout = rvmtool(varargin)
 % 11 March    2013  Phillip Shaw       Reiterate GUI control preference
 % 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
 % 22 March    2013  Zachary Kaberlein  Added search/filter options
+% 28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
 
 % INPUTS:
 % varargin are any input arguments
