@@ -46,16 +46,30 @@ for i = 2:colnum
         end
         % Set the values and change to number array
         values = cell2mat(result(:,2));
-        ticks = length(values);
+        ticks = length(find(values~=1));
+        if ticks==0
+            continue;
+        end
+        % Remove single hits from graphs
+        graph_values = zeros(1,ticks);
+        graph_labels = cell(1,ticks);
+        k=1;
+        for j=1:length(values)
+            if values(j)~=1
+                graph_values(k) = values(j);
+                graph_labels(k) = labels(j);
+                k = k+1;
+            end
+        end
         % Create the figure and plot the values
-        if length(values) > num_results
+        if ticks > num_results
             if sort==1
-                bar_graph(values(ticks-num_results+1:ticks),labels(ticks-num_results+1:ticks),num_results,title);
+                bar_graph(graph_values(ticks-num_results+1:ticks),graph_labels(ticks-num_results+1:ticks),num_results,title);
             else
-                bar_graph(values(1:num_results),labels(1:num_results),num_results,title);
+                bar_graph(graph_values(1:num_results),graph_labels(1:num_results),num_results,title);
             end
         else
-            bar_graph(values,labels,ticks,title);
+            bar_graph(graph_values,graph_labels,ticks,title);
         end
     end
 end
