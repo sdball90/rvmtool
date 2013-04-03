@@ -170,9 +170,7 @@ else
         end
         find_rel = strcat(find_rel, ' (', or_rfind, ')');
     end   
-    find = sprintf('select tblid from t where %s', find_rel);
-    ids = sqlitecmd(dbid,find)
-    length(ids)
+    find = sprintf('select count(tblid) from t where %s', find_rel)
 end
 % Commit last transactions and close the database and progress bar
 sqlitecmd(dbid,'commit');
