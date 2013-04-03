@@ -1,4 +1,4 @@
-function plotr( column_names )
+function plotr( column_names, sort, num_results )
 % PLOTR Creates figures to give a graphical representation of the
 % relationships in the database
 %
@@ -7,6 +7,8 @@ function plotr( column_names )
 %
 % INPUTS
 %   COLUMN_NAMES - Array containing the names of the columns
+%   SORT - 1 for accending results 0 for decending results
+%   NUM_RESULTS - Integer value for max number of results to plot
 %
 % METHOD
 %   Open Database
@@ -20,8 +22,13 @@ dbid = sqliteopen('test.db');
 for i = 2:colnum
     title = char(column_names(i));
     % Grab data to plot for the column
-    cmd = sprintf('select column_value,"%s" from "%s" order by "%s" desc',...
-        title,title,title);
+    if ( sort == 1 )
+        cmd = sprintf('select column_value,"%s" from "%s" order by "%s"',...
+            title,title,title);
+    else
+        cmd = sprintf('select column_value,"%s" from "%s" order by "%s" desc',...
+            title,title,title);
+    end
     result = sqlitecmd(dbid,cmd);
     % Nothing to plot if result is empty
     if ~isempty(result)
@@ -41,8 +48,12 @@ for i = 2:colnum
         values = cell2mat(result(:,2));
         ticks = length(values);
         % Create the figure and plot the values
-        if length(values) > 20
-            bar_graph(values(1:20),labels(1:20),20,title);
+        if length(values) > num_results
+            if sort==1
+                bar_graph(values(ticks-num_results+1:ticks),labels(ticks-num_results+1:ticks),num_results,title);
+            else
+                bar_graph(values(1:num_results),labels(1:num_results),num_results,title);
+            end
         else
             bar_graph(values,labels,ticks,title);
         end
@@ -56,3 +67,5 @@ barh(values);
 set(gca,'YTick',1:ticks,'YTickLabel',labels,...
     'XLim',[min(values)-1 max(values)+1]);
 title(plot_title);
+xlabel('Number of hits');
+ylabel('Items searched for');

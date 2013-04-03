@@ -196,7 +196,8 @@ end
 
 rfind(rownum,column_names);
 set(handles.statusField,'String','RFIND successful.'); %write to status field
-plotr(column_names);
+% PLOTR(COLUMN_NAMES,ASEC/DEC,NUMRESULTS)
+plotr(column_names,1,20);
 timer = toc;
 mesg = sprintf('Completed in %f seconds',timer);
 set(handles.statusField,'String',mesg); %write to status field
