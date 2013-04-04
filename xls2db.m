@@ -8,6 +8,7 @@ function [rownum,column_names,error] = xls2db(file)
 % 18 December 2012  Dennis Magee    Fixed storing numbers in database
 % 29 December 2012  Phillip Shaw    Added progress bar
 % 24 February 2013  Dennis Magee    Added error check when opening excel file
+%  3 April    2013  Dennis Magee    Add Specific_Search table
 %
 % [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
 %
@@ -79,7 +80,7 @@ error = or(error,status);
 sqlitecmd(dbid,'begin transaction');
 
 for i = 2:rownum
-    input = sprintf('%d',i-1);
+    input = sprintf('%d',i);
     for j = 1:colnum
 
 	    % Determine if data cell is empty, string, or number
@@ -115,8 +116,10 @@ for i = 1:colnum
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
 end
+cmd = 'create table Specific_Search (search_value,rownum,counts)';
+[~,status] = sqlitecmd(dbid,cmd);
+error = or(error,status);
 sqlitecmd(dbid,'commit');
 
 sqliteclose(dbid);
-rownum = rownum - 1;
 delete(h); % close progress bar

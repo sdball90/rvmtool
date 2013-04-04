@@ -150,13 +150,19 @@ FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
              '*.xls','Excel 97-2003 Workbook (*.xls)';...
              '*.ods','OpenDocument Spreadsheet'}; %define filter set 
 
-[file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
+[file,path,index] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
 %handles.filename = strcat(path,file); %set filename
-set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
-set(handles.cmd_runTool,'Enable','on'); %enable runTool button
-
-set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
-set(handles.specificRadiobutton,'Enable','on');
+if index ~= 0
+    set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
+    set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
+    set(handles.specificRadiobutton,'Enable','on');
+else
+    set(handles.inputFile,'String','PATH_TO_FILE'); %write filename to input text field
+    set(handles.cmd_runTool,'Enable','off'); %enable runTool button
+    set(handles.generalRadiobutton, 'Enable', 'off'); % enable buttons
+    set(handles.specificRadiobutton,'Enable','off');
+end
 
 guidata(hObject, handles);
 
@@ -181,7 +187,7 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % contents = cellstr(get(handles.OrderResultsPopup,'String'));
 % ordresult = contents{get(handles.OrderResultsPopup,'Value')};
 
-
+set(handles.cmd_runTool,'Enable','off'); %disable runTool button
 tic
 set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
@@ -197,10 +203,12 @@ end
 rfind(rownum,column_names);
 set(handles.statusField,'String','RFIND successful.'); %write to status field
 % PLOTR(COLUMN_NAMES,ASEC/DEC,NUMRESULTS)
+% 1 for ASEC, 0 for DEC
 plotr(column_names,1,20);
 timer = toc;
 mesg = sprintf('Completed in %f seconds',timer);
 set(handles.statusField,'String',mesg); %write to status field
+set(handles.cmd_runTool,'Enable','on'); %enable runTool button
 %
 guidata(hObject,handles); %update handles structure
 
