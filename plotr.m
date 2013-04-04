@@ -4,6 +4,7 @@ function plotr( column_names, sort, num_results )
 %
 % HISTORY
 % 28 February 2013  Dennis Magee    Original Code
+%  3 April    2013  Dennis Magee    Don't plot single hits
 %
 % INPUTS
 %   COLUMN_NAMES - Array containing the names of the columns
