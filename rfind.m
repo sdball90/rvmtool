@@ -97,9 +97,9 @@ if(length(varargin) < 1)
                         continue;
                     end
                     % Find relationships and place counts into database
-                    input = findrel(dbid,column_names,char(look));
+                    [rows,input] = findrel(dbid,column_names,char(look));
                     insert2db(dbid,char(column_names(j)),index,tblid(j),...
-                        char(look),i,input);
+                        char(look),rows,input);
                     tblid(j) = tblid(j) + 1;
                 end
             % If value in cell is not a string, it is a number
@@ -112,10 +112,10 @@ if(length(varargin) < 1)
                 if (cell2mat(check_val) ~= 0)
                     continue;
                 end
-                input = findrel(dbid,column_names,cell2mat(row(j)));
+                [rows,input] = findrel(dbid,column_names,cell2mat(row(j)));
                 % Insert counts into database and increment tblid
                 insert2db(dbid,char(column_names(j)),index,tblid(j),...
-                    cell2mat(row(j)),i,input);
+                    cell2mat(row(j)),rows,input);
                 tblid(j) = tblid(j) + 1;
             end
         end
@@ -135,7 +135,7 @@ if(length(varargin) < 1)
     end
     
 % Specific search
-else 
+else
     % Remove floating ands at end and split search string on ands
     look_and = regexprep(char(varargin),'\s&&$|\s&$|\sAND$|\sand$', '');
     look_and = regexp(look_and,'\s&&\s|\s&\s|\sAND\s|\sand\s', 'split');
@@ -191,7 +191,14 @@ else
             find_rel = sprintf('%s AND ',find_rel);
         end
         find_rel = sprintf('%s (%s)', find_rel, or_rfind);
-    end   
+    end
+    look = fixstr(find_rel);
+    if isempty(look)
+        status = 1;
+        close(h);
+        sqliteclose(dbid);
+        return;
+    end
     find = sprintf('select tblid from t where %s', find_rel);
     ids = sqlitecmd(dbid,find);
     rownum = mat2str(cell2mat(ids));
@@ -238,22 +245,33 @@ end
 %   COLUMN_NAMES - Array of all the column names
 %   VALUE - Specific value to find relationships for
 % OUTPUTS
-%   INPUT - string of comma delimited values for counts
-function input = findrel(dbid,column_names,value)
+%   ROWS - String containing all rows value was found
+%   INPUT - String of comma delimited values for counts
+function [rows,input] = findrel(dbid,column_names,value)
 input = '';
 colnum = length(column_names);
+row_result = [];
 for i = 2:colnum
     % Find all rows containing the string and count the table ids
     if ischar(value)
-        cmd = sprintf('select count(tblid) from t where "%s" like ''%%%s%%''', ...
+        cmd = sprintf('select tblid from t where "%s" like ''%%%s%%''', ...
             char(column_names(i)), value);
     else
-        cmd = sprintf('select count(tblid) from t where "%s" = %d', ...
+        cmd = sprintf('select tblid from t where "%s" = %d', ...
             char(column_names(i)), value);
     end
     result = sqlitecmd(dbid,cmd);
-    input = sprintf('%s,%d',input,cell2mat(result));
+    input = sprintf('%s,%d',input,length(result));
+    if ~isempty(result)
+        for j = 1:length(result)
+            rownum = cell2mat(result(j));
+            if isempty(find(row_result==rownum,1))
+                row_result = [row_result;rownum];
+            end
+        end
+    end
 end
+rows = mat2str(row_result);
 
 % INSERT2DB
 % Inserts the relationships into the database
@@ -264,14 +282,14 @@ end
 %   COLUMNS - String containing all the columns
 %   TBLID - Table ID for the current insert
 %   VALUE - Value to insert into database
-%   ROWNUM - Row # of value from main table
+%   ROWNUM - Row #s of value from main table
 %   COUNTS - String containing the counts of relationships
 function insert2db(dbid,table,columns,tblid,value,rownum,counts)
 if ischar(value)
-    cmd = sprintf('insert into "%s" (tblid,column_value,rownum%s) values (%d,''%s'',%d%s)',...
+    cmd = sprintf('insert into "%s" (tblid,column_value,rownum%s) values (%d,''%s'',"%s"%s)',...
         table,columns,tblid,value,rownum,counts);
 else
-    cmd = sprintf('insert into "%s" (tblid,column_value,rownum%s) values (%d,%d,%d%s)',...
+    cmd = sprintf('insert into "%s" (tblid,column_value,rownum%s) values (%d,%d,"%s"%s)',...
         table,columns,tblid,value,rownum,counts);
 end
 sqlitecmd(dbid,cmd);

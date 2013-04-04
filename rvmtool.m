@@ -154,11 +154,19 @@ if index ~= 0
     set(handles.cmd_runTool,'Enable','on'); %enable runTool button
     set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
     set(handles.specificRadiobutton,'Enable','on');
+    set(handles.NumResultsText,'Enable','on');
+    set(handles.NumResultsPopUp,'Enable','on');
+    set(handles.OrderResultsText,'Enable','on');
+    set(handles.OrderResultsPopUp,'Enable','on');
 else
     set(handles.inputFile,'String','PATH_TO_FILE'); %write filename to input text field
     set(handles.cmd_runTool,'Enable','off'); %enable runTool button
     set(handles.generalRadiobutton, 'Enable', 'off'); % enable buttons
     set(handles.specificRadiobutton,'Enable','off');
+    set(handles.NumResultsText,'Enable','off');
+    set(handles.NumResultsPopUp,'Enable','off');
+    set(handles.OrderResultsText,'Enable','off');
+    set(handles.OrderResultsPopUp,'Enable','off');
 end
 
 guidata(hObject, handles);
@@ -180,54 +188,62 @@ file = get(handles.inputFile,'string');
 %UPDATE: remove status field for waitbar
 if error == true
     set(handles.statusField,'String','Error importing data.'); %write to status field
+    set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    return;
 else
     set(handles.statusField,'String','XLS2DB successful.'); %write to status field
 end
 
+% Get the number of results from GUI
+contents = cellstr(get(handles.NumResultsPopUp,'String'));
+numresult = contents{get(handles.NumResultsPopUp,'Value')}; %get how many results we want
+switch numresult
+    case 'Top 10'
+        numresult = 10;
+    case 'Top 20'
+        numresult = 20;
+    case 'Top 50'
+        numresult = 50;
+    case 'Top 100'
+        numresult = 100;
+    case 'All Results'
+        numresult = -1;
+end
+
+% Get order preference from GUI
+contents = cellstr(get(handles.OrderResultsPopUp,'String'));
+ordresult = contents{get(handles.OrderResultsPopUp,'Value')}; %get order of results
+switch ordresult
+    case 'Ascending'
+        ordresult = 1;
+    case 'Descending'
+        ordresult = 0;
+end
+  
 if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
-  contents = cellstr(get(handles.columnNamePopup,'String'));
-  colnamedd = contents{get(handles.columnNamePopup,'Value')}; %get which column to search
-
-  contents = cellstr(get(handles.NumResultsPopUp,'String'));
-  numresult = contents{get(handles.NumResultsPopUp,'Value')}; %get how many results we want
-  switch numresult
-      case 'Top 10'
-          numresult = 10;
-      case 'Top 20'
-          numresult = 20;
-      case 'Top 50'
-          numresult = 50;
-      case 'Top 100'
-          numresult = 100;
-      case 'All Results'
-          numresult = -1;
-  end
-
-  contents = cellstr(get(handles.OrderResultsPopUp,'String'));
-  ordresult = contents{get(handles.OrderResultsPopUp,'Value')}; %get order of results
-  switch ordresult
-      case 'Ascending'
-          ordresult = 1;
-      case 'Descending'
-          ordresult = 0;
-  end
+    % Get specific search text from GUI
+    contents = cellstr(get(handles.columnNamePopup,'String'));
+    colnamedd = contents{get(handles.columnNamePopup,'Value')}; %get which column to search
+    spectext = get(handles.specificTextfield,'String'); %get specific search text
   
-  spectext = get(handles.specificTextfield,'String'); %get specific search text
-  
-  rfind(rownum,colnamedd, spectext);
+    error = rfind(rownum,colnamedd, spectext);
+    if error == true
+        set(handles.statusField,'String','Invalid search string.'); %write to status field
+    else
+        set(handles.statusField,'String','XLS2DB successful.'); %write to status field
+        plotr(colnamedd,ordresult,numresult,1);
+    end
 else
-  rfind(rownum,column_names);
+    rfind(rownum,column_names);
+    set(handles.statusField,'String','RFIND successful.'); %write to status field
+    plotr(column_names,ordresult,numresult,0);
 end
-set(handles.statusField,'String','RFIND successful.'); %write to status field
 
-if(get(handles.specificRadiobutton, 'Value') == 1) %check if specific run
-  plotr(column_names,ordresult,numresult);
-else
-  plotr(column_names,1,20);
+if error == false
+    timer = toc; %stop the clock
+    mesg = sprintf('Completed in %f seconds',timer);
+    set(handles.statusField,'String',mesg); %write to status field
 end
-timer = toc; %stop the clock
-mesg = sprintf('Completed in %f seconds',timer);
-set(handles.statusField,'String',mesg); %write to status field
 set(handles.cmd_runTool,'Enable','on'); %enable runTool button
 %
 guidata(hObject,handles); %update handles structure
@@ -344,10 +360,10 @@ if(get(hObject, 'Value') == get(hObject, 'Max'))
     set(handles.specificRadiobutton, 'Value', 0);
     set(handles.specificTextfield,'Enable','off');
     set(handles.columnNamePopup,'Enable','off');
-    set(handles.NumResultsText,'Enable','off');
-    set(handles.NumResultsPopUp,'Enable','off');
-    set(handles.OrderResultsText,'Enable','off');
-    set(handles.OrderResultsPopUp,'Enable','off');
+    set(handles.NumResultsText,'Enable','on');
+    set(handles.NumResultsPopUp,'Enable','on');
+    set(handles.OrderResultsText,'Enable','on');
+    set(handles.OrderResultsPopUp,'Enable','on');
 end
 
 
