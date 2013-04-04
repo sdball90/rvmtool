@@ -15,6 +15,7 @@ function varargout = rvmtool(varargin)
 % 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
 % 22 March    2013  Zachary Kaberlein  Added search/filter options
 % 28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
+% 3  April    2013  Phillip Shaw       Implement specific search GUI
 
 % INPUTS:
 % varargin are any input arguments
@@ -43,8 +44,6 @@ function varargout = rvmtool(varargin)
 %       plot relationships in new figures
 %   END
 %   
-% TODO:
-% - finish general vs specific code logic
 % 
 %--------------------------------------------------------------------------
 % RVMTOOL MATLAB code for rvmtool.fig
@@ -110,8 +109,6 @@ set(handles.specificTextfield,'Enable','off');
 set(handles.columnNamePopup,'Enable','off');
 set(handles.generalRadiobutton, 'Enable', 'off');
 set(handles.specificRadiobutton,'Enable','off');
-set(handles.DelimeterText,'Enable','off');
-set(handles.DelimeterPopUp,'Enable','off');
 set(handles.NumResultsText,'Enable','off');
 set(handles.NumResultsPopUp,'Enable','off');
 set(handles.OrderResultsText,'Enable','off');
@@ -173,22 +170,9 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% TODO: At runtime, figure out general or specific search
-% once done, below values can be put to use
-% contents = cellstr(get(handles.columnNamePopup,'String'));
-% colnamedd = contents{get(handles.columnNamePopup,'Value')};
-% 
-% contents = cellstr(get(handles.DelimeterPopup,'String'));
-% delim = contents{get(handles.DelimeterPopup,'Value')};
-% 
-% contents = cellstr(get(handles.NumResultsPopup,'String'));
-% numresult = contents{get(handles.NumResultsPopup,'Value')};
-% 
-% contents = cellstr(get(handles.OrderResultsPopup,'String'));
-% ordresult = contents{get(handles.OrderResultsPopup,'Value')};
-
 set(handles.cmd_runTool,'Enable','off'); %disable runTool button
-tic
+
+tic % start time
 set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
 [rownum,column_names,error] = xls2db(file); %run db script
@@ -200,12 +184,48 @@ else
     set(handles.statusField,'String','XLS2DB successful.'); %write to status field
 end
 
-rfind(rownum,column_names);
+if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
+  contents = cellstr(get(handles.columnNamePopup,'String'));
+  colnamedd = contents{get(handles.columnNamePopup,'Value')}; %get which column to search
+
+  contents = cellstr(get(handles.NumResultsPopUp,'String'));
+  numresult = contents{get(handles.NumResultsPopUp,'Value')}; %get how many results we want
+  switch numresult
+      case 'Top 10'
+          numresult = 10;
+      case 'Top 20'
+          numresult = 20;
+      case 'Top 50'
+          numresult = 50;
+      case 'Top 100'
+          numresult = 100;
+      case 'All Results'
+          numresult = -1;
+  end
+
+  contents = cellstr(get(handles.OrderResultsPopUp,'String'));
+  ordresult = contents{get(handles.OrderResultsPopUp,'Value')}; %get order of results
+  switch ordresult
+      case 'Ascending'
+          ordresult = 1;
+      case 'Descending'
+          ordresult = 0;
+  end
+  
+  spectext = get(handles.specificTextfield,'String'); %get specific search text
+  
+  rfind(rownum,colnamedd, spectext);
+else
+  rfind(rownum,column_names);
+end
 set(handles.statusField,'String','RFIND successful.'); %write to status field
-% PLOTR(COLUMN_NAMES,ASEC/DEC,NUMRESULTS)
-% 1 for ASEC, 0 for DEC
-plotr(column_names,1,20);
-timer = toc;
+
+if(get(handles.specificRadiobutton, 'Value') == 1) %check if specific run
+  plotr(column_names,ordresult,numresult);
+else
+  plotr(column_names,1,20);
+end
+timer = toc; %stop the clock
 mesg = sprintf('Completed in %f seconds',timer);
 set(handles.statusField,'String',mesg); %write to status field
 set(handles.cmd_runTool,'Enable','on'); %enable runTool button
@@ -267,8 +287,6 @@ if exist(prevstate, 'file')
     if(get(handles.specificRadiobutton, 'Value') == 1)  
       set(handles.specificTextfield,'Enable','on');
       set(handles.columnNamePopup,'Enable','on');
-      set(handles.DelimeterText,'Enable','on');
-      set(handles.DelimeterPopUp,'Enable','on');
       set(handles.NumResultsText,'Enable','on');
       set(handles.NumResultsPopUp,'Enable','on');
       set(handles.OrderResultsText,'Enable','on');
@@ -326,8 +344,6 @@ if(get(hObject, 'Value') == get(hObject, 'Max'))
     set(handles.specificRadiobutton, 'Value', 0);
     set(handles.specificTextfield,'Enable','off');
     set(handles.columnNamePopup,'Enable','off');
-    set(handles.DelimeterText,'Enable','off');
-    set(handles.DelimeterPopUp,'Enable','off');
     set(handles.NumResultsText,'Enable','off');
     set(handles.NumResultsPopUp,'Enable','off');
     set(handles.OrderResultsText,'Enable','off');
@@ -348,8 +364,6 @@ set(handles.specificTextfield,'Enable','on');
 set(handles.columnNamePopup,'Enable','on');
 
 %Enable all other search options
-set(handles.DelimeterText,'Enable','on');
-set(handles.DelimeterPopUp,'Enable','on');
 set(handles.NumResultsText,'Enable','on');
 set(handles.NumResultsPopUp,'Enable','on');
 set(handles.OrderResultsText,'Enable','on');
@@ -393,24 +407,6 @@ end
 
 waitbar(1, h, 'Complete');
 delete(h);
-
-
-% --- Executes during object creation, after setting all properties.
-function DelimeterText_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to DelimeterText (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-
-% --- Executes on selection change in DelimeterPopUp.
-function DelimeterPopUp_Callback(hObject, eventdata, handles)
-% hObject    handle to DelimeterPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns DelimeterPopUp contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from DelimeterPopUp
-
 
 % --- Executes during object creation, after setting all properties.
 function DelimeterPopUp_CreateFcn(hObject, eventdata, handles)
