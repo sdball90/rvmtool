@@ -4,7 +4,7 @@ function status = rfind(rownum,column_names, varargin)
 %
 % HISTORY:
 % 20 December 2012  Dennis Magee    Original Code
-% 25 February 2013  Aaron Caldwell  Itterate on rows/columns/splits/columns
+% 25 February 2013  Aaron Caldwell  Iterate on rows/columns/splits/columns
 % 27 February 2013  Dennis Magee    Store relationships into database
 %  3 April    2013  Aaron Caldwell  Adding Specific search parameters
 %  3 April    2013  Dennis Magee    Error Prevention and add specific to database
