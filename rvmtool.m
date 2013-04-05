@@ -179,6 +179,7 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 set(handles.cmd_runTool,'Enable','off'); %disable runTool button
+set(handles.cmd_getFile,'Enable','off'); %disable browse button
 
 tic % start time
 set(handles.statusField,'String','Importing Data.'); %write to status field
@@ -189,6 +190,7 @@ file = get(handles.inputFile,'string');
 if error == true
     set(handles.statusField,'String','Error importing data.'); %write to status field
     set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    set(handles.cmd_getFile,'Enable','on'); %enable browse button
     return;
 else
     set(handles.statusField,'String','XLS2DB successful.'); %write to status field
@@ -230,7 +232,7 @@ if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
     if error == true
         set(handles.statusField,'String','Invalid search string.'); %write to status field
     else
-        set(handles.statusField,'String','XLS2DB successful.'); %write to status field
+        set(handles.statusField,'String','RFIND successful.'); %write to status field
         plotr(colnamedd,ordresult,numresult,1);
     end
 else
@@ -245,6 +247,7 @@ if error == false
     set(handles.statusField,'String',mesg); %write to status field
 end
 set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+set(handles.cmd_getFile,'Enable','on'); %enable browse button
 %
 guidata(hObject,handles); %update handles structure
 
@@ -423,18 +426,6 @@ end
 
 waitbar(1, h, 'Complete');
 delete(h);
-
-% --- Executes during object creation, after setting all properties.
-function DelimeterPopUp_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to DelimeterPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
 
 
 % --- Executes on selection change in NumResultsPopUp.
