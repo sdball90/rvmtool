@@ -147,6 +147,10 @@ else
         and_length = 1;
     end
     
+    str_delimiter = get_delimiter(dbid,char(column_names));
+    if char(str_delimiter) == '\|'
+        str_delimiter = '|';
+    end
     for i = 1:and_length
         % Remove floating ors at end and split string on ors
         if iscell(look_and)
@@ -174,9 +178,9 @@ else
                 continue;
             end
             is_num = str2num(char(look));
-            if(isnumeric(is_num))
-                or_find_sub = sprintf('("%s" = %d OR "%s" like ''%%%d%%'')', ...
-                    column_names, is_num, column_names, is_num);
+            if(~isempty(is_num))
+                or_find_sub = sprintf('("%s" = %d OR "%s" LIKE ''%d%s%%'' OR "%s" LIKE ''%%%s%d'' OR "%s" LIKE ''%%%s%d%s%%'')', ...
+                    column_names, is_num, column_names, is_num, char(str_delimiter), column_names, char(str_delimiter), is_num, column_names, char(str_delimiter), is_num, char(str_delimiter));
             else
                 or_find_sub = sprintf('"%s" like ''%%%s%%''', column_names, char(look));
             end
