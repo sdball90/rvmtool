@@ -235,11 +235,13 @@ if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
     else
         set(handles.statusField,'String','RFIND successful.'); %write to status field
         plotr(colnamedd,ordresult,numresult,1);
+        txtdump(colnamedd,1);
     end
 else
     rfind(rownum,column_names);
     set(handles.statusField,'String','RFIND successful.'); %write to status field
     plotr(column_names,ordresult,numresult,0);
+    txtdump(column_names,0);
 end
 
 if error == false

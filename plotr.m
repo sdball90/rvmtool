@@ -34,49 +34,50 @@ if specific==0
         end
         result = sqlitecmd(dbid,cmd);
         % Nothing to plot if result is empty
-        if ~isempty(result)
-            % Set the labels and cut the text to 40 characters each
-            labels = result(:,1);
-            for j = 1:length(labels)
-                if iscellstr(labels(j))
-                    str = char(labels(j));
-                    if length(str) > 40
-                        labels(j) = cellstr(str(1:40));
-                    end
-                else
-                    labels(j) = cellstr(mat2str(cell2mat(labels(j))));
-                end
-            end
-            % Set the values and change to number array
-            values = cell2mat(result(:,2));
-            ticks = length(find(values~=1));
-            if ticks==0
-                continue;
-            end
-            % Remove single hits from graphs
-            graph_values = zeros(1,ticks);
-            graph_labels = cell(1,ticks);
-            k=1;
-            for j=1:length(values)
-                if values(j)~=1
-                    graph_values(k) = values(j);
-                    graph_labels(k) = labels(j);
-                    k = k+1;
-                end
-            end
-            if num_results == -1
-                num_results = ticks;
-            end
-            % Create the figure and plot the values
-            if ticks > num_results
-                if sort==0
-                    bar_graph(graph_values(ticks-num_results+1:ticks),graph_labels(ticks-num_results+1:ticks),num_results,title);
-                else
-                    bar_graph(graph_values(1:num_results),graph_labels(1:num_results),num_results,title);
+        if isempty(result)
+            continue;
+        end
+        % Set the labels and cut the text to 40 characters each
+        labels = result(:,1);
+        for j = 1:length(labels)
+            if iscellstr(labels(j))
+                str = char(labels(j));
+                if length(str) > 40
+                    labels(j) = cellstr(str(1:40));
                 end
             else
-                bar_graph(graph_values,graph_labels,ticks,title);
+                labels(j) = cellstr(mat2str(cell2mat(labels(j))));
             end
+        end
+        % Set the values and change to number array
+        values = cell2mat(result(:,2));
+        ticks = length(find(values~=1));
+        if ticks==0
+            continue;
+        end
+        % Remove single hits from graphs
+        graph_values = zeros(1,ticks);
+        graph_labels = cell(1,ticks);
+        k=1;
+        for j=1:length(values)
+            if values(j)~=1
+                graph_values(k) = values(j);
+                graph_labels(k) = labels(j);
+                k = k+1;
+            end
+        end
+        if num_results == -1
+            num_results = ticks;
+        end
+        % Create the figure and plot the values
+        if ticks > num_results
+            if sort==0
+                bar_graph(graph_values(ticks-num_results+1:ticks),graph_labels(ticks-num_results+1:ticks),num_results,title);
+            else
+                bar_graph(graph_values(1:num_results),graph_labels(1:num_results),num_results,title);
+            end
+        else
+            bar_graph(graph_values,graph_labels,ticks,title);
         end
     end
 else

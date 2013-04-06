@@ -1,0 +1,2537 @@
+General Search Results:
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Index"
+	Value searched for: "1"
+	Rows value was found: [2;8;9;10;16;17;18;19;20;21;22;42;43;46]
+
+	Value searched for: "2"
+	Rows value was found: [3;4;7;13;24;27;44]
+
+	Value searched for: "3"
+	Rows value was found: [4;6;14;41]
+
+	Value searched for: "4"
+	Rows value was found: [5;15]
+
+	Value searched for: "5"
+	Rows value was found: 6
+
+	Value searched for: "6"
+	Rows value was found: [7;2;29;33;36;37;38;39;40;45;47;48;49]
+
+	Value searched for: "7"
+	Rows value was found: [8;30;23;28;34;35;11]
+
+	Value searched for: "8"
+	Rows value was found: [9;3]
+
+	Value searched for: "9"
+	Rows value was found: 10
+
+	Value searched for: "10"
+	Rows value was found: [11;35;47]
+
+	Value searched for: "11"
+	Rows value was found: 12
+
+	Value searched for: "12"
+	Rows value was found: 13
+
+	Value searched for: "13"
+	Rows value was found: [14;32]
+
+	Value searched for: "14"
+	Rows value was found: [15;20]
+
+	Value searched for: "15"
+	Rows value was found: 16
+
+	Value searched for: "16"
+	Rows value was found: [17;19]
+
+	Value searched for: "17"
+	Rows value was found: 18
+
+	Value searched for: "18"
+	Rows value was found: 19
+
+	Value searched for: "19"
+	Rows value was found: 20
+
+	Value searched for: "20"
+	Rows value was found: 21
+
+	Value searched for: "21"
+	Rows value was found: 22
+
+	Value searched for: "22"
+	Rows value was found: 23
+
+	Value searched for: "23"
+	Rows value was found: 24
+
+	Value searched for: "24"
+	Rows value was found: 25
+
+	Value searched for: "25"
+	Rows value was found: 26
+
+	Value searched for: "26"
+	Rows value was found: [27;14]
+
+	Value searched for: "27"
+	Rows value was found: [28;4;8]
+
+	Value searched for: "28"
+	Rows value was found: 29
+
+	Value searched for: "29"
+	Rows value was found: [30;12]
+
+	Value searched for: "30"
+	Rows value was found: 31
+
+	Value searched for: "31"
+	Rows value was found: 32
+
+	Value searched for: "32"
+	Rows value was found: [33;6;10]
+
+	Value searched for: "33"
+	Rows value was found: 34
+
+	Value searched for: "34"
+	Rows value was found: 35
+
+	Value searched for: "35"
+	Rows value was found: 36
+
+	Value searched for: "36"
+	Rows value was found: [37;9]
+
+	Value searched for: "37"
+	Rows value was found: [38;2]
+
+	Value searched for: "38"
+	Rows value was found: [39;5;7]
+
+	Value searched for: "39"
+	Rows value was found: 40
+
+	Value searched for: "40"
+	Rows value was found: 41
+
+	Value searched for: "41"
+	Rows value was found: 42
+
+	Value searched for: "42"
+	Rows value was found: 43
+
+	Value searched for: "43"
+	Rows value was found: [44;21]
+
+	Value searched for: "44"
+	Rows value was found: [45;11]
+
+	Value searched for: "45"
+	Rows value was found: 46
+
+	Value searched for: "46"
+	Rows value was found: 47
+
+	Value searched for: "47"
+	Rows value was found: 48
+
+	Value searched for: "48"
+	Rows value was found: 49
+
+	Value searched for: "49"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Authors"
+	Value searched for: "Jin T."
+	Rows value was found: 2
+
+	Value searched for: "Hu M."
+	Rows value was found: 2
+
+	Value searched for: "Jiang T."
+	Rows value was found: 2
+
+	Value searched for: "Zhang S."
+	Rows value was found: 2
+
+	Value searched for: "Hu Y.-G."
+	Rows value was found: 3
+
+	Value searched for: "Zhao Z.-Y."
+	Rows value was found: 3
+
+	Value searched for: "Zhang Y.-N."
+	Rows value was found: 3
+
+	Value searched for: "Peng H.-Y."
+	Rows value was found: 4
+
+	Value searched for: "Tao W."
+	Rows value was found: 4
+
+	Value searched for: "Pan W.-Y."
+	Rows value was found: 4
+
+	Value searched for: "Guo L.-X."
+	Rows value was found: 4
+
+	Value searched for: "Li W."
+	Rows value was found: 5
+
+	Value searched for: "Su D."
+	Rows value was found: 5
+
+	Value searched for: "Yan Z."
+	Rows value was found: 5
+
+	Value searched for: "Liu Y."
+	Rows value was found: [5;21]
+
+	Value searched for: "Pang X.-L."
+	Rows value was found: 6
+
+	Value searched for: "Chang Y.-F."
+	Rows value was found: 6
+
+	Value searched for: "Fan J.-B."
+	Rows value was found: 6
+
+	Value searched for: "Ning W.-S."
+	Rows value was found: 6
+
+	Value searched for: "Cao B.-F."
+	Rows value was found: 6
+
+	Value searched for: "Xu J."
+	Rows value was found: [7;34]
+
+	Value searched for: "Yang L."
+	Rows value was found: 7
+
+	Value searched for: "Liu D."
+	Rows value was found: 8
+
+	Value searched for: "Zhen W.-M."
+	Rows value was found: 8
+
+	Value searched for: "Zhang H."
+	Rows value was found: 9
+
+	Value searched for: "Xu R.-L."
+	Rows value was found: 9
+
+	Value searched for: "Zhao H."
+	Rows value was found: 9
+
+	Value searched for: "Shen C."
+	Rows value was found: 9
+
+	Value searched for: "Wu Y."
+	Rows value was found: 10
+
+	Value searched for: "Tang Y."
+	Rows value was found: 10
+
+	Value searched for: "Liu J."
+	Rows value was found: 10
+
+	Value searched for: "Zhang Z."
+	Rows value was found: 10
+
+	Value searched for: "Ni G."
+	Rows value was found: 10
+
+	Value searched for: "Patra J.C."
+	Rows value was found: 11
+
+	Value searched for: "Maskell D.L."
+	Rows value was found: 11
+
+	Value searched for: "Bao G."
+	Rows value was found: 12
+
+	Value searched for: "Adekoya B.J."
+	Rows value was found: 13
+
+	Value searched for: "Chukwuma V.U."
+	Rows value was found: 13
+
+	Value searched for: "Bakare N.O."
+	Rows value was found: 13
+
+	Value searched for: "David T.W."
+	Rows value was found: 13
+
+	Value searched for: "Fukazawa K."
+	Rows value was found: 14
+
+	Value searched for: "Umeda T."
+	Rows value was found: 14
+
+	Value searched for: "Grzesiak M."
+	Rows value was found: 15
+
+	Value searched for: "Swiatek A."
+	Rows value was found: 15
+
+	Value searched for: "Brosius J.W."
+	Rows value was found: 16
+
+	Value searched for: "Kalapotharakos C."
+	Rows value was found: 17
+
+	Value searched for: "Harding A.K."
+	Rows value was found: 17
+
+	Value searched for: "Kazanas D."
+	Rows value was found: 17
+
+	Value searched for: "Contopoulos I."
+	Rows value was found: 17
+
+	Value searched for: "Parfrey K."
+	Rows value was found: 18
+
+	Value searched for: "Beloborodov A.M."
+	Rows value was found: 18
+
+	Value searched for: "Hui L."
+	Rows value was found: 18
+
+	Value searched for: "Yan X.L."
+	Rows value was found: 19
+
+	Value searched for: "Qu Z.Q."
+	Rows value was found: 19
+
+	Value searched for: "Kong D.F."
+	Rows value was found: 19
+
+	Value searched for: "Xu C.L."
+	Rows value was found: 19
+
+	Value searched for: "Fuselier S.A."
+	Rows value was found: 20
+
+	Value searched for: "Allegrini F."
+	Rows value was found: 20
+
+	Value searched for: "Bzowski M."
+	Rows value was found: 20
+
+	Value searched for: "Funsten H.O."
+	Rows value was found: 20
+
+	Value searched for: "Ghielmetti A.G."
+	Rows value was found: 20
+
+	Value searched for: "Gloeckler G."
+	Rows value was found: 20
+
+	Value searched for: "Heirtzler D."
+	Rows value was found: 20
+
+	Value searched for: "Janzen P."
+	Rows value was found: 20
+
+	Value searched for: "Kubiak M."
+	Rows value was found: 20
+
+	Value searched for: "Kucharek H."
+	Rows value was found: 20
+
+	Value searched for: "McComas D.J."
+	Rows value was found: 20
+
+	Value searched for: "Mobius E."
+	Rows value was found: 20
+
+	Value searched for: "Moore T.E."
+	Rows value was found: 20
+
+	Value searched for: "Petrinec S.M."
+	Rows value was found: 20
+
+	Value searched for: "Quinn M."
+	Rows value was found: 20
+
+	Value searched for: "Reisenfeld D."
+	Rows value was found: 20
+
+	Value searched for: "Saul L.A."
+	Rows value was found: 20
+
+	Value searched for: "Scheer J.A."
+	Rows value was found: 20
+
+	Value searched for: "Schwadron N."
+	Rows value was found: 20
+
+	Value searched for: "Trattner K.J."
+	Rows value was found: 20
+
+	Value searched for: "Vanderspek R."
+	Rows value was found: 20
+
+	Value searched for: "Wurz P."
+	Rows value was found: 20
+
+	Value searched for: "Su J.T."
+	Rows value was found: 21
+
+	Value searched for: "Shen Y.D."
+	Rows value was found: 21
+
+	Value searched for: "Zhang D.H."
+	Rows value was found: 22
+
+	Value searched for: "Cai L."
+	Rows value was found: 22
+
+	Value searched for: "Ercha A."
+	Rows value was found: 22
+
+	Value searched for: "Hao Y.Q."
+	Rows value was found: 22
+
+	Value searched for: "Xiao Z."
+	Rows value was found: 22
+
+	Value searched for: "Yu Y."
+	Rows value was found: 23
+
+	Value searched for: "Niu J."
+	Rows value was found: 23
+
+	Value searched for: "Simpson J.J."
+	Rows value was found: 23
+
+	Value searched for: "Sindelarova T."
+	Rows value was found: 24
+
+	Value searched for: "Mosna Z."
+	Rows value was found: 24
+
+	Value searched for: "Buresova D."
+	Rows value was found: 24
+
+	Value searched for: "Chum J."
+	Rows value was found: 24
+
+	Value searched for: "McKinnell L.-A."
+	Rows value was found: 24
+
+	Value searched for: "Athieno R."
+	Rows value was found: 24
+
+	Value searched for: "Vilmer N."
+	Rows value was found: 25
+
+	Value searched for: "Wichaipanich N."
+	Rows value was found: 26
+
+	Value searched for: "Supnithi P."
+	Rows value was found: 26
+
+	Value searched for: "Tsugawa T."
+	Rows value was found: 26
+
+	Value searched for: "Maruyama T."
+	Rows value was found: 26
+
+	Value searched for: "Nagatsuma T."
+	Rows value was found: 26
+
+	Value searched for: "Munoz-Jaramillo A."
+	Rows value was found: 27
+
+	Value searched for: "Sheeley N.R."
+	Rows value was found: 27
+
+	Value searched for: "Zhang J."
+	Rows value was found: 27
+
+	Value searched for: "Deluca E.E."
+	Rows value was found: 27
+
+	Value searched for: "Mahieux A."
+	Rows value was found: 28
+
+	Value searched for: "Vandaele A.C."
+	Rows value was found: 28
+
+	Value searched for: "Robert S."
+	Rows value was found: 28
+
+	Value searched for: "Wilquet V."
+	Rows value was found: 28
+
+	Value searched for: "Drummond R."
+	Rows value was found: 28
+
+	Value searched for: "Montmessin F."
+	Rows value was found: 28
+
+	Value searched for: "Bertaux J.L."
+	Rows value was found: 28
+
+	Value searched for: "Rodriguez J.V."
+	Rows value was found: 29
+
+	Value searched for: "Santucci D."
+	Rows value was found: 30
+
+	Value searched for: "Kawano F."
+	Rows value was found: 30
+
+	Value searched for: "Ohira T."
+	Rows value was found: 30
+
+	Value searched for: "Terada M."
+	Rows value was found: 30
+
+	Value searched for: "Nakai N."
+	Rows value was found: 30
+
+	Value searched for: "Francia N."
+	Rows value was found: 30
+
+	Value searched for: "Alleva E."
+	Rows value was found: 30
+
+	Value searched for: "Aloe L."
+	Rows value was found: 30
+
+	Value searched for: "Ochiai T."
+	Rows value was found: 30
+
+	Value searched for: "Cancedda R."
+	Rows value was found: 30
+
+	Value searched for: "Goto K."
+	Rows value was found: 30
+
+	Value searched for: "Ohira Y."
+	Rows value was found: 30
+
+	Value searched for: "Usoskin I.G."
+	Rows value was found: 31
+
+	Value searched for: "Sawakuchi G.O."
+	Rows value was found: 32
+
+	Value searched for: "Yukihara E.G."
+	Rows value was found: 32
+
+	Value searched for: "Clausen L.B.N."
+	Rows value was found: 33
+
+	Value searched for: "Baker J.B.H."
+	Rows value was found: 33
+
+	Value searched for: "Ruohoniemi J.M."
+	Rows value was found: 33
+
+	Value searched for: "Milan S.E."
+	Rows value was found: 33
+
+	Value searched for: "Anderson B.J."
+	Rows value was found: [33;49]
+
+	Value searched for: "Wang W."
+	Rows value was found: [34;38]
+
+	Value searched for: "Talaat E.R."
+	Rows value was found: 34
+
+	Value searched for: "Burns A.G."
+	Rows value was found: 34
+
+	Value searched for: "Emery B."
+	Rows value was found: 34
+
+	Value searched for: "Hsieh S.-Y."
+	Rows value was found: 34
+
+	Value searched for: "Lei J."
+	Rows value was found: [34;38]
+
+	Value searched for: "Podladchikova T.V."
+	Rows value was found: 35
+
+	Value searched for: "Petrukovich A.A."
+	Rows value was found: 35
+
+	Value searched for: "Harris T.J."
+	Rows value was found: 36
+
+	Value searched for: "Cervera M.A."
+	Rows value was found: 36
+
+	Value searched for: "Meehan D.H."
+	Rows value was found: 36
+
+	Value searched for: "Kuzichev I.V."
+	Rows value was found: 37
+
+	Value searched for: "Thayer J.P."
+	Rows value was found: 38
+
+	Value searched for: "Luan X."
+	Rows value was found: 38
+
+	Value searched for: "Dou X."
+	Rows value was found: 38
+
+	Value searched for: "Roble R."
+	Rows value was found: 38
+
+	Value searched for: "Varney R.H."
+	Rows value was found: 39
+
+	Value searched for: "Swartz W.E."
+	Rows value was found: 39
+
+	Value searched for: "Hysell D.L."
+	Rows value was found: 39
+
+	Value searched for: "Huba J.D."
+	Rows value was found: 39
+
+	Value searched for: "Oliver W.L."
+	Rows value was found: 40
+
+	Value searched for: "Martinis C.R."
+	Rows value was found: 40
+
+	Value searched for: "Hickey D.A."
+	Rows value was found: 40
+
+	Value searched for: "Wright A.D."
+	Rows value was found: 40
+
+	Value searched for: "Amory-Mazaudier C."
+	Rows value was found: 40
+
+	Value searched for: "Yuki S."
+	Rows value was found: 41
+
+	Value searched for: "Shibata S."
+	Rows value was found: 41
+
+	Value searched for: "Savani N.P."
+	Rows value was found: 42
+
+	Value searched for: "Davies J.A."
+	Rows value was found: 42
+
+	Value searched for: "Davis C.J."
+	Rows value was found: 42
+
+	Value searched for: "Shiota D."
+	Rows value was found: 42
+
+	Value searched for: "Rouillard A.P."
+	Rows value was found: 42
+
+	Value searched for: "Owens M.J."
+	Rows value was found: 42
+
+	Value searched for: "Kusano K."
+	Rows value was found: 42
+
+	Value searched for: "Bothmer V."
+	Rows value was found: 42
+
+	Value searched for: "Bamford S.P."
+	Rows value was found: 42
+
+	Value searched for: "Lintott C.J."
+	Rows value was found: 42
+
+	Value searched for: "Smith A."
+	Rows value was found: 42
+
+	Value searched for: "Dresing N."
+	Rows value was found: 43
+
+	Value searched for: "Gomez-Herrero R."
+	Rows value was found: 43
+
+	Value searched for: "Klassen A."
+	Rows value was found: 43
+
+	Value searched for: "Heber B."
+	Rows value was found: 43
+
+	Value searched for: "Kartavykh Y."
+	Rows value was found: 43
+
+	Value searched for: "Droge W."
+	Rows value was found: 43
+
+	Value searched for: "Hubert B."
+	Rows value was found: 44
+
+	Value searched for: "Gerard J.-C."
+	Rows value was found: 44
+
+	Value searched for: "Gustin J."
+	Rows value was found: 44
+
+	Value searched for: "Bisikalo D.V."
+	Rows value was found: 44
+
+	Value searched for: "Shematovich V.I."
+	Rows value was found: 44
+
+	Value searched for: "Gladstone G.R."
+	Rows value was found: 44
+
+	Value searched for: "Borovsky J.E."
+	Rows value was found: 45
+
+	Value searched for: "Kaufmann P."
+	Rows value was found: 46
+
+	Value searched for: "Holman G.D."
+	Rows value was found: 46
+
+	Value searched for: "Su Y."
+	Rows value was found: 46
+
+	Value searched for: "Gimenez de Castro C.G."
+	Rows value was found: 46
+
+	Value searched for: "Correia E."
+	Rows value was found: 46
+
+	Value searched for: "Fernandes L.O.T."
+	Rows value was found: 46
+
+	Value searched for: "de Souza R.V."
+	Rows value was found: 46
+
+	Value searched for: "Marun A."
+	Rows value was found: 46
+
+	Value searched for: "Pereyra P."
+	Rows value was found: 46
+
+	Value searched for: "Crown M.D."
+	Rows value was found: 47
+
+	Value searched for: "Kil H."
+	Rows value was found: 48
+
+	Value searched for: "Lee W.K."
+	Rows value was found: 48
+
+	Value searched for: "Kwak Y.-S."
+	Rows value was found: 48
+
+	Value searched for: "Oh S.-J."
+	Rows value was found: 48
+
+	Value searched for: "Paxton L.J."
+	Rows value was found: 48
+
+	Value searched for: "Zhang Y."
+	Rows value was found: [3;48]
+
+	Value searched for: "Nieves-Chinchilla T."
+	Rows value was found: 49
+
+	Value searched for: "Colaninno R."
+	Rows value was found: 49
+
+	Value searched for: "Vourlidas A."
+	Rows value was found: 49
+
+	Value searched for: "Szabo A."
+	Rows value was found: 49
+
+	Value searched for: "Lepping R.P."
+	Rows value was found: 49
+
+	Value searched for: "Boardsen S.A."
+	Rows value was found: 49
+
+	Value searched for: "Korth H."
+	Rows value was found: 49
+
+	Value searched for: "Kulikov Y."
+	Rows value was found: 50
+
+	Value searched for: "Frolov V."
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Title"
+	Value searched for: "Cross-calibration and errors analysis of ionosphere correction in satellite altimetry"
+	Rows value was found: 2
+
+	Value searched for: "Numerical simulation on the early dynamics of barium clouds released in the ionosphere"
+	Rows value was found: 3
+
+	Value searched for: "Numerical integral method for ELF fields excited by vertical electric dipole in asymmetric earth-ionosphere cavity"
+	Rows value was found: 4
+
+	Value searched for: "Ionosphere hybrid modeling method for short-wave ray tracing"
+	Rows value was found: 5
+
+	Value searched for: "Realization of NEMP signal source simulator through ionosphere"
+	Rows value was found: 6
+
+	Value searched for: "Precision analysis of radiometric calibration optical system with infrared multi-spectral scanner in simulated space environment"
+	Rows value was found: 7
+
+	Value searched for: "The effects of China regional ionosphere on satellite augmentation system"
+	Rows value was found: 8
+
+	Value searched for: "The characteristics of the model of Weimer's electric field within the magnetosphere"
+	Rows value was found: 9
+
+	Value searched for: "Optics design of far ultraviolet imaging spectrometer for ionosphere remote sensing"
+	Rows value was found: 10
+
+	Value searched for: "Modeling of multi-junction solar cells for estimation of EQE under influence of charged particles using artificial neural networks"
+	Rows value was found: 11
+
+	Value searched for: "The ASTROD i charging simulation and disturbances due to solar energetic particles at 0.5 AU"
+	Rows value was found: 12
+
+	Value searched for: "On the effects of geomagnetic storms and pre storm phenomena on low and middle latitude ionospheric F2"
+	Rows value was found: 13
+
+	Value searched for: "Performance measurement of magnetohydrodynamic code for space plasma on typical scalar-type supercomputer systems with a large number of cores"
+	Rows value was found: 14
+
+	Value searched for: "Solar terminator-related ionosphere derived from GPS TEC measurements: A case study"
+	Rows value was found: 15
+
+	Value searched for: "Extreme-ultraviolet spectroscopic observation of direct coronal heating during A C-class solar flare"
+	Rows value was found: 16
+
+	Value searched for: "Gamma-ray light curves from pulsar magnetospheres with finite conductivity"
+	Rows value was found: 17
+
+	Value searched for: "Twisting"
+	Rows value was found: 18
+
+	Value searched for: "reconnecting magnetospheres and magnetar spindown"
+	Rows value was found: 18
+
+	Value searched for: "Sunspot rotation"
+	Rows value was found: 19
+
+	Value searched for: "sigmoidal filament"
+	Rows value was found: 19
+
+	Value searched for: "flare"
+	Rows value was found: [16;19;21;22;25;46;47;18;43]
+
+	Value searched for: "and coronal mass ejection: The event on 2000 February 10"
+	Rows value was found: 19
+
+	Value searched for: "Heliospheric neutral atom spectra between 0.01 and 6keV from IBEX"
+	Rows value was found: 20
+
+	Value searched for: "Extreme-ultraviolet multi-wavelength observations of quasi-periodic pulsations in a solar post-flare cusp-shape loop with SDO/AIA"
+	Rows value was found: 21
+
+	Value searched for: "Statistical Studies on the Excess Peak Flux in Soft X-rays and EUV Bands from Solar Flares"
+	Rows value was found: 22
+
+	Value searched for: "A 3-D Global earth-ionosphere FDTD model including an anisotropic magnetized plasma ionosphere"
+	Rows value was found: 23
+
+	Value searched for: "Observations of wave activity in the ionosphere over South Africa in geomagnetically quiet and disturbed periods"
+	Rows value was found: 24
+
+	Value searched for: "Solar flares and energetic particles"
+	Rows value was found: 25
+
+	Value searched for: "Comparison of ionosphere characteristic parameters obtained by ionosonde with IRI-2007 model over Southeast Asia"
+	Rows value was found: 26
+
+	Value searched for: "Calibrating 100 years of polar faculae measurements: Implications for the evolution of the heliospheric magnetic field"
+	Rows value was found: 27
+
+	Value searched for: "Densities and temperatures in the Venus mesosphere and lower thermosphere retrieved from SOIR on board Venus Express: Carbon dioxide measurements at the Venus terminator"
+	Rows value was found: 28
+
+	Value searched for: "Undulations in MeV solar energetic particle fluxes in Earth's magnetosphere associated with substorm magnetic field reconfigurations"
+	Rows value was found: 29
+
+	Value searched for: "Evaluation of gene"
+	Rows value was found: 30
+
+	Value searched for: "protein and neurotrophin expression in the brain of mice exposed to space environment for 91 days"
+	Rows value was found: 30
+
+	Value searched for: "Solar Variability"
+	Rows value was found: 31
+
+	Value searched for: "Cosmic Rays and Climate: What's up?"
+	Rows value was found: 31
+
+	Value searched for: "Erratum: Analytical modeling of relative luminescence efficiency of Al 
+                    2O 
+                    3:C optically stimulated luminescence detectors exposed to high-energy heavy charged particles(Phys. Med. Biol. (2012) 57 (437))"
+	Rows value was found: 32
+
+	Value searched for: "Dynamics of the region 1 Birkeland current oval derived from the active magnetosphere and planetary electrodynamics response experiment (AMPERE)"
+	Rows value was found: 33
+
+	Value searched for: "Thermosphere and ionosphere response to subauroral polarization streams (SAPS): Model simulations"
+	Rows value was found: 34
+
+	Value searched for: "Extended geomagnetic storm forecast ahead of available solar wind measurements"
+	Rows value was found: 35
+
+	Value searched for: "SpICE: A program to study small-scale disturbances in the ionosphere"
+	Rows value was found: 36
+
+	Value searched for: "On whistler mode wave scattering from density irregularities in the upper ionosphere"
+	Rows value was found: 37
+
+	Value searched for: "Simulations of the equatorial thermosphere anomaly: Physical mechanisms for crest formation"
+	Rows value was found: 38
+
+	Value searched for: "SAMI2-PE: A model of the ionosphere including multistream interhemispheric photoelectron transport"
+	Rows value was found: 39
+
+	Value searched for: "A nighttime temperature maximum in the thermosphere above Saint Santin in winter"
+	Rows value was found: 40
+
+	Value searched for: "A particle simulation for the pulsar magnetosphere: Relationship of polar cap"
+	Rows value was found: 41
+
+	Value searched for: "slot gap"
+	Rows value was found: 41
+
+	Value searched for: "and outer gap"
+	Rows value was found: [41;17]
+
+	Value searched for: "Observational Tracking of the 2D Structure of Coronal Mass Ejections Between the Sun and 1 AU"
+	Rows value was found: 42
+
+	Value searched for: "The Large Longitudinal Spread of Solar Energetic Particles During the 17 January 2010 Solar Event"
+	Rows value was found: 43
+
+	Value searched for: "Cassini-UVIS observation of dayglow FUV emissions of carbon in the thermosphere of Venus"
+	Rows value was found: 44
+
+	Value searched for: "The effect of sudden wind shear on the Earth's magnetosphere: Statistics of wind shear events and CCMC simulations of magnetotail disconnections"
+	Rows value was found: 45
+
+	Value searched for: "Unusual Emissions at Various Energies Prior to the Impulsive Phase of the Large Solar Flare and Coronal Mass Ejection of 4 November 2003"
+	Rows value was found: 46
+
+	Value searched for: "Validation of the NOAA Space Weather Prediction Center's solar flare forecasting look-up table and forecaster-issued probabilities"
+	Rows value was found: 47
+
+	Value searched for: "Persistent longitudinal features in the low-latitude ionosphere"
+	Rows value was found: 48
+
+	Value searched for: "Remote and in situ observations of an unusual Earth-directed coronal mass ejection from multiple viewpoints"
+	Rows value was found: 49
+
+	Value searched for: "Variations of ozone microwave emission from the mesosphere at heating a lower ionosphere powerful HF radio waves"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Year"
+	Value searched for: "2012"
+	Rows value was found: [2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38;39;40;41;42;43;44;45;46;47;48;49;50]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Source title"
+	Value searched for: "Wuhan Daxue Xuebao (Xinxi Kexue Ban)/Geomatics and Information Science of Wuhan University"
+	Rows value was found: 2
+
+	Value searched for: "Wuli Xuebao/Acta Physica Sinica"
+	Rows value was found: 3
+
+	Value searched for: "Dianbo Kexue Xuebao/Chinese Journal of Radio Science"
+	Rows value was found: [4;8]
+
+	Value searched for: "Beijing Hangkong Hangtian Daxue Xuebao/Journal of Beijing University of Aeronautics and Astronautics"
+	Rows value was found: 5
+
+	Value searched for: "Hedianzixue Yu Tance Jishu/Nuclear Electronics and Detection Technology"
+	Rows value was found: 6
+
+	Value searched for: "Guangxue Jishu/Optical Technique"
+	Rows value was found: 7
+
+	Value searched for: "Chinese Journal of Geophysics (Acta Geophysica Sinica)"
+	Rows value was found: 9
+
+	Value searched for: "Guangxue Xuebao/Acta Optica Sinica"
+	Rows value was found: 10
+
+	Value searched for: "Renewable Energy"
+	Rows value was found: 11
+
+	Value searched for: "Acta Astronautica"
+	Rows value was found: 12
+
+	Value searched for: "Astrophysics and Space Science"
+	Rows value was found: 13
+
+	Value searched for: "International Journal of High Performance Computing Applications"
+	Rows value was found: 14
+
+	Value searched for: "Acta Geophysica"
+	Rows value was found: [9;15]
+
+	Value searched for: "Astrophysical Journal"
+	Rows value was found: [16;17;18;19;20;21;27]
+
+	Value searched for: "Astrophysical Journal Letters"
+	Rows value was found: [17;18]
+
+	Value searched for: "Solar Physics"
+	Rows value was found: [22;42;43;46;16]
+
+	Value searched for: "IEEE Transactions on Antennas and Propagation"
+	Rows value was found: 23
+
+	Value searched for: "Advances in Space Research"
+	Rows value was found: [24;26;31]
+
+	Value searched for: "Philosophical Transactions of the Royal Society A: Mathematical"
+	Rows value was found: 25
+
+	Value searched for: "Physical and Engineering Sciences"
+	Rows value was found: 25
+
+	Value searched for: "Journal of Geophysical Research E: Planets"
+	Rows value was found: 28
+
+	Value searched for: "Journal of Geophysical Research A: Space Physics"
+	Rows value was found: [29;33;34;36;37;38;39;40;45;48;49]
+
+	Value searched for: "PLoS ONE"
+	Rows value was found: 30
+
+	Value searched for: "Physics in Medicine and Biology"
+	Rows value was found: 32
+
+	Value searched for: "Space Weather"
+	Rows value was found: [47;35;9;22;26;34]
+
+	Value searched for: "Publications of the Astronomical Society of Japan"
+	Rows value was found: 41
+
+	Value searched for: "Icarus"
+	Rows value was found: 44
+
+	Value searched for: "Proceedings of 6th European Conference on Antennas and Propagation"
+	Rows value was found: 50
+
+	Value searched for: "EuCAP 2012"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Volume"
+	Value searched for: "37"
+	Rows value was found: [38;2]
+
+	Value searched for: "61"
+	Rows value was found: 3
+
+	Value searched for: "27"
+	Rows value was found: [28;4;8]
+
+	Value searched for: "38"
+	Rows value was found: [39;5;7]
+
+	Value searched for: "32"
+	Rows value was found: [33;6;10]
+
+	Value searched for: "55"
+	Rows value was found: 9
+
+	Value searched for: "44"
+	Rows value was found: [45;11]
+
+	Value searched for: "77"
+	Rows value was found: 12
+
+	Value searched for: "340"
+	Rows value was found: 13
+
+	Value searched for: "26"
+	Rows value was found: [27;14]
+
+	Value searched for: "60"
+	Rows value was found: [15;23]
+
+	Value searched for: "754"
+	Rows value was found: [16;17;18;19;20;21]
+
+	Value searched for: "50"
+	Rows value was found: 24
+
+	Value searched for: "370"
+	Rows value was found: 25
+
+	Value searched for: "753"
+	Rows value was found: 27
+
+	Value searched for: "117"
+	Rows value was found: [28;29;33;34;36;37;38;39;40;45;48;49]
+
+	Value searched for: "7"
+	Rows value was found: [8;30;23;28;34;35;11]
+
+	Value searched for: "57"
+	Rows value was found: 32
+
+	Value searched for: "10"
+	Rows value was found: [11;35;47]
+
+	Value searched for: "64"
+	Rows value was found: 41
+
+	Value searched for: "220"
+	Rows value was found: 44
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Issue"
+	Value searched for: "6"
+	Rows value was found: [7;2;29;33;36;37;38;39;40;45;47;48;49]
+
+	Value searched for: "8"
+	Rows value was found: [9;3]
+
+	Value searched for: "2"
+	Rows value was found: [3;4;7;13;24;27;44]
+
+	Value searched for: "4"
+	Rows value was found: [5;15]
+
+	Value searched for: "3"
+	Rows value was found: [4;6;14;41]
+
+	Value searched for: "1"
+	Rows value was found: [2;8;9;10;16;17;18;19;20;21;22;42;43;46]
+
+	Value searched for: "7"
+	Rows value was found: [8;30;23;28;34;35;11]
+
+	Value searched for: "1970"
+	Rows value was found: 25
+
+	Value searched for: "13"
+	Rows value was found: [14;32]
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Art. No."
+	Value searched for: "89401"
+	Rows value was found: 3
+
+	Value searched for: "54"
+	Rows value was found: 16
+
+	Value searched for: "L1"
+	Rows value was found: [17;18]
+
+	Value searched for: "L12"
+	Rows value was found: 18
+
+	Value searched for: "16"
+	Rows value was found: [17;19]
+
+	Value searched for: "14"
+	Rows value was found: [15;20]
+
+	Value searched for: "43"
+	Rows value was found: [44;21]
+
+	Value searched for: "6193153"
+	Rows value was found: 23
+
+	Value searched for: "146"
+	Rows value was found: 27
+
+	Value searched for: "E07001"
+	Rows value was found: 28
+
+	Value searched for: "A06229"
+	Rows value was found: 29
+
+	Value searched for: "e40112"
+	Rows value was found: 30
+
+	Value searched for: "A06233"
+	Rows value was found: 33
+
+	Value searched for: "A07301"
+	Rows value was found: 34
+
+	Value searched for: "S07001"
+	Rows value was found: 35
+
+	Value searched for: "A06321"
+	Rows value was found: 36
+
+	Value searched for: "A06325"
+	Rows value was found: 37
+
+	Value searched for: "A06318"
+	Rows value was found: 38
+
+	Value searched for: "A06322"
+	Rows value was found: 39
+
+	Value searched for: "A06324"
+	Rows value was found: 40
+
+	Value searched for: "A06224"
+	Rows value was found: 45
+
+	Value searched for: "S06006"
+	Rows value was found: 47
+
+	Value searched for: "A06315"
+	Rows value was found: 48
+
+	Value searched for: "A06106"
+	Rows value was found: 49
+
+	Value searched for: "6206516"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Page start"
+	Value searched for: "658"
+	Rows value was found: 2
+
+	Value searched for: "333"
+	Rows value was found: 4
+
+	Value searched for: "473"
+	Rows value was found: 5
+
+	Value searched for: "248"
+	Rows value was found: 6
+
+	Value searched for: "141"
+	Rows value was found: 7
+
+	Value searched for: "95"
+	Rows value was found: 8
+
+	Value searched for: "36"
+	Rows value was found: [37;9]
+
+	Value searched for: "122001"
+	Rows value was found: 10
+
+	Value searched for: "7"
+	Rows value was found: [8;30;23;28;34;35;11]
+
+	Value searched for: "29"
+	Rows value was found: [30;12]
+
+	Value searched for: "217"
+	Rows value was found: 13
+
+	Value searched for: "310"
+	Rows value was found: 14
+
+	Value searched for: "1224"
+	Rows value was found: 15
+
+	Value searched for: "1"
+	Rows value was found: [2;8;9;10;16;17;18;19;20;21;22;42;43;46]
+
+	Value searched for: "3246"
+	Rows value was found: 23
+
+	Value searched for: "182"
+	Rows value was found: 24
+
+	Value searched for: "3241"
+	Rows value was found: 25
+
+	Value searched for: "4459"
+	Rows value was found: 32
+
+	Value searched for: "431"
+	Rows value was found: 41
+
+	Value searched for: "635"
+	Rows value was found: 44
+
+	Value searched for: "581"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Affiliations"
+	Value searched for: "School of Geodesy and Geomatics, Wuhan University, 129 Luoyu Road, Wuhan 430079, China"
+	Rows value was found: 2
+
+	Value searched for: "Key Laboratory of Geospace Environment and Geodesy, Wuhan Unversity, Ministry of Education, 129 Luoyu Road, Wuhan 430079, China"
+	Rows value was found: 2
+
+	Value searched for: "College of Electronic Information, Wuhan University, Wuhan 430079, China"
+	Rows value was found: 3
+
+	Value searched for: "School of Science, Xidian University, Xi'an Shaanxi 710071, China"
+	Rows value was found: 4
+
+	Value searched for: "Qingdao Branch, Chinese Research Institute of Radiowave Propagation, Qingdao Shandong 266071, China"
+	Rows value was found: 4
+
+	Value searched for: "Electronic Engineering Institute, Naval University of Engineering, Wuhan Hubei 430033, China"
+	Rows value was found: 4
+
+	Value searched for: "Naval Academy of Armament, Beijing 100161, China"
+	Rows value was found: 4
+
+	Value searched for: "School of Electronics and Information Engineering, Beijing University of Aeronautics and Astronautics, Beijing 100191, China"
+	Rows value was found: 5
+
+	Value searched for: "Research Institute of Chemical Defense, Beijing 102205, China"
+	Rows value was found: 6
+
+	Value searched for: "Beijing Institute of Spacecraft Environment Engineering, Beijing 100094, China"
+	Rows value was found: 7
+
+	Value searched for: "China Research Institute of Radiowave Propagation, Qingdao Shandong 266107, China"
+	Rows value was found: 8
+
+	Value searched for: "State Key Laboratory of Space Weather, Center for Space Science and Applied Research, Chinese Academy of Sciences, Beijing 100190, China"
+	Rows value was found: 9
+
+	Value searched for: "Graduated University of Chinese Academy of Sciences, Beijing 100049, China"
+	Rows value was found: 9
+
+	Value searched for: "Macau University of Science and Technology, Macau"
+	Rows value was found: 9
+
+	Value searched for: "Key Laboratory of Photo-Electronic Imaging Technology and System, School of Optoelectronics, Beijing Institute of Technology, Beijing 100081, China"
+	Rows value was found: 10
+
+	Value searched for: "Faculty of Engineering and Industrial Sciences, Swinburne University of Technology, Hawthorn, VIC 3122, Australia"
+	Rows value was found: 11
+
+	Value searched for: "School of Computer Engineering, Nanyang Technological University, Singapore"
+	Rows value was found: 11
+
+	Value searched for: "Purple Mountain Observatory, Chinese Academy of Sciences, Nanjing 210008, China"
+	Rows value was found: 12
+
+	Value searched for: "The Atmospheric/Ionospheric physics Group, Department of Physics, Olabisi Onabanjo University, P.M.B.2002 Ago Iwoye, Nigeria"
+	Rows value was found: 13
+
+	Value searched for: "Research Institute for Information Technology, Kyushu University, Space Environment Research Center, 6-10-1 Hakozaki, Higashi-ku, Fukuoka 812-8581, Japan"
+	Rows value was found: 14
+
+	Value searched for: "Solar-Terrestrial Environment Laboratory, Nagoya University, Japan"
+	Rows value was found: 14
+
+	Value searched for: "Space Research Centre, Polish Academy of Sciences, Warszawa, Poland"
+	Rows value was found: 15
+
+	Value searched for: "Catholic University of America, NASA Goddard Space Flight Center, Solar Physics Laboratory, Code 671, Greenbelt, MD 20771, United States"
+	Rows value was found: 16
+
+	Value searched for: "University of Maryland, College Park, UMDCP/CRESST, College Park, MD 20742, United States"
+	Rows value was found: 17
+
+	Value searched for: "Astrophysics Science Division, NASA, Goddard Space Flight Center, Greenbelt, MD 20771, United States"
+	Rows value was found: 17
+
+	Value searched for: "Research Center for Astronomy and Applied Mathematics, Academy of Athens, Athens 11527, Greece"
+	Rows value was found: 17
+
+	Value searched for: "Astronomy Department, Columbia University, 550 West 120th Street, New York, NY 10027, United States"
+	Rows value was found: 18
+
+	Value searched for: "Institute for Strings, Cosmology, and Astroparticle Physics (ISCAP), Columbia University, New York, NY 10027, United States"
+	Rows value was found: 18
+
+	Value searched for: "Physics Department, Columbia Astrophysics Laboratory, Columbia University, 538 West 120th Street, New York, NY 10027, United States"
+	Rows value was found: 18
+
+	Value searched for: "National Astronomical Observatories/Yunnan Astronomical Observatory, Chinese Academy of Sciences, Kunming, Yunnan 650011, China"
+	Rows value was found: 19
+
+	Value searched for: "Graduate School of Chinese Academy of Sciences, Zhongguancun, Beijing 100049, China"
+	Rows value was found: 19
+
+	Value searched for: "Department of Mathematics, Yunnan Normal University, Kunming, Yunnan 650092, China"
+	Rows value was found: 19
+
+	Value searched for: "Lockheed Martin Advanced Technology Center, Palo Alto, CA 94304, United States"
+	Rows value was found: 20
+
+	Value searched for: "Southwest Research Institute, San Antonio, TX 78228, United States"
+	Rows value was found: 20
+
+	Value searched for: "University of Texas, San Antonio, TX 78249, United States"
+	Rows value was found: 20
+
+	Value searched for: "Space Research Center, Polish Academy of Sciences, Bartycka 18A, 00-716 Warsaw, Poland"
+	Rows value was found: 20
+
+	Value searched for: "Los Alamos National Laboratory, Los Alamos, NM 87545, United States"
+	Rows value was found: 20
+
+	Value searched for: "University of Michigan, Ann Arbor, MI 48109, United States"
+	Rows value was found: 20
+
+	Value searched for: "University of New Hampshire, Durham, NH 03824, United States"
+	Rows value was found: 20
+
+	Value searched for: "University of Montana, Missoula, MT 59812, United States"
+	Rows value was found: 20
+
+	Value searched for: "Goddard Space Flight Center, Greenbelt, MD 20771, United States"
+	Rows value was found: [17;20]
+
+	Value searched for: "Physikalishes Institut, University of Bern, 3012 Bern, Switzerland"
+	Rows value was found: 20
+
+	Value searched for: "Massachusetts Institute of Technology, Cambridge, MA 02139, United States"
+	Rows value was found: 20
+
+	Value searched for: "Key Laboratory of Solar Activity, National Astronomical Observatories, Chinese Academy of Science, Beijing 100012, China"
+	Rows value was found: 21
+
+	Value searched for: "National Astronomical Observatories/Yunnan Observatory, Chinese Academy of Sciences, Kunming 650011, China"
+	Rows value was found: 21
+
+	Value searched for: "Department of Geophysics, Peking University, Beijing, China"
+	Rows value was found: 22
+
+	Value searched for: "State Key Laboratory of Space Weather, Chinese Academy of Sciences, Beijing, China"
+	Rows value was found: [22;34]
+
+	Value searched for: "Department of Physics, University of Oulu, Oulu, Finland"
+	Rows value was found: 22
+
+	Value searched for: "Institute of High Performance Computing, 138632, Singapore., Singapore"
+	Rows value was found: 23
+
+	Value searched for: "Electrical and Computer Engineering Department at the University of New Mexico, Albuquerque, NM 87131, United States"
+	Rows value was found: 23
+
+	Value searched for: "Electrical and Computer Engineering Department at the University of Utah, Salt Lake City, UT 84112, United States"
+	Rows value was found: 23
+
+	Value searched for: "Institute of Atmospheric Physics, Academy of Sciences of the Czech Republic, Bocni II 1401, 141 31 Prague 4, Czech Republic"
+	Rows value was found: 24
+
+	Value searched for: "Faculty of Mathematics and Physics, Charles University in Prague, Ke Karlovu 3, 121 16 Prague 2, Czech Republic"
+	Rows value was found: 24
+
+	Value searched for: "South African National Space Agency (SANSA) Space Science, P.O. Box 32, Hermanus 7200, South Africa"
+	Rows value was found: 24
+
+	Value searched for: "Department of Physics and Electronics, Rhodes University, P.O. Box 94, Grahamstown 6140, South Africa"
+	Rows value was found: 24
+
+	Value searched for: "Physics Department, University of New Brunswick, 8 Bailey Drive, Fredericton, NB E3B 5A, Canada"
+	Rows value was found: 24
+
+	Value searched for: "LESIA, Observatoire de Paris, Université Paris-Diderot, 5 place Jules Janssen, 92195 Meudon, France"
+	Rows value was found: 25
+
+	Value searched for: "Faculty of Engineering, King Mongkut's Institute of Technology Ladkrabang, Bangkok 10520, Thailand"
+	Rows value was found: 26
+
+	Value searched for: "Space Weather and Environment Informatics Laboratory, Applied Electromagnetic Research Institute, National Institute of Information and Communications Technology, Nukui-kita, 4-2-1, Koganei, Tokyo 183-8795, Japan"
+	Rows value was found: 26
+
+	Value searched for: "Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, United States"
+	Rows value was found: 27
+
+	Value searched for: "University Corporation for Atmospheric Research, Boulder, CO 80307, United States"
+	Rows value was found: 27
+
+	Value searched for: "Department of Physics and Astronomy, University of Utah, Salt Lake City, UT 84112, United States"
+	Rows value was found: 27
+
+	Value searched for: "Space Science Division, Naval Research Laboratory, Washington, DC 20375-5352, United States"
+	Rows value was found: 27
+
+	Value searched for: "School of Physics, Astronomy and Computational Sciences, George Mason University, Fairfax, VA 22030, United States"
+	Rows value was found: 27
+
+	Value searched for: "Planetary Aeronomy, Belgian Institute for Space Aeronomy, 3 av. Circulaire, B-1180 Brussels, Belgium"
+	Rows value was found: 28
+
+	Value searched for: "LATMOS, Guyancourt, France"
+	Rows value was found: 28
+
+	Value searched for: "Institut Pierre Simon Laplace, Université de Versailles-Saint-Quentin, Guyancourt, France"
+	Rows value was found: 28
+
+	Value searched for: "Cooperative Institute for Research in Environmental Sciences, University of Colorado Boulder, 216 UCB, Boulder, CO 80309, United States"
+	Rows value was found: 29
+
+	Value searched for: "Also at National Geophysical Data Center, National Oceanic and Atmospheric Administration, Boulder, CO, United States"
+	Rows value was found: 29
+
+	Value searched for: "Behavioural Neuroscience Section, Cellular Biology and Neuroscience Department, Istituto Superiore di Sanità, Rome, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Graduate School of Medicine, Osaka University, Osaka, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Graduate School of Frontier Biosciences, Osaka University, Osaka, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Japan Aerospace Exploration Agency, Ibaraki, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Institute of Neurobiology and Molecular Medicine, CNR, European Brain Research Institute, Rome, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Mitsubishi Heavy Industries, Hyogo, Japan"
+	Rows value was found: 30
+
+	Value searched for: "DOBIG, University of Genova, Genova, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Graduate School of Health Sciences, Toyohashi SOZO University, Aichi, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Sodankylä Geophysical Observatory (Oulu Unit), 90014, University of Oulu, Finland"
+	Rows value was found: 31
+
+	Value searched for: "Department of Physics, P.O. Box 3000, 90014, University of Oulu, Finland"
+	Rows value was found: 31
+
+	Value searched for: "Carleton Laboratory for Radiotherapy Physics, Department of Physics, Carleton University, Ottawa ON K1S 5B6, Canada"
+	Rows value was found: 32
+
+	Value searched for: "Department of Physics, Oklahoma State University, Stillwater, OK 74074, United States"
+	Rows value was found: 32
+
+	Value searched for: "Bradley Department of Electrical and Computer Engineering, Virginia Polytechnic Institute and State University, Blacksburg, VA, United States"
+	Rows value was found: 33
+
+	Value searched for: "Institute for Geophysics and Extraterrestrial Physics, TU Braunschweig, DE-38106 Braunschweig, Germany"
+	Rows value was found: 33
+
+	Value searched for: "Department of Physics and Astronomy, University of Leicester, Leicester, United Kingdom"
+	Rows value was found: 33
+
+	Value searched for: "Johns Hopkins University Applied Physics Laboratory, Laurel, MA, United States"
+	Rows value was found: 33
+
+	Value searched for: "High Altitude Observatory, National Center for Atmospheric Research, PO Box 3000, Boulder, CO 80307, United States"
+	Rows value was found: 34
+
+	Value searched for: "Johns Hopkins University Applied Physics Laboratory, Laurel, MD, United States"
+	Rows value was found: 34
+
+	Value searched for: "School of Earth and Space Sciences, University of Science and Technology of China, Hefei, China"
+	Rows value was found: 34
+
+	Value searched for: "Space Research Institute, 84/32 Profsoyuznaya Str., Moscow 117997, Russian Federation"
+	Rows value was found: 35
+
+	Value searched for: "Defence Science and Technology Organisation, Edinburgh, SA 5111, Australia"
+	Rows value was found: 36
+
+	Value searched for: "Department of Space Plasma Physics, Space Research Institute, Moscow, 84/32 Profsoyuznaya Str., Moscow, 117997, Russian Federation"
+	Rows value was found: 37
+
+	Value searched for: "CAS Key Laboratory of Geospace Environment, Department of Geophysics and Planetary Sciences, University of Science and Technology of China, Hefei 230026, China"
+	Rows value was found: 38
+
+	Value searched for: "Department of Aerospace Engineering Sciences, University of Colorado, Boulder, CO, United States"
+	Rows value was found: 38
+
+	Value searched for: "High Altitude Observatory, National Center for Atmospheric Research, Boulder, CO, United States"
+	Rows value was found: 38
+
+	Value searched for: "School of Electrical and Computer Engineering, Cornell University, 303 Rhodes Hall, Ithaca, NY 14853, United States"
+	Rows value was found: 39
+
+	Value searched for: "Department of Earth and Atmospheric Sciences, Cornell University, Ithaca, NY, United States"
+	Rows value was found: 39
+
+	Value searched for: "Plasma Physics Division, Naval Research Laboratory, Washington, DC, United States"
+	Rows value was found: 39
+
+	Value searched for: "Department of Electrical and Computer Engineering, Boston University, 8 Saint Mary's St., Boston, MA 02215, United States"
+	Rows value was found: 40
+
+	Value searched for: "Center for Space Physics, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Astronomy Department, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Physics Department, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Laboratoire de Physique des Plasmas, Université Pierre et Marie Curie, Saint-Maur-des-Fossés, France"
+	Rows value was found: 40
+
+	Value searched for: "Graduate School of Science and Engineering, Yamagata University 1-4-12 Kojirakawa, Yamagata 990-8560, Japan"
+	Rows value was found: 41
+
+	Value searched for: "University Corporation for Atmospheric Physics (UCAR), Boulder, United States"
+	Rows value was found: 42
+
+	Value searched for: "RAL Space, STFC Rutherford Appleton Laboratory, Harwell Oxford, OX11 0QX, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Computational Astrophysics Laboratory, Advanced Science Institute, RIKEN, 2-1, Hirosawa, Wako, Saitama, 351-0198, Japan"
+	Rows value was found: 42
+
+	Value searched for: "College of Science, George Mason University, Fairfax, 22030, United States"
+	Rows value was found: 42
+
+	Value searched for: "Space Environment Physic Group, University of Reading, Earley Gate, Reading, RG6 6BB, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Solar-Terrestrial Environment Laboratory, Nagoya University, Nagoya, 464-8601, Japan"
+	Rows value was found: 42
+
+	Value searched for: "Institut für Astrophysik, Göttingen University, Göttingen, Germany"
+	Rows value was found: 42
+
+	Value searched for: "Centre for Astronomy and Particle Theory, University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Astrophysics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Heliophysics Science Division, NASA Goddard Space Flight Center, Greenbelt, United States"
+	Rows value was found: 42
+
+	Value searched for: "The Blackett Laboratory, Imperial College London, Prince Consort Road, London, SW7 2BZ, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Japan Agency for Marine-Earth Science and Technology, Yokohama, Kanagawa, 236-0001, Japan"
+	Rows value was found: 42
+
+	Value searched for: "Institut für Experimentelle und Angewandte Physik, Christian-Albrechts-Universität zu Kiel, Kiel, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Institut für Theoretische Physik und Astrophysik, Universität Würzburg, Würzburg, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Ioffe Physical-Technical Institute, St-Petersburg, Russian Federation"
+	Rows value was found: 43
+
+	Value searched for: "Laboratoire de Physique Atmosphérique et Planétaire, Université de Liège, 17, Allée du 6 Août, Bât. B5c, B-4000 Liège, Belgium"
+	Rows value was found: 44
+
+	Value searched for: "Institute of Astronomy of the Russian Academy of Sciences, 48, Pyatnitskaya Street, 119017 Moscow, Russia"
+	Rows value was found: 44
+
+	Value searched for: "Southwest Research Institute, 6220 Culebra Road, San Antonio, TX 78228-0510, USA"
+	Rows value was found: 44
+
+	Value searched for: "Space Science Institute, 4750 Walnut St., Boulder, CO 80301, United States"
+	Rows value was found: 45
+
+	Value searched for: "Department Atmospheric, Oceanic and Space Sciences, University of Michigan, Ann Arbor, MI, United States"
+	Rows value was found: 45
+
+	Value searched for: "Escola de Engenharia, CRAAM, Universidade Presbiteriana Mackenzie, São Paulo, 01302970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "Centro de Componentes Semicondutores, CCS, Universidade Estadual de Campinas, Campinas, 13083970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "National Aeronautics and Space Administration, Goddard Space Flight Center, Code 671, Greenbelt, 20771, United States"
+	Rows value was found: 46
+
+	Value searched for: "Department of Physics, The Catholic University of America, Washington, 20064, United States"
+	Rows value was found: 46
+
+	Value searched for: "Purple Mountain Observatory, Chinese Academy of Sciences, Nanjing, 210008, China"
+	Rows value was found: 46
+
+	Value searched for: "Instituto Nacional de Pesquisas Espaciais', São José dos Campos, 12201970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "Complejo Astronômico El Leoncito, CONICET, San Juan, Argentina"
+	Rows value was found: 46
+
+	Value searched for: "Battlespace Environment Division, Space Vehicles Directorate, Air Force Research Laboratory, 3550 Aberdeen Ave. SE, Kirtland Air Force Base, NM 87117, United States"
+	Rows value was found: 47
+
+	Value searched for: "Space Department, Johns Hopkins University, Applied Physics Laboratory, 11100 Johns Hopkins Rd., Laurel, MD 20723, United States"
+	Rows value was found: 48
+
+	Value searched for: "COSMIC Project Office, University Corporation for Atmospheric Research, Boulder, CO, United States"
+	Rows value was found: 48
+
+	Value searched for: "Space Science Division, Korea Astronomy and Space Science Institute, Daejeon, South Korea"
+	Rows value was found: 48
+
+	Value searched for: "Space Environment Laboratory, Seoul, South Korea"
+	Rows value was found: 48
+
+	Value searched for: "Catholic University of America, Washington, DC 20064, United States"
+	Rows value was found: 49
+
+	Value searched for: "Space Sciences Division, Naval Research Laboratory, Washington, DC, United States"
+	Rows value was found: 49
+
+	Value searched for: "Heliospheric Physics Laboratory, NASA Goddard Space Flight Center, Greenbelt, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Heliophysics Science Division, NASA Goddard Space Flight Center, Greenbelt, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Johns Hopkins University, Applied Physics Laboratory, Laurel, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Institute of Applied Physics, IAP RAS, Nizhny Novgorod, Russian Federation"
+	Rows value was found: 50
+
+	Value searched for: "Radiophysical Research Institute, NIRFI, Nizhny Novgorod, Russian Federation"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Authors with affiliations"
+	Value searched for: "Jin, T., School of Geodesy and Geomatics, Wuhan University, 129 Luoyu Road, Wuhan 430079, China, Key Laboratory of Geospace Environment and Geodesy, Wuhan Unversity, Ministry of Education, 129 Luoyu Road, Wuhan 430079, China"
+	Rows value was found: 2
+
+	Value searched for: "Hu, M., School of Geodesy and Geomatics, Wuhan University, 129 Luoyu Road, Wuhan 430079, China"
+	Rows value was found: 2
+
+	Value searched for: "Jiang, T., School of Geodesy and Geomatics, Wuhan University, 129 Luoyu Road, Wuhan 430079, China"
+	Rows value was found: 2
+
+	Value searched for: "Zhang, S., School of Geodesy and Geomatics, Wuhan University, 129 Luoyu Road, Wuhan 430079, China"
+	Rows value was found: 2
+
+	Value searched for: "Hu, Y.-G., College of Electronic Information, Wuhan University, Wuhan 430079, China"
+	Rows value was found: 3
+
+	Value searched for: "Zhao, Z.-Y., College of Electronic Information, Wuhan University, Wuhan 430079, China"
+	Rows value was found: 3
+
+	Value searched for: "Zhang, Y.-N., College of Electronic Information, Wuhan University, Wuhan 430079, China"
+	Rows value was found: 3
+
+	Value searched for: "Peng, H.-Y., School of Science, Xidian University, Xi'an Shaanxi 710071, China, Qingdao Branch, Chinese Research Institute of Radiowave Propagation, Qingdao Shandong 266071, China"
+	Rows value was found: 4
+
+	Value searched for: "Tao, W., Electronic Engineering Institute, Naval University of Engineering, Wuhan Hubei 430033, China, Naval Academy of Armament, Beijing 100161, China"
+	Rows value was found: 4
+
+	Value searched for: "Pan, W.-Y., Qingdao Branch, Chinese Research Institute of Radiowave Propagation, Qingdao Shandong 266071, China"
+	Rows value was found: 4
+
+	Value searched for: "Guo, L.-X., School of Science, Xidian University, Xi'an Shaanxi 710071, China"
+	Rows value was found: 4
+
+	Value searched for: "Li, W., School of Electronics and Information Engineering, Beijing University of Aeronautics and Astronautics, Beijing 100191, China"
+	Rows value was found: 5
+
+	Value searched for: "Su, D., School of Electronics and Information Engineering, Beijing University of Aeronautics and Astronautics, Beijing 100191, China"
+	Rows value was found: 5
+
+	Value searched for: "Yan, Z., School of Electronics and Information Engineering, Beijing University of Aeronautics and Astronautics, Beijing 100191, China"
+	Rows value was found: 5
+
+	Value searched for: "Liu, Y., School of Electronics and Information Engineering, Beijing University of Aeronautics and Astronautics, Beijing 100191, China"
+	Rows value was found: 5
+
+	Value searched for: "Pang, X.-L., Research Institute of Chemical Defense, Beijing 102205, China"
+	Rows value was found: 6
+
+	Value searched for: "Chang, Y.-F., Research Institute of Chemical Defense, Beijing 102205, China"
+	Rows value was found: 6
+
+	Value searched for: "Fan, J.-B., Research Institute of Chemical Defense, Beijing 102205, China"
+	Rows value was found: 6
+
+	Value searched for: "Ning, W.-S., Research Institute of Chemical Defense, Beijing 102205, China"
+	Rows value was found: 6
+
+	Value searched for: "Cao, B.-F., Research Institute of Chemical Defense, Beijing 102205, China"
+	Rows value was found: 6
+
+	Value searched for: "Xu, J., Beijing Institute of Spacecraft Environment Engineering, Beijing 100094, China"
+	Rows value was found: 7
+
+	Value searched for: "Yang, L., Beijing Institute of Spacecraft Environment Engineering, Beijing 100094, China"
+	Rows value was found: 7
+
+	Value searched for: "Liu, D., China Research Institute of Radiowave Propagation, Qingdao Shandong 266107, China"
+	Rows value was found: 8
+
+	Value searched for: "Zhen, W.-M., China Research Institute of Radiowave Propagation, Qingdao Shandong 266107, China"
+	Rows value was found: 8
+
+	Value searched for: "Zhang, H., State Key Laboratory of Space Weather, Center for Space Science and Applied Research, Chinese Academy of Sciences, Beijing 100190, China, Graduated University of Chinese Academy of Sciences, Beijing 100049, China"
+	Rows value was found: 9
+
+	Value searched for: "Xu, R.-L., State Key Laboratory of Space Weather, Center for Space Science and Applied Research, Chinese Academy of Sciences, Beijing 100190, China, Macau University of Science and Technology, Macau"
+	Rows value was found: 9
+
+	Value searched for: "Zhao, H., State Key Laboratory of Space Weather, Center for Space Science and Applied Research, Chinese Academy of Sciences, Beijing 100190, China"
+	Rows value was found: 9
+
+	Value searched for: "Shen, C., State Key Laboratory of Space Weather, Center for Space Science and Applied Research, Chinese Academy of Sciences, Beijing 100190, China"
+	Rows value was found: 9
+
+	Value searched for: "Wu, Y., Key Laboratory of Photo-Electronic Imaging Technology and System, School of Optoelectronics, Beijing Institute of Technology, Beijing 100081, China"
+	Rows value was found: 10
+
+	Value searched for: "Tang, Y., Key Laboratory of Photo-Electronic Imaging Technology and System, School of Optoelectronics, Beijing Institute of Technology, Beijing 100081, China"
+	Rows value was found: 10
+
+	Value searched for: "Liu, J., Key Laboratory of Photo-Electronic Imaging Technology and System, School of Optoelectronics, Beijing Institute of Technology, Beijing 100081, China"
+	Rows value was found: 10
+
+	Value searched for: "Zhang, Z., Key Laboratory of Photo-Electronic Imaging Technology and System, School of Optoelectronics, Beijing Institute of Technology, Beijing 100081, China"
+	Rows value was found: 10
+
+	Value searched for: "Ni, G., Key Laboratory of Photo-Electronic Imaging Technology and System, School of Optoelectronics, Beijing Institute of Technology, Beijing 100081, China"
+	Rows value was found: 10
+
+	Value searched for: "Patra, J.C., Faculty of Engineering and Industrial Sciences, Swinburne University of Technology, Hawthorn, VIC 3122, Australia, School of Computer Engineering, Nanyang Technological University, Singapore"
+	Rows value was found: 11
+
+	Value searched for: "Maskell, D.L., Faculty of Engineering and Industrial Sciences, Swinburne University of Technology, Hawthorn, VIC 3122, Australia, School of Computer Engineering, Nanyang Technological University, Singapore"
+	Rows value was found: 11
+
+	Value searched for: "Bao, G., Purple Mountain Observatory, Chinese Academy of Sciences, Nanjing 210008, China"
+	Rows value was found: 12
+
+	Value searched for: "Adekoya, B.J., The Atmospheric/Ionospheric physics Group, Department of Physics, Olabisi Onabanjo University, P.M.B.2002 Ago Iwoye, Nigeria"
+	Rows value was found: 13
+
+	Value searched for: "Chukwuma, V.U., The Atmospheric/Ionospheric physics Group, Department of Physics, Olabisi Onabanjo University, P.M.B.2002 Ago Iwoye, Nigeria"
+	Rows value was found: 13
+
+	Value searched for: "Bakare, N.O., The Atmospheric/Ionospheric physics Group, Department of Physics, Olabisi Onabanjo University, P.M.B.2002 Ago Iwoye, Nigeria"
+	Rows value was found: 13
+
+	Value searched for: "David, T.W., The Atmospheric/Ionospheric physics Group, Department of Physics, Olabisi Onabanjo University, P.M.B.2002 Ago Iwoye, Nigeria"
+	Rows value was found: 13
+
+	Value searched for: "Fukazawa, K., Research Institute for Information Technology, Kyushu University, Space Environment Research Center, 6-10-1 Hakozaki, Higashi-ku, Fukuoka 812-8581, Japan"
+	Rows value was found: 14
+
+	Value searched for: "Umeda, T., Solar-Terrestrial Environment Laboratory, Nagoya University, Japan"
+	Rows value was found: 14
+
+	Value searched for: "Grzesiak, M., Space Research Centre, Polish Academy of Sciences, Warszawa, Poland"
+	Rows value was found: 15
+
+	Value searched for: "Światek, A., Space Research Centre, Polish Academy of Sciences, Warszawa, Poland"
+	Rows value was found: 15
+
+	Value searched for: "Brosius, J.W., Catholic University of America, NASA Goddard Space Flight Center, Solar Physics Laboratory, Code 671, Greenbelt, MD 20771, United States"
+	Rows value was found: 16
+
+	Value searched for: "Kalapotharakos, C., University of Maryland, College Park, UMDCP/CRESST, College Park, MD 20742, United States, Astrophysics Science Division, NASA, Goddard Space Flight Center, Greenbelt, MD 20771, United States"
+	Rows value was found: 17
+
+	Value searched for: "Harding, A.K., Astrophysics Science Division, NASA, Goddard Space Flight Center, Greenbelt, MD 20771, United States"
+	Rows value was found: 17
+
+	Value searched for: "Kazanas, D., Astrophysics Science Division, NASA, Goddard Space Flight Center, Greenbelt, MD 20771, United States"
+	Rows value was found: 17
+
+	Value searched for: "Contopoulos, I., Research Center for Astronomy and Applied Mathematics, Academy of Athens, Athens 11527, Greece"
+	Rows value was found: 17
+
+	Value searched for: "Parfrey, K., Astronomy Department, Columbia University, 550 West 120th Street, New York, NY 10027, United States, Institute for Strings, Cosmology, and Astroparticle Physics (ISCAP), Columbia University, New York, NY 10027, United States"
+	Rows value was found: 18
+
+	Value searched for: "Beloborodov, A.M., Physics Department, Columbia Astrophysics Laboratory, Columbia University, 538 West 120th Street, New York, NY 10027, United States"
+	Rows value was found: 18
+
+	Value searched for: "Hui, L., Institute for Strings, Cosmology, and Astroparticle Physics (ISCAP), Columbia University, New York, NY 10027, United States, Physics Department, Columbia Astrophysics Laboratory, Columbia University, 538 West 120th Street, New York, NY 10027, United States"
+	Rows value was found: 18
+
+	Value searched for: "Yan, X.L., National Astronomical Observatories/Yunnan Astronomical Observatory, Chinese Academy of Sciences, Kunming, Yunnan 650011, China, Graduate School of Chinese Academy of Sciences, Zhongguancun, Beijing 100049, China"
+	Rows value was found: 19
+
+	Value searched for: "Qu, Z.Q., National Astronomical Observatories/Yunnan Astronomical Observatory, Chinese Academy of Sciences, Kunming, Yunnan 650011, China"
+	Rows value was found: 19
+
+	Value searched for: "Kong, D.F., National Astronomical Observatories/Yunnan Astronomical Observatory, Chinese Academy of Sciences, Kunming, Yunnan 650011, China, Graduate School of Chinese Academy of Sciences, Zhongguancun, Beijing 100049, China"
+	Rows value was found: 19
+
+	Value searched for: "Xu, C.L., Department of Mathematics, Yunnan Normal University, Kunming, Yunnan 650092, China"
+	Rows value was found: 19
+
+	Value searched for: "Fuselier, S.A., Lockheed Martin Advanced Technology Center, Palo Alto, CA 94304, United States, Southwest Research Institute, San Antonio, TX 78228, United States"
+	Rows value was found: 20
+
+	Value searched for: "Allegrini, F., Southwest Research Institute, San Antonio, TX 78228, United States, University of Texas, San Antonio, TX 78249, United States"
+	Rows value was found: 20
+
+	Value searched for: "Bzowski, M., Space Research Center, Polish Academy of Sciences, Bartycka 18A, 00-716 Warsaw, Poland"
+	Rows value was found: 20
+
+	Value searched for: "Funsten, H.O., Los Alamos National Laboratory, Los Alamos, NM 87545, United States"
+	Rows value was found: 20
+
+	Value searched for: "Ghielmetti, A.G., Lockheed Martin Advanced Technology Center, Palo Alto, CA 94304, United States"
+	Rows value was found: 20
+
+	Value searched for: "Gloeckler, G., University of Michigan, Ann Arbor, MI 48109, United States"
+	Rows value was found: 20
+
+	Value searched for: "Heirtzler, D., University of New Hampshire, Durham, NH 03824, United States"
+	Rows value was found: 20
+
+	Value searched for: "Janzen, P., University of Montana, Missoula, MT 59812, United States"
+	Rows value was found: 20
+
+	Value searched for: "Kubiak, M., Space Research Center, Polish Academy of Sciences, Bartycka 18A, 00-716 Warsaw, Poland"
+	Rows value was found: 20
+
+	Value searched for: "Kucharek, H., University of New Hampshire, Durham, NH 03824, United States"
+	Rows value was found: 20
+
+	Value searched for: "McComas, D.J., Southwest Research Institute, San Antonio, TX 78228, United States, University of Texas, San Antonio, TX 78249, United States"
+	Rows value was found: 20
+
+	Value searched for: "Möbius, E., Los Alamos National Laboratory, Los Alamos, NM 87545, United States, University of New Hampshire, Durham, NH 03824, United States"
+	Rows value was found: 20
+
+	Value searched for: "Moore, T.E., Goddard Space Flight Center, Greenbelt, MD 20771, United States"
+	Rows value was found: 20
+
+	Value searched for: "Petrinec, S.M., Lockheed Martin Advanced Technology Center, Palo Alto, CA 94304, United States"
+	Rows value was found: 20
+
+	Value searched for: "Quinn, M., University of New Hampshire, Durham, NH 03824, United States"
+	Rows value was found: 20
+
+	Value searched for: "Reisenfeld, D., University of Montana, Missoula, MT 59812, United States"
+	Rows value was found: 20
+
+	Value searched for: "Saul, L.A., Physikalishes Institut, University of Bern, 3012 Bern, Switzerland"
+	Rows value was found: 20
+
+	Value searched for: "Scheer, J.A., Physikalishes Institut, University of Bern, 3012 Bern, Switzerland"
+	Rows value was found: 20
+
+	Value searched for: "Schwadron, N., University of New Hampshire, Durham, NH 03824, United States"
+	Rows value was found: 20
+
+	Value searched for: "Trattner, K.J., Lockheed Martin Advanced Technology Center, Palo Alto, CA 94304, United States"
+	Rows value was found: 20
+
+	Value searched for: "Vanderspek, R., Massachusetts Institute of Technology, Cambridge, MA 02139, United States"
+	Rows value was found: 20
+
+	Value searched for: "Wurz, P., Physikalishes Institut, University of Bern, 3012 Bern, Switzerland"
+	Rows value was found: 20
+
+	Value searched for: "Su, J.T., Key Laboratory of Solar Activity, National Astronomical Observatories, Chinese Academy of Science, Beijing 100012, China"
+	Rows value was found: 21
+
+	Value searched for: "Shen, Y.D., National Astronomical Observatories/Yunnan Observatory, Chinese Academy of Sciences, Kunming 650011, China"
+	Rows value was found: 21
+
+	Value searched for: "Liu, Y., National Astronomical Observatories/Yunnan Observatory, Chinese Academy of Sciences, Kunming 650011, China"
+	Rows value was found: 21
+
+	Value searched for: "Zhang, D.H., Department of Geophysics, Peking University, Beijing, China, State Key Laboratory of Space Weather, Chinese Academy of Sciences, Beijing, China"
+	Rows value was found: 22
+
+	Value searched for: "Cai, L., Department of Geophysics, Peking University, Beijing, China, Department of Physics, University of Oulu, Oulu, Finland"
+	Rows value was found: 22
+
+	Value searched for: "Ercha, A., Department of Geophysics, Peking University, Beijing, China"
+	Rows value was found: 22
+
+	Value searched for: "Hao, Y.Q., Department of Geophysics, Peking University, Beijing, China"
+	Rows value was found: 22
+
+	Value searched for: "Xiao, Z., Department of Geophysics, Peking University, Beijing, China, State Key Laboratory of Space Weather, Chinese Academy of Sciences, Beijing, China"
+	Rows value was found: 22
+
+	Value searched for: "Yu, Y., Institute of High Performance Computing, 138632, Singapore., Singapore"
+	Rows value was found: 23
+
+	Value searched for: "Niu, J., Electrical and Computer Engineering Department at the University of New Mexico, Albuquerque, NM 87131, United States"
+	Rows value was found: 23
+
+	Value searched for: "Simpson, J.J., Electrical and Computer Engineering Department at the University of Utah, Salt Lake City, UT 84112, United States"
+	Rows value was found: 23
+
+	Value searched for: "Sindelarova, T., Institute of Atmospheric Physics, Academy of Sciences of the Czech Republic, Bocni II 1401, 141 31 Prague 4, Czech Republic"
+	Rows value was found: 24
+
+	Value searched for: "Mosna, Z., Institute of Atmospheric Physics, Academy of Sciences of the Czech Republic, Bocni II 1401, 141 31 Prague 4, Czech Republic, Faculty of Mathematics and Physics, Charles University in Prague, Ke Karlovu 3, 121 16 Prague 2, Czech Republic"
+	Rows value was found: 24
+
+	Value searched for: "Buresova, D., Institute of Atmospheric Physics, Academy of Sciences of the Czech Republic, Bocni II 1401, 141 31 Prague 4, Czech Republic"
+	Rows value was found: 24
+
+	Value searched for: "Chum, J., Institute of Atmospheric Physics, Academy of Sciences of the Czech Republic, Bocni II 1401, 141 31 Prague 4, Czech Republic"
+	Rows value was found: 24
+
+	Value searched for: "McKinnell, L.-A., South African National Space Agency (SANSA) Space Science, P.O. Box 32, Hermanus 7200, South Africa, Department of Physics and Electronics, Rhodes University, P.O. Box 94, Grahamstown 6140, South Africa"
+	Rows value was found: 24
+
+	Value searched for: "Athieno, R., South African National Space Agency (SANSA) Space Science, P.O. Box 32, Hermanus 7200, South Africa, Physics Department, University of New Brunswick, 8 Bailey Drive, Fredericton, NB E3B 5A, Canada"
+	Rows value was found: 24
+
+	Value searched for: "Vilmer, N., LESIA, Observatoire de Paris, Université Paris-Diderot, 5 place Jules Janssen, 92195 Meudon, France"
+	Rows value was found: 25
+
+	Value searched for: "Wichaipanich, N., Faculty of Engineering, King Mongkut's Institute of Technology Ladkrabang, Bangkok 10520, Thailand"
+	Rows value was found: 26
+
+	Value searched for: "Supnithi, P., Faculty of Engineering, King Mongkut's Institute of Technology Ladkrabang, Bangkok 10520, Thailand"
+	Rows value was found: 26
+
+	Value searched for: "Tsugawa, T., Space Weather and Environment Informatics Laboratory, Applied Electromagnetic Research Institute, National Institute of Information and Communications Technology, Nukui-kita, 4-2-1, Koganei, Tokyo 183-8795, Japan"
+	Rows value was found: 26
+
+	Value searched for: "Maruyama, T., Space Weather and Environment Informatics Laboratory, Applied Electromagnetic Research Institute, National Institute of Information and Communications Technology, Nukui-kita, 4-2-1, Koganei, Tokyo 183-8795, Japan"
+	Rows value was found: 26
+
+	Value searched for: "Nagatsuma, T., Space Weather and Environment Informatics Laboratory, Applied Electromagnetic Research Institute, National Institute of Information and Communications Technology, Nukui-kita, 4-2-1, Koganei, Tokyo 183-8795, Japan"
+	Rows value was found: 26
+
+	Value searched for: "Muñoz-Jaramillo, A., Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, United States, University Corporation for Atmospheric Research, Boulder, CO 80307, United States, Department of Physics and Astronomy, University of Utah, Salt Lake City, UT 84112, United States"
+	Rows value was found: 27
+
+	Value searched for: "Sheeley, N.R., Space Science Division, Naval Research Laboratory, Washington, DC 20375-5352, United States"
+	Rows value was found: 27
+
+	Value searched for: "Zhang, J., School of Physics, Astronomy and Computational Sciences, George Mason University, Fairfax, VA 22030, United States"
+	Rows value was found: 27
+
+	Value searched for: "Deluca, E.E., Harvard-Smithsonian Center for Astrophysics, Cambridge, MA 02138, United States"
+	Rows value was found: 27
+
+	Value searched for: "Mahieux, A., Planetary Aeronomy, Belgian Institute for Space Aeronomy, 3 av. Circulaire, B-1180 Brussels, Belgium"
+	Rows value was found: 28
+
+	Value searched for: "Vandaele, A.C., Planetary Aeronomy, Belgian Institute for Space Aeronomy, 3 av. Circulaire, B-1180 Brussels, Belgium"
+	Rows value was found: 28
+
+	Value searched for: "Robert, S., Planetary Aeronomy, Belgian Institute for Space Aeronomy, 3 av. Circulaire, B-1180 Brussels, Belgium"
+	Rows value was found: 28
+
+	Value searched for: "Wilquet, V., Planetary Aeronomy, Belgian Institute for Space Aeronomy, 3 av. Circulaire, B-1180 Brussels, Belgium"
+	Rows value was found: 28
+
+	Value searched for: "Drummond, R., Planetary Aeronomy, Belgian Institute for Space Aeronomy, 3 av. Circulaire, B-1180 Brussels, Belgium"
+	Rows value was found: 28
+
+	Value searched for: "Montmessin, F., LATMOS, Guyancourt, France, Institut Pierre Simon Laplace, Université de Versailles-Saint-Quentin, Guyancourt, France"
+	Rows value was found: 28
+
+	Value searched for: "Bertaux, J.L., LATMOS, Guyancourt, France, Institut Pierre Simon Laplace, Université de Versailles-Saint-Quentin, Guyancourt, France"
+	Rows value was found: 28
+
+	Value searched for: "Rodriguez, J.V., Cooperative Institute for Research in Environmental Sciences, University of Colorado Boulder, 216 UCB, Boulder, CO 80309, United States, Also at National Geophysical Data Center, National Oceanic and Atmospheric Administration, Boulder, CO, United States"
+	Rows value was found: 29
+
+	Value searched for: "Santucci, D., Behavioural Neuroscience Section, Cellular Biology and Neuroscience Department, Istituto Superiore di Sanità, Rome, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Kawano, F., Graduate School of Medicine, Osaka University, Osaka, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Ohira, T., Graduate School of Frontier Biosciences, Osaka University, Osaka, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Terada, M., Japan Aerospace Exploration Agency, Ibaraki, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Nakai, N., Graduate School of Medicine, Osaka University, Osaka, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Francia, N., Behavioural Neuroscience Section, Cellular Biology and Neuroscience Department, Istituto Superiore di Sanità, Rome, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Alleva, E., Behavioural Neuroscience Section, Cellular Biology and Neuroscience Department, Istituto Superiore di Sanità, Rome, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Aloe, L., Institute of Neurobiology and Molecular Medicine, CNR, European Brain Research Institute, Rome, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Ochiai, T., Mitsubishi Heavy Industries, Hyogo, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Cancedda, R., DOBIG, University of Genova, Genova, Italy"
+	Rows value was found: 30
+
+	Value searched for: "Goto, K., Graduate School of Health Sciences, Toyohashi SOZO University, Aichi, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Ohira, Y., Graduate School of Medicine, Osaka University, Osaka, Japan, Graduate School of Frontier Biosciences, Osaka University, Osaka, Japan"
+	Rows value was found: 30
+
+	Value searched for: "Usoskin, I.G., Sodankylä Geophysical Observatory (Oulu Unit), 90014, University of Oulu, Finland, Department of Physics, P.O. Box 3000, 90014, University of Oulu, Finland"
+	Rows value was found: 31
+
+	Value searched for: "Sawakuchi, G.O., Carleton Laboratory for Radiotherapy Physics, Department of Physics, Carleton University, Ottawa ON K1S 5B6, Canada"
+	Rows value was found: 32
+
+	Value searched for: "Yukihara, E.G., Department of Physics, Oklahoma State University, Stillwater, OK 74074, United States"
+	Rows value was found: 32
+
+	Value searched for: "Clausen, L.B.N., Bradley Department of Electrical and Computer Engineering, Virginia Polytechnic Institute and State University, Blacksburg, VA, United States, Institute for Geophysics and Extraterrestrial Physics, TU Braunschweig, DE-38106 Braunschweig, Germany"
+	Rows value was found: 33
+
+	Value searched for: "Baker, J.B.H., Bradley Department of Electrical and Computer Engineering, Virginia Polytechnic Institute and State University, Blacksburg, VA, United States"
+	Rows value was found: 33
+
+	Value searched for: "Ruohoniemi, J.M., Bradley Department of Electrical and Computer Engineering, Virginia Polytechnic Institute and State University, Blacksburg, VA, United States"
+	Rows value was found: 33
+
+	Value searched for: "Milan, S.E., Department of Physics and Astronomy, University of Leicester, Leicester, United Kingdom"
+	Rows value was found: 33
+
+	Value searched for: "Anderson, B.J., Johns Hopkins University Applied Physics Laboratory, Laurel, MA, United States"
+	Rows value was found: 33
+
+	Value searched for: "Wang, W., High Altitude Observatory, National Center for Atmospheric Research, PO Box 3000, Boulder, CO 80307, United States"
+	Rows value was found: 34
+
+	Value searched for: "Talaat, E.R., Johns Hopkins University Applied Physics Laboratory, Laurel, MD, United States"
+	Rows value was found: 34
+
+	Value searched for: "Burns, A.G., High Altitude Observatory, National Center for Atmospheric Research, PO Box 3000, Boulder, CO 80307, United States"
+	Rows value was found: 34
+
+	Value searched for: "Emery, B., High Altitude Observatory, National Center for Atmospheric Research, PO Box 3000, Boulder, CO 80307, United States"
+	Rows value was found: 34
+
+	Value searched for: "Hsieh, S.-Y., Johns Hopkins University Applied Physics Laboratory, Laurel, MD, United States"
+	Rows value was found: 34
+
+	Value searched for: "Lei, J., School of Earth and Space Sciences, University of Science and Technology of China, Hefei, China"
+	Rows value was found: 34
+
+	Value searched for: "Xu, J., State Key Laboratory of Space Weather, Chinese Academy of Sciences, Beijing, China"
+	Rows value was found: 34
+
+	Value searched for: "Podladchikova, T.V., Space Research Institute, 84/32 Profsoyuznaya Str., Moscow 117997, Russian Federation"
+	Rows value was found: 35
+
+	Value searched for: "Petrukovich, A.A., Space Research Institute, 84/32 Profsoyuznaya Str., Moscow 117997, Russian Federation"
+	Rows value was found: 35
+
+	Value searched for: "Harris, T.J., Defence Science and Technology Organisation, Edinburgh, SA 5111, Australia"
+	Rows value was found: 36
+
+	Value searched for: "Cervera, M.A., Defence Science and Technology Organisation, Edinburgh, SA 5111, Australia"
+	Rows value was found: 36
+
+	Value searched for: "Meehan, D.H., Defence Science and Technology Organisation, Edinburgh, SA 5111, Australia"
+	Rows value was found: 36
+
+	Value searched for: "Kuzichev, I.V., Department of Space Plasma Physics, Space Research Institute, Moscow, 84/32 Profsoyuznaya Str., Moscow, 117997, Russian Federation"
+	Rows value was found: 37
+
+	Value searched for: "Lei, J., CAS Key Laboratory of Geospace Environment, Department of Geophysics and Planetary Sciences, University of Science and Technology of China, Hefei 230026, China"
+	Rows value was found: 38
+
+	Value searched for: "Thayer, J.P., Department of Aerospace Engineering Sciences, University of Colorado, Boulder, CO, United States"
+	Rows value was found: 38
+
+	Value searched for: "Wang, W., High Altitude Observatory, National Center for Atmospheric Research, Boulder, CO, United States"
+	Rows value was found: 38
+
+	Value searched for: "Luan, X., CAS Key Laboratory of Geospace Environment, Department of Geophysics and Planetary Sciences, University of Science and Technology of China, Hefei 230026, China"
+	Rows value was found: 38
+
+	Value searched for: "Dou, X., CAS Key Laboratory of Geospace Environment, Department of Geophysics and Planetary Sciences, University of Science and Technology of China, Hefei 230026, China"
+	Rows value was found: 38
+
+	Value searched for: "Roble, R., High Altitude Observatory, National Center for Atmospheric Research, Boulder, CO, United States"
+	Rows value was found: 38
+
+	Value searched for: "Varney, R.H., School of Electrical and Computer Engineering, Cornell University, 303 Rhodes Hall, Ithaca, NY 14853, United States"
+	Rows value was found: 39
+
+	Value searched for: "Swartz, W.E., School of Electrical and Computer Engineering, Cornell University, 303 Rhodes Hall, Ithaca, NY 14853, United States"
+	Rows value was found: 39
+
+	Value searched for: "Hysell, D.L., Department of Earth and Atmospheric Sciences, Cornell University, Ithaca, NY, United States"
+	Rows value was found: 39
+
+	Value searched for: "Huba, J.D., Plasma Physics Division, Naval Research Laboratory, Washington, DC, United States"
+	Rows value was found: 39
+
+	Value searched for: "Oliver, W.L., Department of Electrical and Computer Engineering, Boston University, 8 Saint Mary's St., Boston, MA 02215, United States, Center for Space Physics, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Martinis, C.R., Center for Space Physics, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Hickey, D.A., Center for Space Physics, Boston University, Boston, MA, United States, Astronomy Department, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Wright, A.D., Center for Space Physics, Boston University, Boston, MA, United States, Physics Department, Boston University, Boston, MA, United States"
+	Rows value was found: 40
+
+	Value searched for: "Amory-Mazaudier, C., Laboratoire de Physique des Plasmas, Université Pierre et Marie Curie, Saint-Maur-des-Fossés, France"
+	Rows value was found: 40
+
+	Value searched for: "Yuki, S., Graduate School of Science and Engineering, Yamagata University 1-4-12 Kojirakawa, Yamagata 990-8560, Japan"
+	Rows value was found: 41
+
+	Value searched for: "Shibata, S., Graduate School of Science and Engineering, Yamagata University 1-4-12 Kojirakawa, Yamagata 990-8560, Japan"
+	Rows value was found: 41
+
+	Value searched for: "Savani, N.P., University Corporation for Atmospheric Physics (UCAR), Boulder, United States, Heliophysics Science Division, NASA Goddard Space Flight Center, Greenbelt, United States"
+	Rows value was found: 42
+
+	Value searched for: "Davies, J.A., RAL Space, STFC Rutherford Appleton Laboratory, Harwell Oxford, OX11 0QX, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Davis, C.J., RAL Space, STFC Rutherford Appleton Laboratory, Harwell Oxford, OX11 0QX, United Kingdom, Space Environment Physic Group, University of Reading, Earley Gate, Reading, RG6 6BB, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Shiota, D., Computational Astrophysics Laboratory, Advanced Science Institute, RIKEN, 2-1, Hirosawa, Wako, Saitama, 351-0198, Japan"
+	Rows value was found: 42
+
+	Value searched for: "Rouillard, A.P., College of Science, George Mason University, Fairfax, 22030, United States, Heliophysics Science Division, NASA Goddard Space Flight Center, Greenbelt, United States"
+	Rows value was found: 42
+
+	Value searched for: "Owens, M.J., Space Environment Physic Group, University of Reading, Earley Gate, Reading, RG6 6BB, United Kingdom, The Blackett Laboratory, Imperial College London, Prince Consort Road, London, SW7 2BZ, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Kusano, K., Solar-Terrestrial Environment Laboratory, Nagoya University, Nagoya, 464-8601, Japan, Japan Agency for Marine-Earth Science and Technology, Yokohama, Kanagawa, 236-0001, Japan"
+	Rows value was found: 42
+
+	Value searched for: "Bothmer, V., Institut für Astrophysik, Göttingen University, Göttingen, Germany"
+	Rows value was found: 42
+
+	Value searched for: "Bamford, S.P., Centre for Astronomy and Particle Theory, University of Nottingham, University Park, Nottingham, NG7 2RD, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Lintott, C.J., Astrophysics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Smith, A., Astrophysics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, United Kingdom"
+	Rows value was found: 42
+
+	Value searched for: "Dresing, N., Institut für Experimentelle und Angewandte Physik, Christian-Albrechts-Universität zu Kiel, Kiel, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Gómez-Herrero, R., Institut für Experimentelle und Angewandte Physik, Christian-Albrechts-Universität zu Kiel, Kiel, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Klassen, A., Institut für Experimentelle und Angewandte Physik, Christian-Albrechts-Universität zu Kiel, Kiel, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Heber, B., Institut für Experimentelle und Angewandte Physik, Christian-Albrechts-Universität zu Kiel, Kiel, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Kartavykh, Y., Institut für Theoretische Physik und Astrophysik, Universität Würzburg, Würzburg, Germany, Ioffe Physical-Technical Institute, St-Petersburg, Russian Federation"
+	Rows value was found: 43
+
+	Value searched for: "Dröge, W., Institut für Theoretische Physik und Astrophysik, Universität Würzburg, Würzburg, Germany"
+	Rows value was found: 43
+
+	Value searched for: "Hubert, B., Laboratoire de Physique Atmosphérique et Planétaire, Université de Liège, 17, Allée du 6 Août, Bât. B5c, B-4000 Liège, Belgium"
+	Rows value was found: 44
+
+	Value searched for: "Gérard, J.-C., Laboratoire de Physique Atmosphérique et Planétaire, Université de Liège, 17, Allée du 6 Août, Bât. B5c, B-4000 Liège, Belgium"
+	Rows value was found: 44
+
+	Value searched for: "Gustin, J., Laboratoire de Physique Atmosphérique et Planétaire, Université de Liège, 17, Allée du 6 Août, Bât. B5c, B-4000 Liège, Belgium"
+	Rows value was found: 44
+
+	Value searched for: "Bisikalo, D.V., Institute of Astronomy of the Russian Academy of Sciences, 48, Pyatnitskaya Street, 119017 Moscow, Russia"
+	Rows value was found: 44
+
+	Value searched for: "Shematovich, V.I., Institute of Astronomy of the Russian Academy of Sciences, 48, Pyatnitskaya Street, 119017 Moscow, Russia"
+	Rows value was found: 44
+
+	Value searched for: "Gladstone, G.R., Southwest Research Institute, 6220 Culebra Road, San Antonio, TX 78228-0510, USA"
+	Rows value was found: 44
+
+	Value searched for: "Borovsky, J.E., Space Science Institute, 4750 Walnut St., Boulder, CO 80301, United States, Department Atmospheric, Oceanic and Space Sciences, University of Michigan, Ann Arbor, MI, United States"
+	Rows value was found: 45
+
+	Value searched for: "Kaufmann, P., Escola de Engenharia, CRAAM, Universidade Presbiteriana Mackenzie, São Paulo, 01302970, Brazil, Centro de Componentes Semicondutores, CCS, Universidade Estadual de Campinas, Campinas, 13083970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "Holman, G.D., National Aeronautics and Space Administration, Goddard Space Flight Center, Code 671, Greenbelt, 20771, United States"
+	Rows value was found: 46
+
+	Value searched for: "Su, Y., National Aeronautics and Space Administration, Goddard Space Flight Center, Code 671, Greenbelt, 20771, United States, Department of Physics, The Catholic University of America, Washington, 20064, United States, Purple Mountain Observatory, Chinese Academy of Sciences, Nanjing, 210008, China"
+	Rows value was found: 46
+
+	Value searched for: "Gimenez de Castro, C.G., Escola de Engenharia, CRAAM, Universidade Presbiteriana Mackenzie, São Paulo, 01302970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "Correia, E., Escola de Engenharia, CRAAM, Universidade Presbiteriana Mackenzie, São Paulo, 01302970, Brazil, Instituto Nacional de Pesquisas Espaciais', São José dos Campos, 12201970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "Fernandes, L.O.T., Escola de Engenharia, CRAAM, Universidade Presbiteriana Mackenzie, São Paulo, 01302970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "de Souza, R.V., Escola de Engenharia, CRAAM, Universidade Presbiteriana Mackenzie, São Paulo, 01302970, Brazil"
+	Rows value was found: 46
+
+	Value searched for: "Marun, A., Complejo Astronômico El Leoncito, CONICET, San Juan, Argentina"
+	Rows value was found: 46
+
+	Value searched for: "Pereyra, P., Complejo Astronômico El Leoncito, CONICET, San Juan, Argentina"
+	Rows value was found: 46
+
+	Value searched for: "Crown, M.D., Battlespace Environment Division, Space Vehicles Directorate, Air Force Research Laboratory, 3550 Aberdeen Ave. SE, Kirtland Air Force Base, NM 87117, United States"
+	Rows value was found: 47
+
+	Value searched for: "Kil, H., Space Department, Johns Hopkins University, Applied Physics Laboratory, 11100 Johns Hopkins Rd., Laurel, MD 20723, United States"
+	Rows value was found: 48
+
+	Value searched for: "Lee, W.K., COSMIC Project Office, University Corporation for Atmospheric Research, Boulder, CO, United States"
+	Rows value was found: 48
+
+	Value searched for: "Kwak, Y.-S., Space Science Division, Korea Astronomy and Space Science Institute, Daejeon, South Korea"
+	Rows value was found: 48
+
+	Value searched for: "Oh, S.-J., Space Environment Laboratory, Seoul, South Korea"
+	Rows value was found: 48
+
+	Value searched for: "Paxton, L.J., Space Department, Johns Hopkins University, Applied Physics Laboratory, 11100 Johns Hopkins Rd., Laurel, MD 20723, United States"
+	Rows value was found: 48
+
+	Value searched for: "Zhang, Y., Space Department, Johns Hopkins University, Applied Physics Laboratory, 11100 Johns Hopkins Rd., Laurel, MD 20723, United States"
+	Rows value was found: 48
+
+	Value searched for: "Nieves-Chinchilla, T., Catholic University of America, Washington, DC 20064, United States"
+	Rows value was found: 49
+
+	Value searched for: "Colaninno, R., Space Sciences Division, Naval Research Laboratory, Washington, DC, United States"
+	Rows value was found: 49
+
+	Value searched for: "Vourlidas, A., Space Sciences Division, Naval Research Laboratory, Washington, DC, United States"
+	Rows value was found: 49
+
+	Value searched for: "Szabo, A., Heliospheric Physics Laboratory, NASA Goddard Space Flight Center, Greenbelt, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Lepping, R.P., Heliospheric Physics Laboratory, NASA Goddard Space Flight Center, Greenbelt, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Boardsen, S.A., Heliophysics Science Division, NASA Goddard Space Flight Center, Greenbelt, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Anderson, B.J., Johns Hopkins University, Applied Physics Laboratory, Laurel, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Korth, H., Johns Hopkins University, Applied Physics Laboratory, Laurel, MD, United States"
+	Rows value was found: 49
+
+	Value searched for: "Kulikov, Y., Institute of Applied Physics, IAP RAS, Nizhny Novgorod, Russian Federation"
+	Rows value was found: 50
+
+	Value searched for: "Frolov, V., Radiophysical Research Institute, NIRFI, Nizhny Novgorod, Russian Federation"
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Abstract"
+	Value searched for: "The single-and dual-frequency ionosphere corrections in satellite altimetry are analyzed in detail. Taking Topex dual-frequency ionosphere corrections as an example, RMS of cross-over difference can be reduced upto 5.7-7.3 mm by along-track filtering of low-pass Gauss. Then, the filtered Topex ionosphere corrections are cross-calibrated with DOIRS, IRI2007 and GIM models that are established by measurements of global continuous GPS tracking stations. The results show that the accuracy of DORIS and GIM is higher than that of IRI2007. The statistics of difference between the filtered Topex dual-frequency ionosphere correction and that from these models show a systematic bias of 10-15 mm."
+	Rows value was found: 2
+
+	Value searched for: "Based on a neutral barium cloud diffusion model, considering the oxidation and ionization loss of barium atoms, the early (t ≤ 100 s) evolution characeristics, morphologies, brightnesses and electronic density distributions of barium clouds released in the ionosphere are discussed in this paper. The numerical simulation results are presented for the early dynamics of barium clouds with different released masses (1, 10 kg), different release altitudes (250, 300 km), and different initial shape factors (1, 10). © 2012 Chinese Physical Society."
+	Rows value was found: 3
+
+	Value searched for: "Extremely low frequency (ELF) propagation formulas for vertical electric dipole sources radiating in a spherical uniform earth-ionosphere cavity have been derived. These formulas have a range dependence characterized by either the Legendre function of the first kind of complex degree v and order zero or one of its first two derivatives. It is difficult to get the value of the Legendre function unless through appropriate approximations. In this paper, a new numerical integral method for the Legendre function is present. It is more efficient and accurate, and can be used in wider frequency band. The field excited vertical dipole at several frequencies are calculated through the numerical integral method. The fields calculated can image the physical phenomena of ELF propagation in earth-ionosphere cavity, and the frequencies of Schumem resonance is the same as previous researches. ©2012 by Editorial Department of Chinese Journal of Radio Science."
+	Rows value was found: 4
+
+	Value searched for: "Based on the international reference ionosphere (IRI) and the quasi-parabolic segments (QPS) model, a new ionosphere hybrid modeling method for short-wave ray tracing was proposed. The group ranges which show the short-wave propagation trace in the ionosphere were obtained separately by simulation in the hybrid model and the IRI model. By comparing the simulated results and the ionospheric oblique incidence sounding experimental data, the hybrid modeling method accuracy at mid-latitude region in China was analyzed. It indicates the ray tracing simulation accuracy in the hybrid model on experimental day better than the one in the IRI model. The limit to the QPS model's input is reduced by the hybrid modeling method and the QPS model's application range is extended in ray tracing technology."
+	Rows value was found: 5
+
+	Value searched for: "Design a kind of digital NEMP signal source simulator. After aerosphere NEMP signal lengthways transfers trough ionosphere, it's transient signal, and it's dispersive frequency, frequency spectrum is from 30 MHz"
+	Rows value was found: 6
+
+	Value searched for: "300 MHz. Because of dispersal of the ionosphere, the high-frequency of pulse signal arrival before low-frequency. Based on DSP+DDS digital circuitry, realizing signal output of 30 MHz"
+	Rows value was found: 6
+
+	Value searched for: "300 MHz dispersive frequency transient signal, the output signal frequency can be 400 MHz, pulse time can be ms, period of frequency conversion is 4 ns. Experimentation with satellite-based NEMP detection in the laboratory indicate that the simulator realize the simulation of disperse frequency signal."
+	Rows value was found: 6
+
+	Value searched for: "The method of precision analysis is combined with five following steps, learning the guide of precision analysis, establishing a calculation model of the target system, identifying the error and uncertainty elements in the system, calculating each element via simulation, statistics and user's manual, determining combined standard uncertainty. The analysis results demonstrate that the error of calibration optical system with blackbody source is 0.012, uncertainty is 1.07% and the number of the integrating sphere source is 0.024 and 2.51%, which mean the radiometric calibration system has good performance. The method has been used in similar tests as a guideline."
+	Rows value was found: 7
+
+	Value searched for: "An analysis with GPS data was conducted to identify the possible serious effects that special characteristics, including ionospheric anomaly, ionospheric storm and ionosphere scintillation existing in China area will have on system integrity and availability. The ionospheric anomaly could make the ionospheric delay less correlated to establish a reasonable threshold to bound ionospheric residual error. Breaking down the ionospheric correlation structure, an ionospheric storm will make it a more difficult work to derive an appropriate threshold and effective disturbance detection as well. Ionospheric scintillation could affect the system availability as it will cause errors in pseudo-range measurement, losing of available satellites under severe scintillation condition and finally an erroneous position fixing. Irregularity related to scintillation will also cause a bad estimation of TEC, resulting in difficulties in GNSS ionospheric correction model realization. All these effects often work on each other, making the things even worse. Copyright © 2012 by Editorial Department of Chinese Journal of Radio Science."
+	Rows value was found: 8
+
+	Value searched for: "Global electric field within magnetosphere is an important parameter to research magnetospheric physics. At present, average dawn-dust electric field and projected electric field as convection electric field within magnetosphere are applied usually in space physics. In this paper, we adopted Weimer's electric field as the mode of ionospheric electric field. Then, we projected the ionospheric electric field to magnetospheric space along lines of magnetic force of T96, and got a new model of magnetospheric electric field. We also discussed the impact of magnetic storm, IMF, solar wind parameters, and suhstorm on magnetospheric electric field. The computing result of this model was consistent with the results detected by satellites."
+	Rows value was found: 9
+
+	Value searched for: "Useing Czerny-Turner structure as the beam splitter a new optical design method of far ultraviolet imaging spectrometer used to get ionosphere data is presented. A source of aberration is analyzed. The method of aberration correction based on divergent illumination is proposed, which the imaging spectrometer is designed by. The wavelength range, field of view, focal length and F number, respectively, are from 120 to 180 nm, 0.1°×6.0°, 121.8 mm and 6.2. The designed system is evaluated by modulation transfer function (MTF) and imaging simulation. Its spectral resolution is better than 1.0 nm and its spatial resolution is better than 0.1°, which can meet with the requirements of ionosphere observation. Without any aspherical mirror, the optics is easy to manufacture."
+	Rows value was found: 10
+
+	Value searched for: "External quantum efficiency (EQE) of a solar cell provides information on the internal operations of the solar cells which can be used in optimization of solar cell design. The EQE of solar cells for space applications is adversely affected by the influence of charged particles in space. Usually numerical model based software, e.g., PC1D, are used to estimate the EQE and fitted with the measured EQE to obtain degradation performance of space solar cells. However, the accuracy of these models may be limited due to complex phenomena and interactions occurring between the junctions of the solar cells and the nonlinear influence of charged particles. In this paper we propose an artificial neural network (ANN)-based model to estimate the EQE performance of triple-junction InGaP/GaAs/Ge solar cells under the influence of a wide range of charged particles. Using the experimental data from Sato et al. . [1], it is shown that the ANN-based models provide a better estimate of the EQE than the PC1D model . [1] in terms of mean square error and correlation coefficient. © 2011 Elsevier Ltd."
+	Rows value was found: 11
+
+	Value searched for: "The electrostatic charging of ASTROD I test mass (the Astrodynamical Space Test of Relativity using Optical Devices I) will disturb its pure geodesic motion due to spurious Coulomb and Lorentz forces. The three main disturbances associated with the charging are the acceleration noise of the test mass, the coupling between the test mass and the spacecraft, the appearance of unwanted coherent Fourier components in the measurement bandwidth. By implementing the same geometry and physics models in our previous work, a positive charging rate of 9369 e/s for the solar energetic particles (SEPs) event on October 19th 1989 is predicted. Based on these charging rates, we calculated the acceleration noise and stiffness associated with charging. We also compared the acceleration noises arising from Coulomb and Lorentz effects using different discharge characteristics. Although the noise due to charging exceeds the ASTROD I budget for the two events at 0.5 AU, it can be suppressed through continuous discharging. In addition to Monte Carlo uncertainty, an error of ±30% in the net charging rates was added to account for uncertainties in the primaries spectra, physics and geometry models. © 2012 Elsevier Ltd."
+	Rows value was found: 12
+
+	Value searched for: "This paper presents some features of the ionospheric response observed in equatorial and mid-latitudes region to two strong geomagnetic storms, occurring during Oct. 19-23, 2001 and May 13-17, 2005 and to understand the phenomena of pre-storm that lead to very intense geomagnetic storms. The result point to the fact that pre-storm phenomena that leads to intense ionospheric storm are; large southward turning of interplanetary magnetic field Bz, high electric field, increase in flow speed stream, increase in proton number density, high pressure ram and high plasma beta. The magnitude of Bz turning into southward direction from northward highly depends upon the severity of the storm and the variation in F2 layer parameter at the time of geomagnetic storm are strongly dependent upon the storm intensity. A detailed analysis of the responses of the ionosphere shows that during the storm periods, foF2 values depleted simultaneously both in the equatorial and mid latitude. Observation also shows that low to moderate variations in ionospheric F2 at the pre-storm period may signal the upcoming of large ionospheric disturbances at the main phase. The ionospheric F2response for low and mid latitude does not show any significant differences during the storm main phase and the pre-storm period. The ionospheric response during the pre-storm period is thought very puzzling. The period is observed to be depleted throughout with low-moderate effect across all the stations in the low and mid latitude. © 2012 Springer Science+Business Media B.V."
+	Rows value was found: 13
+
+	Value searched for: "The computational performance of magnetohydrodynamic (MHD) code is evaluated on two typical scalar-type supercomputer systems. We have carried out performance tuning of a three-dimensional MHD code for space plasma simulations on the HA8000 (with 8192 cores) and SR16000/L2 (with 1344 cores) supercomputer systems. For parallelization of the MHD code, we use four different methods, that is, regular one-dimensional, two-dimensional and three-dimensional domain decomposition methods and a cache-hit type of three-dimensional domain decomposition method. We found that the regular three-dimensional decomposition of the MHD model is suitable for the HA8000 system, and the cache-hit type of three-dimensional decomposition is suitable for SR16000/L2 systems. As a result of these runs, we achieved a performance efficiency of almost 15% on the HA8000 and 20% on the SR16000/L2 for MHD code. © The Author(s) 2012."
+	Rows value was found: 14
+
+	Value searched for: "We present a case study of ionospheric wave activity during solar terminator crossing using GPS TEC measurements. As a basic tool, the spatial gradient of total electron content (TEC) has been used. We tested with positive result the hypothesis on anisotropic response to assumed one-dimensional solar terminator forcing. The approximate drift velocity of irregularities has been computed. The wavelet analysis gave an interesting insight into variable frequency content of TEC gradient time series. We also proposed a filtering with respect to spatial scale allowing for resolving the spatio-temporal ambiguity. © 2011 Versita Warsaw and Springer-Verlag Wien."
+	Rows value was found: 15
+
+	Value searched for: "With the Coronal Diagnostic Spectrometer operating in rapid cadence (9.8s) stare mode during a C6.6 flare on the solar disk, we observed a sudden brightening of Fe XIX line emission (formed at temperature T 8MK) above the pre-flare noise without a corresponding brightening of emission from ions formed at lower temperatures, including He I (0.01MK), O V (0.25MK), and Si XII (2MK). The sudden brightening persisted as a plateau of Fe XIX intensity that endured more than 11 minutes. The Fe XIX emission at the rise and during the life of the plateau showed no evidence of significant bulk velocity flows, and hence cannot be attributed to chromospheric evaporation. However, the line width showed a significant broadening at the rise of the plateau, corresponding to nonthermal velocities of at least 89kms 
+                        -1 due to reconnection outflows or turbulence. During the plateau He I, O V, and Si XII brightened at successively later times starting about 3.5 minutes after Fe XIX, which suggests that these brightenings were produced by thermal conduction from the plasma that produced the Fe XIX line emission; however, we cannot rule out the possibility that they were produced by a weak beam of nonthermal particles. We interpret an observed shortening of the O V wavelength for about 1.5 minutes toward the middle of the plateau to indicate new upward motions driven by the flare, as occurs during gentle chromospheric evaporation; relative to a quiescent interval shortly before the flare, the O V upward velocity was around -10kms 
+                        -1. © 2012. The American Astronomical Society. All rights reserved.."
+	Rows value was found: 16
+
+	Value searched for: "We investigate the shapes of γ-ray pulsar light curves using three-dimensional pulsar magnetosphere models of finite conductivity. These models, covering the entire spectrum of solutions between vacuum and force-free magnetospheres, for the first time afford mapping the GeV emission of more realistic, dissipative pulsar magnetospheres. To this end we generate model light curves following two different approaches: (1) We employ the emission patterns of the slot and outer gap models in the field geometries of magnetospheres with different conductivity σ. (2) We define realistic trajectories of radiating particles in magnetospheres of different σ and compute their Lorentz factor under the influence of magnetospheric electric fields and curvature radiation-reaction; with these at hand we then calculate the emitted radiation intensity. The light curves resulting from these prescriptions are quite sensitive to the value of σ, especially in the second approach. While still not self-consistent, these results are a step forward in understanding the physics of pulsar γ-radiation. © 2012. The American Astronomical Society. All rights reserved.."
+	Rows value was found: 17
+
+	Value searched for: "We present the first simulations of evolving, strongly twisted magnetar magnetospheres. Slow shearing of the magnetar crust is seen to lead to a series of magnetospheric expansion and reconnection events, corresponding to X-ray flares and bursts. The axisymmetric simulations include rotation of the neutron star and the magnetic wind through the light cylinder. We study how the increasing twist affects the spindown rate of the star, finding that a dramatic increase in spindown occurs. Particularly spectacular are explosive events caused by the sudden opening of large amounts of overtwisted magnetic flux, which may be associated with the observed giant flares. These events are accompanied by a short period of ultrastrong spindown, resulting in an abrupt increase in spin period, such as was observed in the giant flare of SGR 1900+14. © 2012. The American Astronomical Society. All rights reserved."
+	Rows value was found: 18
+
+	Value searched for: "We find that a sunspot with positive polarity had an obvious counterclockwise rotation and resulted in the formation and eruption of an inverse S-shaped filament in NOAA Active Region 08858 from 2000 February 9 to 10. The sunspot had two umbrae which rotated around each other by 195° within about 24hr. The average rotation rate was nearly 8°hr 
+                        -1. The fastest rotation in the photosphere took place during 14:00UT to 22:01UT on February 9, with a rotation rate of nearly 16°hr 
+                        -1. The fastest rotation in the chromosphere and the corona took place during 15:28UT to 19:00UT on February 9, with a rotation rate of nearly 20°hr 
+                        -1. Interestingly, the rapid increase of the positive magnetic flux occurred only during the fastest rotation of the rotating sunspot, the bright loop-shaped structure, and the filament. During the sunspot rotation, the inverse S-shaped filament gradually formed in the EUV filament channel. The filament experienced two eruptions. In the first eruption, the filament rose quickly and then the filament loops carrying the cool and the hot material were seen to spiral counterclockwise into the sunspot. About 10 minutes later, the filament became active and finally erupted. The filament eruption was accompanied with a C-class flare and a halo coronal mass ejection. These results provide evidence that sunspot rotation plays an important role in the formation and eruption of the sigmoidal active-region filament. © 2012. The American Astronomical Society. All rights reserved."
+	Rows value was found: 19
+
+	Value searched for: "Since 2008 December, the Interstellar Boundary Explorer (IBEX) has been making detailed observations of neutrals from the boundaries of the heliosphere using two neutral atom cameras with overlapping energy ranges. The unexpected, yet defining feature discovered by IBEX is a Ribbon that extends over the energy range from about 0.2 to 6keV. This Ribbon is superposed on a more uniform, globally distributed heliospheric neutral population. With some important exceptions, the focus of early IBEX studies has been on neutral atoms with energies greater than 0.5keV. With nearly three years of science observations, enough low-energy neutral atom measurements have been accumulated to extend IBEX observations to energies less than 0.5keV. Using the energy overlap of the sensors to identify and remove backgrounds, energy spectra over the entire IBEX energy range are produced. However, contributions by interstellar neutrals to the energy spectrum below 0.2keV may not be completely removed. Compared with spectra at higher energies, neutral atom spectra at lower energies do not vary much from location to location in the sky, including in the direction of the IBEX Ribbon. Neutral fluxes are used to show that low energy ions contribute approximately the same thermal pressure as higher energy ions in the heliosheath. However, contributions to the dynamic pressure are very high unless there is, for example, turbulence in the heliosheath with fluctuations of the order of 50-100kms 
+                        -1. © 2012. The American Astronomical Society. All rights reserved."
+	Rows value was found: 20
+
+	Value searched for: "We present extreme-ultraviolet multi-wavelength observations with the SDO/AIA instruments of quasi-periodic pulsations (QPPs) propagating along a cusp-shaped loop formed after an M2.2 flare on the Sun. Our motivation is to detect whether there were slow-mode magnetoacoustic waves propagating along its protruding flux tube. To this end, with fast Fourier transform we extract the short (&lt;3minutes) and long (&gt;3minutes) period components of the QPPs from time-space diagrams of the tube slices. We find that velocity differences did exist among the short/long-period components of different wavelengths, but only one event in the long-period ones showed they were greater than the measurement errors (e.g., 65kms 
+                        -1), which were 330kms 
+                        -1 detected in 171 Å, 590kms 
+                        -1 in 211 Å, and 180kms 
+                        -1 in 304 Å. The intensity modulation in all wavelengths is found to be very large, e.g., ∼60% of the emission trend for an event in the 171 Å passband, which would be an order of magnitude higher than the perturbation of the plasma density in the slow-mode magnetoacoustic waves. Moreover, only the QPPs with upward velocities of 50-300kms 
+                        -1 are found in the tube, and the downward ones of several tens of kilometers are never unambiguously detected. Therefore, most of the QPP events under study were likely the episodic outflows along the tube, and the one with a supersonic speed of 590kms 
+                        -1 may be a kink wave. © 2012. The American Astronomical Society. All rights reserved."
+	Rows value was found: 21
+
+	Value searched for: "Based on the solar X-ray data in the band of 0.1 - 0.8 nm observed by Geostationary Operational Environmental Satellites (GOES), the XUV and EUV data in the bands of 26 - 34 nm and 0.1 - 50 nm observed by the Solar EUV Monitor (SEM) onboard the Solar and Heliospheric Observatory (SOHO), a statistical analysis on the excess peak flux (the pre-flare flux is subtracted) in two SEM bands during M- and X-class flares from 1998 to 2007 is given. The average ratio of the excess peak flux to the pre-flare flux for the M-class flares is 5.5 %±3.7 % and that for the X-class flares is 16 %±11 %. The excess peak fluxes in two SEM bands are positively correlated with the X-ray flare class; with the increase in the X-ray flare class, the excess peak flux in two SEM bands increases. However, a large dispersion in the excess peak flux in the SEM bands and their ratio is found for the same X-ray flare class. The relationship between the excess peak fluxes of the two SEM bands also shows large dispersion. It is considered that the diversity we found in the flare spectral irradiance is caused by many variable factors related to the structure and evolution of solar flares. © 2012 Springer Science+Business Media B.V."
+	Rows value was found: 22
+
+	Value searched for: "A 3-D global Earth-ionosphere finite-difference time-domain (FDTD) model is introduced that includes for the first time an anisotropic magnetized cold plasma ionosphere. All previous global FDTD Earth-ionosphere models to date have employed an isotropic conductivity profile. To generate the new model, a previously validated and published 3-D Cartesian magnetized cold plasma algorithm is adapted to the global latitude-longitude FDTD mesh that involves trapezoidal cells, merging of cells in the Polar regions, and triangular cells at the Poles. The global geomagnetic field, ionospheric particle densities and collision frequencies, as well as the Earth's topographic and bathymetric data are all mapped onto the global space grid. After a local high-resolution validation that demonstrates correct calculations of electromagnetic propagation in magnetized plasma, another numerical study is performed to validate the model on a global scale. This new model opens doors to a wide variety of advanced modeling for higher frequency and higher altitude electromagnetic phenomena and represents a paradigm shift from the commonly used ray-tracing codes. It also provides the opportunity to couple FDTD Earth-ionosphere models to other geophysical models, such as the Naval Research Lab's SAMI3, to yield a multiphysics simulator. © 1963-2012 IEEE."
+	Rows value was found: 23
+
+	Value searched for: "The present paper deals with observations of wave activity in the period range 1-60 min at ionospheric heights over the Western Cape, South Africa from May 2010 to July 2010. The study is based on the Doppler type sounding of the ionosphere. The Doppler frequency shift measurements are supplemented with measurements of collocated Digisonde DPS-4D at SANSA Space Sciences, Hermanus. Nine geomagnetically quiet days and nine geomagnetically active days were included in the study. Waves of periods 4-30 min were observed during the daytime independent of the level of geomagnetic activity. Amplitudes of 10-30 min waves always increased between 14:00 and 16:15 UT (16:00-18:15 LT). Secondary maxima were observed between 06:00 and 07:00 UT (08:00-09:00 LT). The maximum wave amplitudes occurred close to the time of passage of the solar terminator in the studied region which is known to act as a source of gravity waves. Waves of periods 30-50 min were observed in the F2 layer during the daytime on five out of the eighteen days analysed, on four geomagnetically active days and on one quiet day. On the geomagnetically active day of 27 July 2010, waves of periods 1-2.5 min occurred in the evening and night hours. These waves appeared simultaneously with 1-2.5 min fluctuations of horizontal components of the local geomagnetic field. We suppose that the 1-2.5 min ionospheric oscillations are a response to the geomagnetic micropulsations. © 2012 COSPAR. Published by Elsevier Ltd. All rights reserved."
+	Rows value was found: 24
+
+	Value searched for: "Solar flares are now observed at all wavelengths from γ-rays to decametre radio waves. They are commonly associated with efficient production of energetic particles at all energies. These particles play a major role in the active Sun because they contain a large amount of the energy released during flares. Energetic electrons and ions interact with the solar atmosphere and produce high-energy X-rays and γ-rays. Energetic particles can also escape to the corona and interplanetary medium, produce radio emissions (electrons) and may eventually reach the Earth's orbit. I shall review here the available information on energetic particles provided by X-ray/γ-ray observations, with particular emphasis on the results obtained recently by the mission Reuven Ramaty High-Energy Solar Spectroscopic Imager. I shall also illustrate how radio observations contribute to our understanding of the electron acceleration sites and to our knowledge on the origin and propagation of energetic particles in the interplanetary medium. I shall finally briefly review some recent progress in the theories of particle acceleration in solar flares and comment on the still challenging issue of connecting particle acceleration processes to the topology of the complex magnetic structures present in the corona. This journal is © 2012 The Royal Society."
+	Rows value was found: 25
+
+	Value searched for: "In this work, the foF2 and hmF2 parameters at the conjugate points near the magnetic equator of Southeast Asia are studied and compared with the International Reference Ionosphere (IRI) model. Three ionosondes are installed nearly along the magnetic meridian of 100°E; one at the magnetic equator, namely Chumphon (10.72°N, 99.37°E, dip angle 3.0°N), and the other two at the magnetic conjugate points, namely Chiang Mai (18.76°N, 98.93°E, dip angle 12.7°N) and Kototabang (0.2°S, 100.30°E, dip angle 10.1°S). The monthly hourly medians of the foF2 and hmF2 parameters are calculated and compared with the predictions obtained from the IRI-2007 model from January 2004 to February 2007. Our results show that: the variations of foF2 and hmF2 predicted by the IRI-2007 model generally show the similar feature to the observed data. Both parameters generally show better agreement with the IRI predictions during daytime than during nighttime. For foF2, most of the results show that the IRI model overestimates the observed foF2 at the magnetic equator (Chumphon), underestimates at the northern crest (Chiang Mai) and is close to the measured ones at the southern crest of the EIA (Kototabang). For hmF2, the predicted hmF2 values are close to the hmF2(M3000F2 
+                        OBS) during daytime. During nighttime, the IRI model gives the underestimation at the magnetic equator and the overestimation at both EIA crests. The results are important for the future improvements of the IRI model for foF2 and hmF2 over Southeast Asia region. © 2012 COSPAR."
+	Rows value was found: 26
+
+	Value searched for: "Although the Sun's polar magnetic fields are thought to provide important clues for understanding the 11 year sunspot cycle, including the observed variations of its amplitude and period, the current database of high-quality polar field measurements spans relatively few sunspot cycles. In this paper, we address this deficiency by consolidating Mount Wilson Observatory polar faculae data from four data reduction campaigns, validating it through a comparison with facular data counted automatically from Michelson Doppler Imager (MDI) intensitygrams, and calibrating it against polar field measurements taken by the Wilcox Solar Observatory and average polar field and total polar flux calculated using MDI line-of-sight magnetograms. Our results show that the consolidated polar facular measurements are in excellent agreement with both polar field and polar flux estimates, making them an ideal proxy to study the evolution of the polar magnetic field. Additionally, we combine this database with sunspot area measurements to study the role of the polar magnetic flux in the evolution of the heliospheric magnetic field (HMF). We find that there is a strong correlation between HMF and polar flux at solar minimum and that, taken together, polar flux and sunspot area are better at explaining the evolution of the HMF during the last century than sunspot area alone. © 2012. The American Astronomical Society. All rights reserved.."
+	Rows value was found: 27
+
+	Value searched for: "SOIR is a high-resolution spectrometer flying on board the ESA Venus Express mission. It performs solar occultations of the Venus high atmosphere, and so defines unique vertical profiles of many of the Venus key species. In this paper, we focus on the Venus main constituent, carbon dioxide. We explain how the temperature, the total density, and the total pressure are derived from the observed CO 
+                        2 density vertical profiles. A striking permanent temperature minimum at 125 km is observed. The data set is processed in order to obtain a Venus Atmosphere from SOIR measurements at the Terminator (VAST) compilation for different latitude regions and extending from 70 up to 170 km in altitude. The results are compared to many literature results obtained from ground-based observations, previous missions, and the Venus Express mission. The homopause altitude is also determined."
+	Rows value was found: 28
+
+	Value searched for: "East-west anisotropies in GOES solar energetic particle (SEP) flux observations provide evidence of a time-varying radial gradient between L4 and L7. During elevated auroral activity, the gradient, represented by the ratio of inner (eastward-observed) to outer (westward-observed) fluxes, exhibits undulations lasting 1-3 h. A superposed epoch analysis based on 85 geosynchronous field dipolarizations observed during 19 SEP events between 1998 and 2006 shows that &gt;4 MeV inner proton fluxes increase as the geosynchronous field stretches during substorm growth phase, then decrease gradually following field dipolarization at substorm onset. This behavior is distinct from the sharp increase of outer belt electrons and protons at the time of the dipolarization. The undulations indicate that substorm-related field changes in the near-Earth magnetotail enhance access of SEPs to the inner magnetosphere (down to L4). The observation of undulations at geosynchronous orbit is suppressed during high solar wind dynamic pressure (P 
+                        dyn&gt;5 nPa) or strong geomagnetic storm conditions (Dst&lt;-100 nT) because the radial gradient is greatly reduced under these conditions and the interplanetary flux level provides an upper limit to the SEP fluxes in the magnetosphere. A sequence of 10 SEP undulations was observed during and following the 18 April 2002 sawtooth event. Analysis of this sequence shows that undulations observed at all local times are associated with substorm-related field changes on the nightside. GOES eastward SEP observations at all local times can thus serve as global trace particle sensing of substorm-related field reconfigurations in the near-Earth magnetotail. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 29
+
+	Value searched for: "Effects of 3-month exposure to microgravity environment on the expression of genes and proteins in mouse brain were studied. Moreover, responses of neurobiological parameters, nerve growth factor (NGF) and brain derived neurotrophic factor (BDNF), were also evaluated in the cerebellum, hippocampus, cortex, and adrenal glands. Spaceflight-related changes in gene and protein expression were observed. Biological processes of the up-regulated genes were related to the immune response, metabolic process, and/or inflammatory response. Changes of cellular components involving in microsome and vesicular fraction were also noted. Molecular function categories were related to various enzyme activities. The biological processes in the down-regulated genes were related to various metabolic and catabolic processes. Cellular components were related to cytoplasm and mitochondrion. The down-regulated molecular functions were related to catalytic and oxidoreductase activities. Up-regulation of 28 proteins was seen following spaceflight vs. those in ground control. These proteins were related to mitochondrial metabolism, synthesis and hydrolysis of ATP, calcium/calmodulin metabolism, nervous system, and transport of proteins and/or amino acids. Down-regulated proteins were related to mitochondrial metabolism. Expression of NGF in hippocampus, cortex, and adrenal gland of wild type animal tended to decrease following spaceflight. As for pleiotrophin transgenic mice, spaceflight-related reduction of NGF occured only in adrenal gland. Consistent trends between various portions of brain and adrenal gland were not observed in the responses of BDNF to spaceflight. Although exposure to real microgravity influenced the expression of a number of genes and proteins in the brain that have been shown to be involved in a wide spectrum of biological function, it is still unclear how the functional properties of brain were influenced by 3-month exposure to microgravity. © 2012 Santucci et al."
+	Rows value was found: 30
+
+	Value searched for: "[No abstract available]"
+	Rows value was found: [31;32]
+
+	Value searched for: "The region 1 (R1) and region 2 current systems typically form concentric rings of field-aligned currents in the polar ionospheres; we term the inner ring the R1 oval. We apply an automated fitting scheme to field-aligned current densities provided by the Active Magnetosphere and Planetary Electrodynamics Response Experiment (AMPERE) and identify the latitude of maximum R1 current at all magnetic local times to yield the size of the R1 oval. We investigate the dynamics of the R1 oval size in response to geomagnetic activity for two cases corresponding to: repeated substorm activations with a minimally enhanced ring current; a significant ring current enhancement with multiple substorms. During the first event the dynamics of the R1 oval size reflected an expanding-contracting polar cap: during substorm growth phase dayside reconnection added open magnetic flux to the polar cap, expanding the R1 oval equatorward. Tail reconnection during the substorm expansion phase converted open into closed magnetic flux and the polar cap contracts as reflected by the poleward retreat of the R1 oval. During the period of enhanced ring current intensity the R1 oval grew to larger sizes during each substorm growth phase than it did during the other event, consistent with the suggestion that a stronger ring current stabilizes the magnetospheric tail to the onset of magnetic reconnection. The presented methodology allows AMPERE data to be condensed into a single parameter, the R1 oval size, which reflects magnetospheric dynamics and provides a convenient measure of the instantaneous magnetospheric system state in both hemispheres. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 33
+
+	Value searched for: "An empirical model of subauroral polarization streams (SAPS) has been incorporated into the Thermosphere Ionosphere Electrodynamics General Circulation Model (TIEGCM). This SAPS driven TIEGCM is used to simulate the effect of SAPS on the global thermosphere and ionosphere during a moderate geomagnetically active period between day of year (DOY) 329 and 333 in 2008. Model results show: (1) SAPS caused an increase in global thermospheric temperature which became stronger with time. This neutral temperature increase was more significant in subauroral and auroral regions. Joule heating by the SAPS and the redistribution of this heat by dynamic processes were the primary mechanisms for the simulated global neutral temperature changes. (2) In the SAPS driven TIEGCM, the strong ion drag effect in the subauroral SAPS channel drove large changes in thermospheric winds. Zonal neutral winds had either an extra, separate channel of westward flow in the subauroral region in the afternoon-midnight sector or a broad westward wind jet that merged with the regular duskside auroral westward zonal neutral wind driven by the high latitude convection pattern. The exact latitudinal profile of the zonal winds depended on local time. (3) The response of neutral temperature and wind to SAPS was more significant at higher altitudes and exhibited seasonal/hemispheric asymmetry. (4) The heating to the thermosphere by SAPS also resulted in changes in thermospheric composition with upwelling of molecular rich air in subauroral and auroral regions and downwelling of atomic oxygen rich air at other latitudes. These changes in thermospheric composition contributed to the deeper and more extended ionospheric electron density depletions in subauroral middle latitude regions, as well as electron density increases along the equatorward edge of the SAPS channel in the afternoon sector. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 34
+
+	Value searched for: "We develop a technique to predict geomagnetic storm magnitudes (peak Dst values) several hours in advance using the first indications of extreme solar wind conditions, as well as an assumption of constant driving function V Bs. For larger storms with clear V Bs jump we predict lower and upper limits of expected peak Dst. For smaller storms and storms with gradually increasing V Bs we predict Dst several hours ahead. The data from 1995-2010 were used to design the technique. The actual advance time of reliable forecasts (before the peak value is reached) is on average 5-6 hours, illustrating the realistic horizon of such "constant input" assumption. Larger storms are developing faster and thus are better predicted. False warnings (predictions more than 25% larger than the actual peak) occur in about 10% of events. The algorithm is implemented in real-time in Space Research Institute, Moscow (www.spaceweather.ru). © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 35
+
+	Value searched for: "Ionospheric disturbances observed by bottom-side soundings of the ionosphere appear at many temporal and spatial scales. Australia has many simultaneous observations from vertically orientated ionospheric sounders with spatial separations on the scale of 1000 km. However, with this spatial sampling only large scale ionospheric disturbances can be mapped and subsequently modeled. DSTO has an experimental program in progress to investigate the smaller spatial scale disturbances. These are often seen on vertical incidence soundings and are uncorrelated with soundings from greater than 500 km away. They can also be uncorrelated with soundings from the same site only 15 min later. The DSTO program to investigate these ionospheric disturbances is called SpICE, for Spatial Ionospheric Correlation Experiment. SpICE uses a small set of transmitters and receivers with varying separations to achieve a geographically spread set of near-vertical incidence ionospheric "reflection" points separated by 50-150 km, allowing us to probe disturbances at this spatial scale. Using the latest digital receiver technology we can collect amplitude and phase information from the ionospheric returns of the continuous wave transmissions of a nearby transmitter that is rapidly sweeping through the HF band. The returned signal is processed at a very high resolution to achieve good signal-to-noise complex ionograms at better than one-minute time updates. To date there have been three SpICE campaigns. This paper will discuss the SpICE program goals and highlight some of the unusual features observed in the first campaign. Following papers will look more closely at this data set and the subsequent campaigns. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 36
+
+	Value searched for: "This work concerns the problem of a whistler mode wave exit to the ground. After propagation in the magnetosphere a wave, in general, falls on the ionosphere with the angle of incidence outside the transmission cone. Such waves do not reach the Earth experiencing total internal reflection at the atmosphere-ionosphere boundary. To explain wave exit to the ground, we follow up on the idea of wave scattering on small-scale irregularities in the ionosphere. Interaction with these irregularities excites harmonics inside the transmission cone. Using the Green function method, we derive an integral equation for the wavefield containing all modes possible for a given frequency, solve this equation in the Born approximation, and obtain an expression for the energy flux of the waves which were scattered into the transmission cone. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 37
+
+	Value searched for: "Several mechanisms including heat transport due to zonal winds, chemical heating and field-aligned ion drag have been proposed to explain the formation of the Equatorial Thermosphere Anomaly (ETA), but the cause of the ETA crests in thermosphere temperature is still a mystery. Our companion study (Lei et al., 2012) has revealed that the field-aligned ion drag mainly contributes to the ETA trough, but has little effect on the ETA crests. In this study, the mechanisms of heat transport associated with zonal winds and chemical heating due to recombination are examined to assess their contributions to the production of the ETA crests on the basis of National Center for Atmospheric Research Thermosphere-Ionosphere-Electrodynamics General Circulation Model (NCAR-TIEGCM) simulations. Our sensitivity simulations demonstrate that neither heat transport due to zonal winds nor chemical heating is able to explain the formation of the ETA crests. Instead, we found that the formation of the ETA crests is attributed to plasma-neutral heating which has two peaks in the topside ionosphere aside the magnetic equator. These two peaks, which are largely controlled by the magnetic field, are the results of energy transfer from thermal electrons and ions to the neutrals through collisions due to their temperature differences, albeit the ultimate source of this heating is solar radiation which produces photoelectrons that mainly depend on solar zenith angle. The TIEGCM simulations show that the crests of the ETA always locate poleward by 10-15 with respect to those of the Equatorial Ionosphere Anomaly (EIA), although the trough location of the ETA resembles that of the EIA. The location of the ETA crests is associated with the two-hump structure in plasma-neutral collision heating which is small inside the EIA region and larger at the poleward edge of this region. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 38
+
+	Value searched for: "In order to improve model comparisons with recently improved incoherent scatter radar measurements at the Jicamarca Radio Observatory we have added photoelectron transport and energy redistribution to the two dimensional SAMI2 ionospheric model. The photoelectron model uses multiple pitch angle bins, includes effects associated with curved magnetic field lines, and uses an energy degradation procedure which conserves energy on coarse, non-uniformly spaced energy grids. The photoelectron model generates secondary electron production rates and thermal electron heating rates which are then passed to the fluid equations in SAMI2. We then compare electron and ion temperatures and electron densities of this modified SAMI2 model with measurements of these parameters over a range of altitudes from 90km to 1650km (L=1.26) over a 24 hour period. The new electron heating model is a significant improvement over the semi-empirical model used in SAMI2. The electron temperatures above the F-peak from the modified model qualitatively reproduce the shape of the measurements as functions of time and altitude and quantitatively agree with the measurements to within ∼30% or better during the entire day, including during the rapid temperature increase at dawn. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 39
+
+	Value searched for: "The Saint Santin (45N) incoherent scatter radar data base shows a local enhancement in nighttime ion temperature that occurs in winter only. Its amplitude can exceed 100 K and averages 40 K on the basis of a conservative computation. The enhancement peaks near 4 LT and has a duration of about 4 hours. We discuss two possible explanations for this feature: (1) it is caused by the convergence of global winds at the global pressure minimum, under which Saint Santin rotates at winter solstice, and (2) it is an extension or propagation of the well-known low-latitude midnight temperature maximum to midlatitudes, perhaps to that pressure minimum. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 40
+
+	Value searched for: "To explain the pulsed emission of the rotation powered pulsars from radio to gamma-ray, polar cap models, slot gap models, and outer gap models are proposed. Recent observations suggest that these models are likely to co-exist in the same magnetosphere. If so, their mutual relation is known to be troublesome (Harding 2009), due to the boundary conditions and the direction of the current, which are properly assumed in each acceleration model. We performed a particle simulation for the global magnetospheric structure. Based on this simulation, we present a new picture of the global structure of the pulsar magnetosphere. It is found that a new dead zone is formed along the current neutral line that separates the oppositely directed current. We shall call this the current-neutral zone. We suggest that the polar cap accelerators and the slot gaps locate above the current-neutral zone, and the outer gap exist between the current neutral zone and the traditional dead zone. We also give an estimate of the super-rotation region.© 2012. Astronomical Society of Japan."
+	Rows value was found: 41
+
+	Value searched for: "The Solar TErrestrial RElations Observatory (STEREO) provides high cadence and high resolution images of the structure and morphology of coronal mass ejections (CMEs) in the inner heliosphere. CME directions and propagation speeds have often been estimated through the use of time-elongation maps obtained from the STEREO Heliospheric Imager (HI) data. Many of these CMEs have been identified by citizen scientists working within the SolarStormWatch project (www.solarstormwatch.com) as they work towards providing robust real-time identification of Earth-directed CMEs. The wide field of view of HI allows scientists to directly observe the two-dimensional (2D) structures, while the relative simplicity of time-elongation analysis means that it can be easily applied to many such events, thereby enabling a much deeper understanding of how CMEs evolve between the Sun and the Earth. For events with certain orientations, both the rear and front edges of the CME can be monitored at varying heliocentric distances (R) between the Sun and 1 AU. Here we take four example events with measurable position angle widths and identified by the citizen scientists. These events were chosen for the clarity of their structure within the HI cameras and their long track lengths in the time-elongation maps. We show a linear dependency with R for the growth of the radial width (W) and the 2D aspect ratio (χ) of these CMEs, which are measured out to ≈ 0.7 AU. We estimated the radial width from a linear best fit for the average of the four CMEs. We obtained the relationships W=0.14 R+0.04 for the width and χ=2.5 R+0.86 for the aspect ratio (W and R in units of AU). © 2012 Springer Science+Business Media B.V."
+	Rows value was found: 42
+
+	Value searched for: "We investigate multi-spacecraft observations of the 17 January 2010 solar energetic particle event. Energetic electrons and protons have been observed over a remarkable large longitudinal range at the two STEREO spacecraft and SOHO, suggesting a longitudinal spread of nearly 360 degrees at 1 AU. The flaring active region, which was on the backside of the Sun as seen from Earth, was separated by more than 100 degrees in longitude from the magnetic footpoints of each of the three spacecraft. The event is characterized by strongly delayed energetic particle onsets with respect to the flare and only small or no anisotropies in the intensity measurements at all three locations. The presence of a coronal shock is evidenced by the observation of a type II radio burst from the Earth and STEREO-B. In order to describe the observations in terms of particle transport in the interplanetary medium, including perpendicular diffusion, a 1D model describing the propagation along a magnetic field line (model 1) (Dröge, Astrophys. J. 589, 1027 - 1039, 2003) and the 3D propagation model (model 2) by Dröge et al. (Astrophys. J. 709, 912 - 919, 2010) including perpendicular diffusion in the interplanetary medium have been applied. While both models are capable of reproducing the observations, model 1 requires injection functions at the Sun of several hours. Model 2, which includes lateral transport in the solar wind, reveals high values for the ratio of perpendicular to parallel diffusion. Because we do not find evidence for unusual long injection functions at the Sun, we favor a scenario with strong perpendicular transport in the interplanetary medium as an explanation for the observations. © 2012 Springer Science+Business Media B.V."
+	Rows value was found: 43
+
+	Value searched for: "We analyze FUV spatially-resolved dayglow spectra obtained at 0.37. nm resolution by the UVIS instrument during the Cassini flyby of Venus. The intensities of the ultraviolet multiplets of carbon at 126.1, 156.1 and 165.7. nm are determined using a least squares fit technique applied to all dayglow spectra recorded by UVIS along the Cassini track. These intensities are compared with the results of a full radiative transfer model of these emissions, that includes the known photochemical sources of photons and resonant scattering of sunlight. The carbon density profile of the Venus thermosphere has never been directly measured and is taken from a model. We find a serious disagreement between these observations and modeling that can be accounted for by applying a scaling factor to the carbon column. This needed scaling factor is found to increase monotonically with solar zenith angle, suggesting a possible photochemical origin to the disagreement, possibly involving the photochemistry of molecular oxygen to which the carbon density is highly sensitive. © 2012 Elsevier Inc."
+	Rows value was found: 44
+
+	Value searched for: "The solar wind is filled with strong current sheets and sudden velocity shears; often the two are co-located. Sudden velocity shears at 1 AU are statistically analyzed using ACE measurements from 1998 to 2008. The occurrence rates of passage and the orientations of the shear planes are examined. For shear layers with vector velocity changes |v| > 50 km/s, an average of ∼12 pass the Earth per day. In the fast wind, ∼60 sudden shear layers pass the Earth per day (about 2.5 per hour). To explore the effects of sudden wind shears on the Earth's magnetosphere, global magnetospheric MHD simulations with four different simulation codes are performed at the Community Coordinated Modeling Center (CCMC) with north-south and east-west wind shears. Windsock movement of the magnetotail is analyzed and comet-like disconnections of the magnetotail and magnetosheath are examined. Sudden changes in the cross-polar-cap potential and ionospheric Joule dissipation are seen as the shear layers pass the Earth. Other potential effects of sudden wind shear on the magnetosphere are discussed. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 45
+
+	Value searched for: "The GOES X28 flare of 4 November 2003 was the largest ever recorded in its class. It produced the first evidence for two spectrally separated emission components, one at microwaves and the other in the THz range of frequencies. We analyzed the pre-flare phase of this large flare, twenty minutes before the onset of the major impulsive burst. This period is characterized by unusual activity in X-rays, sub-THz frequencies, H α, and microwaves. The CME onset occurred before the onset of the large burst by about 6 min. It was preceded by pulsations of 3 - 5 s periods at sub-THz frequencies together with X-ray and microwave enhancements. The sub-THz pulsations faded out as impulsive bursts were detected at 100 - 300 keV and 7 GHz, close to the time of the first Hα brightening and the CME onset. The activities detected prior to and at the CME onset were located nearly 2 arcmin south of the following large flare, suggesting they were separate events. This unusual activity brings new clues to understanding the complex energy buildup mechanisms prior to the CME onset, occurring at a distinct location and well before the major flare that exploded afterwards. © 2012 Springer Science+Business Media B.V."
+	Rows value was found: 46
+
+	Value searched for: "This paper provides an assessment of the operational solar flare look-up table currently in use at the National Oceanic and Atmospheric Administration (NOAA) Space Weather Prediction Center (SWPC) during solar cycle 23 (May 1996 - December 2008). To assess the value of human interaction, a validation of subjective flare probability forecasts was conducted and compared to the results obtained from the climatological look-up table used at SWPC. Probabilistic flare forecasts are evaluated using the Brier Skill Score, then discretized and entered into contingency tables from which a variety of verification measures are calculated. The ultimate goal of this report is to provide an operational baseline, whereby the scores and statistics from this paper can be used as the basis for future evaluation of models presented to the operational community. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 47
+
+	Value searched for: "Various longitudinal wave patterns exist in the low-latitude ionosphere, but the investigation has been limited to the wave number (WN) 3 and 4 patterns. This study extends the investigation to the wave patterns that have not yet been explored. The persistent ionospheric wave patterns are investigated by using the measurements of the ion density during March 1999-June 2004 by the first Republic of China satellite. The investigation is performed with data sets in the magnetic south (20S-0) and magnetic north (0-20N). The dominant wave features in plasma density are the WN1, WN2, WN3, and WN4 patterns. Among them, the WN1 pattern in the magnetic south during the June solstice is the most pronounced feature. Except for this component, the WN3 pattern is the most persistent and pronounced feature. Fundamental difference exists between the WN1 and WN2 patterns and the WN3 and WN4 patterns. First, the wave phases in the south and north are the same in the WN3 and WN4 patterns, but they are opposite in the WN1 and WN2 patterns. Second, the amplitudes of the WN3 and WN4 patterns show similar annual variation in the south and north, but those of the WN1 and WN2 patterns show opposite annual trends in the opposite hemispheres. These observations indicate that the WN1 and WN2 patterns and the WN3 and WN4 patterns are created by different mechanisms. We discuss the creation of the WN1 and WN2 patterns in association with the geomagnetic field configuration. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 48
+
+	Value searched for: "During June 16-21, 2010, an Earth-directed coronal mass ejection (CME) event was observed by instruments onboard STEREO, SOHO, MESSENGER and Wind. This event was the first direct detection of a rotating CME in the middle and outer corona. Here, we carry out a comprehensive analysis of the evolution of the CME in the interplanetary medium comparing in situ and remote observations, with analytical models and three-dimensional reconstructions. In particular, we investigate the parallel and perpendicular cross section expansion of the CME from the corona through the heliosphere up to 1 AU. We use height-time measurements and the Gradual Cylindrical Shell (GCS) technique to model the imaging observations, remove the projection effects, and derive the 3-dimensional extent of the event. Then, we compare the results with in situ analytical Magnetic Cloud (MC) models, and with geometrical predictions from past works. We find that the parallel (along the propagation plane) cross section expansion agrees well with the in situ model and with the Bothmer and Schwenn (1998) empirical relationship based on in situ observations between 0.3 and 1 AU. Our results effectively extend this empirical relationship to about 5 solar radii. The expansion of the perpendicular diameter agrees very well with the in situ results at MESSENGER (∼0.5 AU) but not at 1 AU. We also find a slightly different, from Bothmer and Schwenn (1998), empirical relationship for the perpendicular expansion. More importantly, we find no evidence that the CME undergoes a significant latitudinal over-expansion as it is commonly assumed. Instead, we find evidence that effects due to CME rotation and expansion can be easily confused in the images leading to a severe overestimation of the proper 3D size of the event. Finally, we find that the reconstructions of the CME morphology from the in situ observations at 1 AU are in agreement with the remote sensing observations but they show a big discrepancy at MESSENGER. We attribute this discrepancy to the ambiguity of selecting the proper boundaries due to the lack of accompanying plasma measurements. © 2012. American Geophysical Union. All Rights Reserved."
+	Rows value was found: 49
+
+	Value searched for: "We present some results of microwave measurements at frequencies of about 110836.04 MHz, which are related to the ozone emission line generated in the middle atmosphere. Experiments were carried out on March 14-17, 2009 and March 27-28, 2011 under conditions when the lower ionosphere was modified using powerful high-frequency (HF) radio waves radiated by the SURA heating facility (Nizhny Novgorod, Russia; 56.15°N, 46.1°E). © 2012 IEEE."
+	Rows value was found: 50
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Column searched on: "Language of Original Document"
+	Value searched for: "Chinese"
+	Rows value was found: [4;8;9;12;19;21;22;34;46;3;2;5;6;7;10]
+
+	Value searched for: "English"
+	Rows value was found: [11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30;31;32;33;34;35;36;37;38;39;40;41;42;43;44;45;46;47;48;49;50]
