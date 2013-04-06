@@ -16,6 +16,7 @@ function varargout = rvmtool(varargin)
 % 22 March    2013  Zachary Kaberlein  Added search/filter options
 % 28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
 % 3  April    2013  Phillip Shaw       Implement specific search GUI
+% 5  April    2013  Phillip Shaw       Finished correct save state
 
 % INPUTS:
 % varargin are any input arguments
@@ -270,6 +271,10 @@ state.file = get(handles.inputFile, 'string'); % get the full name
 state.generalRadiobutton = get(handles.generalRadiobutton, 'value');
 state.specificRadiobutton = get(handles.specificRadiobutton, 'value');
 state.specificTextfield = get(handles.specificTextfield, 'string');
+state.columnNameindex = get(handles.columnNamePopup, 'value');
+state.NumResultsindex = get(handles.NumResultsPopUp, 'value');
+state.OrderResultsindex = get(handles.OrderResultsPopUp, 'value');
+
 
 save('state.mat', 'state'); % save to state.mat
 % Update handles structure
@@ -289,6 +294,9 @@ if exist(prevstate, 'file')
     set(handles.generalRadiobutton, 'value', state.generalRadiobutton);
     set(handles.specificRadiobutton, 'value', state.specificRadiobutton);
     set(handles.specificTextfield, 'string', state.specificTextfield);
+    set(handles.columnNamePopup,'value', state.columnNameindex);
+    set(handles.NumResultsPopUp,'value', state.NumResultsindex);
+    set(handles.OrderResultsPopUp,'value', state.OrderResultsindex);
     
     % IF no file in saved state, disable run button
     if strcmp(state.file,'PATH_TO_FILE')
@@ -300,7 +308,7 @@ if exist(prevstate, 'file')
         set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
         set(handles.specificRadiobutton,'Enable','on');
     end
-    delete(prevstate)
+    
     
     % IF SPECIFIC - RUN GETCOLUMNS
     if(get(handles.specificRadiobutton, 'Value') == 1)  
@@ -312,8 +320,10 @@ if exist(prevstate, 'file')
       set(handles.OrderResultsPopUp,'Enable','on');
       file = get(handles.inputFile,'String');
       [column_names, ~] = getColumnnames(file);
-      set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
+      set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag
+      set(handles.columnNamePopup,'value', state.columnNameindex);
     end
+    delete(prevstate)
 end
 % Update handles structure
 guidata(hObject, handles);
