@@ -273,7 +273,9 @@ state.file = get(handles.inputFile, 'string'); % get the full name
 state.generalRadiobutton = get(handles.generalRadiobutton, 'value');
 state.specificRadiobutton = get(handles.specificRadiobutton, 'value');
 state.specificTextfield = get(handles.specificTextfield, 'string');
-state.columnNameindex = get(handles.columnNamePopup, 'value');
+if(state.specificRadiobutton == 1)
+  state.columnNameindex = get(handles.columnNamePopup, 'value');
+end
 state.NumResultsindex = get(handles.NumResultsPopUp, 'value');
 state.OrderResultsindex = get(handles.OrderResultsPopUp, 'value');
 
@@ -291,17 +293,18 @@ prevstate = 'state.mat';
 
 if exist(prevstate, 'file')
     load(prevstate);
-    %handles.filename = state.file;
     set(handles.inputFile,'String', state.file);
+    if ~exist(state.file,'file')
+        set(handles.inputFile,'string','PATH_TO_FILE');
+    end
     set(handles.generalRadiobutton, 'value', state.generalRadiobutton);
     set(handles.specificRadiobutton, 'value', state.specificRadiobutton);
     set(handles.specificTextfield, 'string', state.specificTextfield);
-    set(handles.columnNamePopup,'value', state.columnNameindex);
     set(handles.NumResultsPopUp,'value', state.NumResultsindex);
     set(handles.OrderResultsPopUp,'value', state.OrderResultsindex);
     
     % IF no file in saved state, disable run button
-    if strcmp(state.file,'PATH_TO_FILE')
+    if strcmp(handles.inputFile,'PATH_TO_FILE')
         set(handles.cmd_runTool,'Enable','off'); %disable runTool button
         set(handles.generalRadiobutton, 'Enable', 'off'); % disable buttons
         set(handles.specificRadiobutton,'Enable','off');
