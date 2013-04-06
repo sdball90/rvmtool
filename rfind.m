@@ -174,7 +174,7 @@ else
                 continue;
             end
             is_num = str2num(char(look));
-            if(is_num)
+            if(isnumeric(is_num))
                 or_find_sub = sprintf('"%s" = %d', column_names, is_num);
             else
                 or_find_sub = sprintf('"%s" like ''%%%s%%''', column_names, char(look));
@@ -208,7 +208,9 @@ else
     sqlitecmd(dbid,cmd);
 end
 % Commit last transactions and close the database and progress bar
-sqlitecmd(dbid,'commit');
+if ( check_commit <= mod(sum(tblid),1000) )
+    sqlitecmd(dbid,'commit');
+end
 close(h);
 sqliteclose(dbid);
 
