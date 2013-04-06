@@ -142,6 +142,10 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 set(handles.statusField,'String',''); %empty the status text box
+set(handles.generalRadiobutton,'value',1);
+set(handles.specificRadiobutton,'value',0);
+set(handles.specificTextfield,'Enable','off');
+set(handles.columnNamePopup,'Enable','off');
 
 FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
              '*.xlsx','Excel Workbook (*.xlsx)';...
@@ -235,13 +239,23 @@ if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
     else
         set(handles.statusField,'String','RFIND successful.'); %write to status field
         plotr(colnamedd,ordresult,numresult,1);
-        txtdump(colnamedd,1);
+        error = txtdump(colnamedd,1);
+        if error == true
+            set(handles.statusField,'string','TXTDUMP: Couldn''t open output file.');
+        end
     end
 else
-    rfind(rownum,column_names);
-    set(handles.statusField,'String','RFIND successful.'); %write to status field
-    plotr(column_names,ordresult,numresult,0);
-    txtdump(column_names,0);
+    error = rfind(rownum,column_names);
+    if error == true
+        set(handles.statusField,'string','Error in RFIND.');
+    else
+        set(handles.statusField,'String','RFIND successful.'); %write to status field
+        plotr(column_names,ordresult,numresult,0);
+        error = txtdump(column_names,0);
+        if error == true
+            set(handles.statusField,'string','TXTDUMP: Couldn''t open output file.');
+        end
+    end
 end
 
 if error == false
@@ -312,6 +326,10 @@ if exist(prevstate, 'file')
         set(handles.cmd_runTool,'Enable','on'); %enable runTool button
         set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
         set(handles.specificRadiobutton,'Enable','on');
+        set(handles.NumResultsText,'Enable','on');
+        set(handles.NumResultsPopUp,'Enable','on');
+        set(handles.OrderResultsText,'Enable','on');
+        set(handles.OrderResultsPopUp,'Enable','on');
     end
     
     
@@ -319,10 +337,6 @@ if exist(prevstate, 'file')
     if(get(handles.specificRadiobutton, 'Value') == 1)  
       set(handles.specificTextfield,'Enable','on');
       set(handles.columnNamePopup,'Enable','on');
-      set(handles.NumResultsText,'Enable','on');
-      set(handles.NumResultsPopUp,'Enable','on');
-      set(handles.OrderResultsText,'Enable','on');
-      set(handles.OrderResultsPopUp,'Enable','on');
       file = get(handles.inputFile,'String');
       [column_names, ~] = getColumnnames(file);
       set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag
