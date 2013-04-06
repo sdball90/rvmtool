@@ -142,6 +142,10 @@ function cmd_getFile_Callback(hObject, eventdata, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
 set(handles.statusField,'String',''); %empty the status text box
+set(handles.generalRadiobutton,'value',1);
+set(handles.specificRadiobutton,'value',0);
+set(handles.specificTextfield,'Enable','off');
+set(handles.columnNamePopup,'Enable','off');
 
 FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
              '*.xlsx','Excel Workbook (*.xlsx)';...
