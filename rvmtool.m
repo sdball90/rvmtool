@@ -15,6 +15,8 @@ function varargout = rvmtool(varargin)
 % 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
 % 22 March    2013  Zachary Kaberlein  Added search/filter options
 % 28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
+% 3  April    2013  Phillip Shaw       Implement specific search GUI
+% 5  April    2013  Phillip Shaw       Finished correct save state
 
 % INPUTS:
 % varargin are any input arguments
@@ -43,8 +45,6 @@ function varargout = rvmtool(varargin)
 %       plot relationships in new figures
 %   END
 %   
-% TODO:
-% - finish general vs specific code logic
 % 
 %--------------------------------------------------------------------------
 % RVMTOOL MATLAB code for rvmtool.fig
@@ -110,8 +110,6 @@ set(handles.specificTextfield,'Enable','off');
 set(handles.columnNamePopup,'Enable','off');
 set(handles.generalRadiobutton, 'Enable', 'off');
 set(handles.specificRadiobutton,'Enable','off');
-set(handles.DelimeterText,'Enable','off');
-set(handles.DelimeterPopUp,'Enable','off');
 set(handles.NumResultsText,'Enable','off');
 set(handles.NumResultsPopUp,'Enable','off');
 set(handles.OrderResultsText,'Enable','off');
@@ -150,13 +148,27 @@ FilterSet = {'*.ods;*.xls;*.xlsx','All Spreadsheets (*.ods,*.xls*)';...
              '*.xls','Excel 97-2003 Workbook (*.xls)';...
              '*.ods','OpenDocument Spreadsheet'}; %define filter set 
 
-[file,path] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
+[file,path,index] = uigetfile(FilterSet,'Browse for spreadsheet'); %get file
 %handles.filename = strcat(path,file); %set filename
-set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
-set(handles.cmd_runTool,'Enable','on'); %enable runTool button
-
-set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
-set(handles.specificRadiobutton,'Enable','on');
+if index ~= 0
+    set(handles.inputFile,'String',strcat(path,file)); %write filename to input text field
+    set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
+    set(handles.specificRadiobutton,'Enable','on');
+    set(handles.NumResultsText,'Enable','on');
+    set(handles.NumResultsPopUp,'Enable','on');
+    set(handles.OrderResultsText,'Enable','on');
+    set(handles.OrderResultsPopUp,'Enable','on');
+else
+    set(handles.inputFile,'String','PATH_TO_FILE'); %write filename to input text field
+    set(handles.cmd_runTool,'Enable','off'); %enable runTool button
+    set(handles.generalRadiobutton, 'Enable', 'off'); % enable buttons
+    set(handles.specificRadiobutton,'Enable','off');
+    set(handles.NumResultsText,'Enable','off');
+    set(handles.NumResultsPopUp,'Enable','off');
+    set(handles.OrderResultsText,'Enable','off');
+    set(handles.OrderResultsPopUp,'Enable','off');
+end
 
 guidata(hObject, handles);
 
@@ -167,22 +179,10 @@ function cmd_runTool_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 
-% TODO: At runtime, figure out general or specific search
-% once done, below values can be put to use
-% contents = cellstr(get(handles.columnNamePopup,'String'));
-% colnamedd = contents{get(handles.columnNamePopup,'Value')};
-% 
-% contents = cellstr(get(handles.DelimeterPopup,'String'));
-% delim = contents{get(handles.DelimeterPopup,'Value')};
-% 
-% contents = cellstr(get(handles.NumResultsPopup,'String'));
-% numresult = contents{get(handles.NumResultsPopup,'Value')};
-% 
-% contents = cellstr(get(handles.OrderResultsPopup,'String'));
-% ordresult = contents{get(handles.OrderResultsPopup,'Value')};
+set(handles.cmd_runTool,'Enable','off'); %disable runTool button
+set(handles.cmd_getFile,'Enable','off'); %disable browse button
 
-
-tic
+tic % start time
 set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
 [rownum,column_names,error] = xls2db(file); %run db script
@@ -190,17 +190,67 @@ file = get(handles.inputFile,'string');
 %UPDATE: remove status field for waitbar
 if error == true
     set(handles.statusField,'String','Error importing data.'); %write to status field
+    set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+    set(handles.cmd_getFile,'Enable','on'); %enable browse button
+    return;
 else
     set(handles.statusField,'String','XLS2DB successful.'); %write to status field
 end
 
-rfind(rownum,column_names);
-set(handles.statusField,'String','RFIND successful.'); %write to status field
-% PLOTR(COLUMN_NAMES,ASEC/DEC,NUMRESULTS)
-plotr(column_names,1,20);
-timer = toc;
-mesg = sprintf('Completed in %f seconds',timer);
-set(handles.statusField,'String',mesg); %write to status field
+% Get the number of results from GUI
+contents = cellstr(get(handles.NumResultsPopUp,'String'));
+numresult = contents{get(handles.NumResultsPopUp,'Value')}; %get how many results we want
+switch numresult
+    case 'Top 10'
+        numresult = 10;
+    case 'Top 20'
+        numresult = 20;
+    case 'Top 50'
+        numresult = 50;
+    case 'Top 100'
+        numresult = 100;
+    case 'All Results'
+        numresult = -1;
+end
+
+% Get order preference from GUI
+contents = cellstr(get(handles.OrderResultsPopUp,'String'));
+ordresult = contents{get(handles.OrderResultsPopUp,'Value')}; %get order of results
+switch ordresult
+    case 'Ascending'
+        ordresult = 1;
+    case 'Descending'
+        ordresult = 0;
+end
+  
+if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
+    % Get specific search text from GUI
+    contents = cellstr(get(handles.columnNamePopup,'String'));
+    colnamedd = contents{get(handles.columnNamePopup,'Value')}; %get which column to search
+    spectext = get(handles.specificTextfield,'String'); %get specific search text
+  
+    error = rfind(rownum,colnamedd, spectext);
+    if error == true
+        set(handles.statusField,'String','Invalid search string.'); %write to status field
+    else
+        set(handles.statusField,'String','RFIND successful.'); %write to status field
+        plotr(colnamedd,ordresult,numresult,1);
+        txtdump(colnamedd,1);
+    end
+else
+    rfind(rownum,column_names);
+    set(handles.statusField,'String','RFIND successful.'); %write to status field
+    plotr(column_names,ordresult,numresult,0);
+    txtdump(column_names,0);
+end
+
+if error == false
+    timer = toc; %stop the clock
+    mesg = sprintf('Completed in %f seconds',timer);
+    set(handles.statusField,'String',mesg); %write to status field
+end
+set(handles.cmd_runTool,'Enable','on'); %enable runTool button
+set(handles.cmd_getFile,'Enable','on'); %enable browse button
 %
 guidata(hObject,handles); %update handles structure
 
@@ -223,6 +273,12 @@ state.file = get(handles.inputFile, 'string'); % get the full name
 state.generalRadiobutton = get(handles.generalRadiobutton, 'value');
 state.specificRadiobutton = get(handles.specificRadiobutton, 'value');
 state.specificTextfield = get(handles.specificTextfield, 'string');
+if(state.specificRadiobutton == 1)
+  state.columnNameindex = get(handles.columnNamePopup, 'value');
+end
+state.NumResultsindex = get(handles.NumResultsPopUp, 'value');
+state.OrderResultsindex = get(handles.OrderResultsPopUp, 'value');
+
 
 save('state.mat', 'state'); % save to state.mat
 % Update handles structure
@@ -237,14 +293,18 @@ prevstate = 'state.mat';
 
 if exist(prevstate, 'file')
     load(prevstate);
-    %handles.filename = state.file;
     set(handles.inputFile,'String', state.file);
+    if ~exist(state.file,'file')
+        set(handles.inputFile,'string','PATH_TO_FILE');
+    end
     set(handles.generalRadiobutton, 'value', state.generalRadiobutton);
     set(handles.specificRadiobutton, 'value', state.specificRadiobutton);
     set(handles.specificTextfield, 'string', state.specificTextfield);
+    set(handles.NumResultsPopUp,'value', state.NumResultsindex);
+    set(handles.OrderResultsPopUp,'value', state.OrderResultsindex);
     
     % IF no file in saved state, disable run button
-    if strcmp(state.file,'PATH_TO_FILE')
+    if strcmp(handles.inputFile,'PATH_TO_FILE')
         set(handles.cmd_runTool,'Enable','off'); %disable runTool button
         set(handles.generalRadiobutton, 'Enable', 'off'); % disable buttons
         set(handles.specificRadiobutton,'Enable','off');
@@ -253,22 +313,22 @@ if exist(prevstate, 'file')
         set(handles.generalRadiobutton, 'Enable', 'on'); % enable buttons
         set(handles.specificRadiobutton,'Enable','on');
     end
-    delete(prevstate)
+    
     
     % IF SPECIFIC - RUN GETCOLUMNS
     if(get(handles.specificRadiobutton, 'Value') == 1)  
       set(handles.specificTextfield,'Enable','on');
       set(handles.columnNamePopup,'Enable','on');
-      set(handles.DelimeterText,'Enable','on');
-      set(handles.DelimeterPopUp,'Enable','on');
       set(handles.NumResultsText,'Enable','on');
       set(handles.NumResultsPopUp,'Enable','on');
       set(handles.OrderResultsText,'Enable','on');
       set(handles.OrderResultsPopUp,'Enable','on');
       file = get(handles.inputFile,'String');
       [column_names, ~] = getColumnnames(file);
-      set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag 
+      set(handles.columnNamePopup,'String',column_names); % column_names is popup menu tag
+      set(handles.columnNamePopup,'value', state.columnNameindex);
     end
+    delete(prevstate)
 end
 % Update handles structure
 guidata(hObject, handles);
@@ -318,12 +378,10 @@ if(get(hObject, 'Value') == get(hObject, 'Max'))
     set(handles.specificRadiobutton, 'Value', 0);
     set(handles.specificTextfield,'Enable','off');
     set(handles.columnNamePopup,'Enable','off');
-    set(handles.DelimeterText,'Enable','off');
-    set(handles.DelimeterPopUp,'Enable','off');
-    set(handles.NumResultsText,'Enable','off');
-    set(handles.NumResultsPopUp,'Enable','off');
-    set(handles.OrderResultsText,'Enable','off');
-    set(handles.OrderResultsPopUp,'Enable','off');
+    set(handles.NumResultsText,'Enable','on');
+    set(handles.NumResultsPopUp,'Enable','on');
+    set(handles.OrderResultsText,'Enable','on');
+    set(handles.OrderResultsPopUp,'Enable','on');
 end
 
 
@@ -340,8 +398,6 @@ set(handles.specificTextfield,'Enable','on');
 set(handles.columnNamePopup,'Enable','on');
 
 %Enable all other search options
-set(handles.DelimeterText,'Enable','on');
-set(handles.DelimeterPopUp,'Enable','on');
 set(handles.NumResultsText,'Enable','on');
 set(handles.NumResultsPopUp,'Enable','on');
 set(handles.OrderResultsText,'Enable','on');
@@ -385,36 +441,6 @@ end
 
 waitbar(1, h, 'Complete');
 delete(h);
-
-
-% --- Executes during object creation, after setting all properties.
-function DelimeterText_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to DelimeterText (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-
-% --- Executes on selection change in DelimeterPopUp.
-function DelimeterPopUp_Callback(hObject, eventdata, handles)
-% hObject    handle to DelimeterPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns DelimeterPopUp contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from DelimeterPopUp
-
-
-% --- Executes during object creation, after setting all properties.
-function DelimeterPopUp_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to DelimeterPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
-if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
-    set(hObject,'BackgroundColor','white');
-end
 
 
 % --- Executes on selection change in NumResultsPopUp.
