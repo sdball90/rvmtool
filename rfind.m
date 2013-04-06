@@ -97,7 +97,7 @@ if(length(varargin) < 1)
                         continue;
                     end
                     % Find relationships and place counts into database
-                    [rows,input] = findrel(dbid,column_names,char(look));
+                    [rows,input] = findrel(dbid,column_names,char(look),j);
                     insert2db(dbid,char(column_names(j)),index,tblid(j),...
                         char(look),rows,input);
                     tblid(j) = tblid(j) + 1;
@@ -106,13 +106,13 @@ if(length(varargin) < 1)
             else
 
                 % Skip if value already in database
-                cmd = sprintf('select count (tblid) from ''%s'' where column_value = %d',...
-                    char(column_names(j)),cell2mat(row(j)));
+                cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value like ''%%%d%%'')',...
+                    char(column_names(j)),cell2mat(row(j)),cell2mat(row(j)));
                 check_val = sqlitecmd(dbid,cmd);
                 if (cell2mat(check_val) ~= 0)
                     continue;
                 end
-                [rows,input] = findrel(dbid,column_names,cell2mat(row(j)));
+                [rows,input] = findrel(dbid,column_names,cell2mat(row(j)),j);
                 % Insert counts into database and increment tblid
                 insert2db(dbid,char(column_names(j)),index,tblid(j),...
                     cell2mat(row(j)),rows,input);
@@ -175,7 +175,8 @@ else
             end
             is_num = str2num(char(look));
             if(isnumeric(is_num))
-                or_find_sub = sprintf('"%s" = %d', column_names, is_num);
+                or_find_sub = sprintf('("%s" = %d OR "%s" like ''%%%d%%'')', ...
+                    column_names, is_num, column_names, is_num);
             else
                 or_find_sub = sprintf('"%s" like ''%%%s%%''', column_names, char(look));
             end
@@ -246,10 +247,11 @@ end
 %   DBID - Database ID
 %   COLUMN_NAMES - Array of all the column names
 %   VALUE - Specific value to find relationships for
+%   CURRENT_COLUMN - Column value came from
 % OUTPUTS
 %   ROWS - String containing all rows value was found
 %   INPUT - String of comma delimited values for counts
-function [rows,input] = findrel(dbid,column_names,value)
+function [rows,input] = findrel(dbid,column_names,value,current_column)
 input = '';
 colnum = length(column_names);
 row_result = [];
@@ -259,18 +261,16 @@ for i = 2:colnum
         cmd = sprintf('select tblid from t where "%s" like ''%%%s%%''', ...
             char(column_names(i)), value);
     else
-        cmd = sprintf('select tblid from t where "%s" = %d', ...
-            char(column_names(i)), value);
+        cmd = sprintf('select tblid from t where ("%s" = %d OR "%s" like ''%%%d%%'')', ...
+            char(column_names(i)), value, char(column_names(i)), value);
     end
     result = sqlitecmd(dbid,cmd);
     input = sprintf('%s,%d',input,length(result));
-    if ~isempty(result)
-        for j = 1:length(result)
-            rownum = cell2mat(result(j));
-            if isempty(find(row_result==rownum,1))
-                row_result = [row_result;rownum];
-            end
-        end
+    if isempty(result)
+        continue;
+    end
+    if i==current_column
+        row_result=cell2mat(result);
     end
 end
 rows = mat2str(row_result);
