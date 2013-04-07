@@ -96,17 +96,24 @@ if(length(varargin) < 1)
                     if (cell2mat(check_val) ~= 0)
                         continue;
                     end
-                    % Find relationships and place counts into database
-                    [rows,input] = findrel(dbid,column_names,char(look),j);
+                    if(~isempty(str2num(char(look))))
+                        look = str2num(char(look));
+                        % Find relationships and place counts into database
+                        [rows,input] = findrel(dbid,column_names,look,j);
+                    else
+                        look = char(look);
+                        % Find relationships and place counts into database
+                        [rows,input] = findrel(dbid,column_names,char(look),j);
+                    end
                     insert2db(dbid,char(column_names(j)),index,tblid(j),...
-                        char(look),rows,input);
+                        look,rows,input);
                     tblid(j) = tblid(j) + 1;
                 end
             % If value in cell is not a string, it is a number
             else
 
                 % Skip if value already in database
-                cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value like ''%%%d%%'')',...
+                cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value LIKE ''%%%d%%'')',...
                     char(column_names(j)),cell2mat(row(j)),cell2mat(row(j)));
                 check_val = sqlitecmd(dbid,cmd);
                 if (cell2mat(check_val) ~= 0)
@@ -148,7 +155,7 @@ else
     end
     
     str_delimiter = get_delimiter(dbid,char(column_names));
-    if char(str_delimiter) == '\|'
+    if strcmp(char(str_delimiter),'\|')
         str_delimiter = '|';
     end
     for i = 1:and_length
@@ -265,10 +272,19 @@ for i = 2:colnum
         cmd = sprintf('select tblid from t where "%s" like ''%%%s%%''', ...
             char(column_names(i)), value);
     else
-        cmd = sprintf('select tblid from t where ("%s" = %d OR "%s" like ''%%%d%%'')', ...
-            char(column_names(i)), value, char(column_names(i)), value);
+        delimiter = get_delimiter(dbid, char(column_names(i)));
+        if(~isempty(char(delimiter)))
+            if(strcmp(char(delimiter), '\|'))
+                delimiter = '|';
+            end
+            cmd = sprintf('select tblid from t where ("%s" = %d OR "%s" LIKE ''%d%s%%'' OR "%s" LIKE ''%%%s%d'' OR "%s" LIKE ''%%%s%d%s%%'')', ...
+                char(column_names(i)), value, char(column_names(i)), value, char(delimiter), char(column_names(i)), char(delimiter), value, char(column_names(i)), char(delimiter), value, char(delimiter));
+        else
+            cmd = sprintf('select tblid from t where ("%s" = %d OR "%s" LIKE ''%%%d%%'')', ...
+                char(column_names(i)), value, char(column_names(i)), value);
+        end
     end
-    result = sqlitecmd(dbid,cmd);
+    result = sqlitecmd(dbid,cmd)
     input = sprintf('%s,%d',input,length(result));
     if isempty(result)
         continue;
