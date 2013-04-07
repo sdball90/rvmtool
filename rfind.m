@@ -90,21 +90,23 @@ if(length(varargin) < 1)
                     if (isempty(char(look)))
                         continue;
                     end
-                    cmd = sprintf('select count (tblid) from ''%s'' where column_value = ''%s''',...
-                        char(column_names(j)),char(look));
+                    % Check if split string is a number
+                    if(~isnan(str2double(char(look))))
+                        look = str2double(char(look));
+                        cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value LIKE ''%%%d%%'')',...
+                            char(column_names(j)),look,look);
+                    else
+                        look = char(look);
+                        cmd = sprintf('select count (tblid) from ''%s'' where column_value = ''%s''',...
+                            char(column_names(j)),look);
+                    end
                     check_val = sqlitecmd(dbid,cmd);
                     if (cell2mat(check_val) ~= 0)
                         continue;
                     end
-                    if(~isempty(str2num(char(look))))
-                        look = str2num(char(look));
-                        % Find relationships and place counts into database
-                        [rows,input] = findrel(dbid,column_names,look,j);
-                    else
-                        look = char(look);
-                        % Find relationships and place counts into database
-                        [rows,input] = findrel(dbid,column_names,char(look),j);
-                    end
+                    
+                    % Find relationships and place counts into database
+                    [rows,input] = findrel(dbid,column_names,look,j);
                     insert2db(dbid,char(column_names(j)),index,tblid(j),...
                         look,rows,input);
                     tblid(j) = tblid(j) + 1;
@@ -184,10 +186,13 @@ else
             if isempty(look)
                 continue;
             end
-            is_num = str2num(char(look));
-            if(~isempty(is_num))
+            is_num = str2double(char(look));
+            if(~isnan(is_num))
                 or_find_sub = sprintf('("%s" = %d OR "%s" LIKE ''%d%s%%'' OR "%s" LIKE ''%%%s%d'' OR "%s" LIKE ''%%%s%d%s%%'')', ...
-                    column_names, is_num, column_names, is_num, char(str_delimiter), column_names, char(str_delimiter), is_num, column_names, char(str_delimiter), is_num, char(str_delimiter));
+                    column_names, is_num, ...
+                    column_names, is_num, char(str_delimiter), ...
+                    column_names, char(str_delimiter), is_num, ...
+                    column_names, char(str_delimiter), is_num, char(str_delimiter));
             else
                 or_find_sub = sprintf('"%s" like ''%%%s%%''', column_names, char(look));
             end
@@ -278,13 +283,16 @@ for i = 2:colnum
                 delimiter = '|';
             end
             cmd = sprintf('select tblid from t where ("%s" = %d OR "%s" LIKE ''%d%s%%'' OR "%s" LIKE ''%%%s%d'' OR "%s" LIKE ''%%%s%d%s%%'')', ...
-                char(column_names(i)), value, char(column_names(i)), value, char(delimiter), char(column_names(i)), char(delimiter), value, char(column_names(i)), char(delimiter), value, char(delimiter));
+                char(column_names(i)), value, ...
+                char(column_names(i)), value, char(delimiter), ...
+                char(column_names(i)), char(delimiter), value, ...
+                char(column_names(i)), char(delimiter), value, char(delimiter));
         else
             cmd = sprintf('select tblid from t where ("%s" = %d OR "%s" LIKE ''%%%d%%'')', ...
                 char(column_names(i)), value, char(column_names(i)), value);
         end
     end
-    result = sqlitecmd(dbid,cmd)
+    result = sqlitecmd(dbid,cmd);
     input = sprintf('%s,%d',input,length(result));
     if isempty(result)
         continue;
