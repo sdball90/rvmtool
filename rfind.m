@@ -81,7 +81,7 @@ if(length(varargin) < 1)
                     % Remove whitespace from beginning and end of the string
                     % and fix single quotes in the string
                     if iscell(string)
-                        look = fixstr(string(k));
+                        look = fixstr(char(string(k)));
                     else
                         look = fixstr(string);
                     end
@@ -93,7 +93,7 @@ if(length(varargin) < 1)
                     % Check if split string is a number
                     if(~isnan(str2double(char(look))))
                         look = str2double(char(look));
-                        cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value LIKE ''%%%d%%'')',...
+                        cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value LIKE ''%d'')',...
                             char(column_names(j)),look,look);
                     else
                         look = char(look);
@@ -115,7 +115,7 @@ if(length(varargin) < 1)
             else
 
                 % Skip if value already in database
-                cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value LIKE ''%%%d%%'')',...
+                cmd = sprintf('select count (tblid) from ''%s'' where (column_value = %d OR column_value LIKE ''%d'')',...
                     char(column_names(j)),cell2mat(row(j)),cell2mat(row(j)));
                 check_val = sqlitecmd(dbid,cmd);
                 if (cell2mat(check_val) ~= 0)
