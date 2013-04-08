@@ -1,5 +1,5 @@
 function status = rfind(rownum,column_names, varargin)
-%------------------------------------------------------------------------------
+%--------------------------------------------------------------------------
 % RFIND looks for relationships between elements in a database
 %
 % HISTORY:
@@ -7,7 +7,7 @@ function status = rfind(rownum,column_names, varargin)
 % 25 February 2013  Aaron Caldwell  Iterate on rows/columns/splits/columns
 % 27 February 2013  Dennis Magee    Store relationships into database
 %  3 April    2013  Aaron Caldwell  Adding Specific search parameters
-%  3 April    2013  Dennis Magee    Error Prevention and add specific to database
+%  3 April    2013  Dennis Magee    Error Prevention, add specific to DB
 %
 % STATUS = RFIND(ROWNUM,COLUMN_NAME)
 %
@@ -21,7 +21,17 @@ function status = rfind(rownum,column_names, varargin)
 %		1 if there is an error, 0 if no error
 %
 % METHOD:
-%------------------------------------------------------------------------------
+%   Open Database
+%   Find primary delimiter used in columns
+%   Check if a general or specific search
+%   Iterate through every row in database
+%       Iterate through every column in row
+%           Check if value in database is string or number
+%           Split string if needed
+%           Check if value has already been searched for
+%           Find every row that contains value and store in database
+%   Close Database
+%--------------------------------------------------------------------------
 status = 0;
 wait_bar = 0;
 h = waitbar(wait_bar,'Finding Relationships:'); % progress bar
