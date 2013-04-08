@@ -17,7 +17,8 @@ function [ status ] = txtdump( column_names, specific )
 %
 
 status = 0;
-border = '++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++';
+border = '++++++++++++++++++++++++++++++++++++++++';
+border = strcat(border,border,border,border);
 % Open text file and database data
 fid = fopen('textdump.txt','wt');
 if (fid == -1)
