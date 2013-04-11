@@ -66,15 +66,14 @@ if specific==0
                 k = k+1;
             end
         end
-        if num_results == -1
-            num_results = ticks;
-        end
         % Create the figure and plot the values
-        if ticks > num_results
+        if (ticks > num_results && num_results > 0)
             if sort==0
-                bar_graph(graph_values(ticks-num_results+1:ticks),graph_labels(ticks-num_results+1:ticks),num_results,title);
+                bar_graph(graph_values(end-num_results+1:end),...
+                    graph_labels(end-num_results+1:end),num_results,title);
             else
-                bar_graph(graph_values(1:num_results),graph_labels(1:num_results),num_results,title);
+                bar_graph(graph_values(1:num_results),...
+                    graph_labels(1:num_results),num_results,title);
             end
         else
             bar_graph(graph_values,graph_labels,ticks,title);
@@ -95,5 +94,5 @@ barh(values);
 set(gca,'YTick',1:ticks,'YTickLabel',labels,...
     'XLim',[min(values)-1 max(values)+1]);
 title(plot_title);
-xlabel('Number of hits');
-ylabel('Items searched for');
+xlabel('Number of rows value was found');
+ylabel('Values searched');
