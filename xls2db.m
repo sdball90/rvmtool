@@ -9,6 +9,7 @@ function [rownum,column_names,error] = xls2db(file)
 % 29 December 2012  Phillip Shaw    Added progress bar
 % 24 February 2013  Dennis Magee    Added error check when opening excel file
 %  3 April    2013  Dennis Magee    Add Specific_Search table
+% 11 April    2013  Dennis Magee    Fix empty column issue
 %
 % [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
 %
@@ -69,9 +70,32 @@ column_names(1,1) = cellstr('tblid');
 % Create table with columns
 index = '';
 for i = 1:colnum
-    index = sprintf('%s,''%s''',index,char(raw(1,i)));
-    column_names(1,i+1) = cellstr(sprintf('%s',char(raw(1,i))));
+    % Check if column name is an empty string
+    if isnan(cell2mat(raw(1,i)))
+        error = true;
+        delete(h);
+        sqliteclose(dbid);
+        return;
+    elseif iscellstr(raw(1,i))
+        if isempty(strtrim(char(raw(1,i))))
+            error = true;
+            delete(h);
+            sqliteclose(dbid);
+            return;
+        end
+    end
+    % Check if column name is a number, convert to string
+    if iscellstr(raw(1,i))
+        column = char(raw(1,i));
+    else
+        column = sprintf('%d',cell2mat(raw(1,i)));
+    end
+    % Add column name to the list of column names
+    index = sprintf('%s,''%s''',index,column);
+    column_names(1,i+1) = cellstr(sprintf('%s',column));
 end
+
+% Create the primary table
 cmd = sprintf('create table t(tblid integer primary key%s)',index);
 [~,status] = sqlitecmd(dbid,cmd);
 error = or(error,status);
@@ -112,7 +136,7 @@ sqlitecmd(dbid,'commit');
 sqlitecmd(dbid,'begin transaction');
 for i = 1:colnum
     cmd = sprintf('create table "%s"(tblid integer primary key,column_value,rownum%s)',...
-        char(raw(1,i)),index);
+        char(column_names(i+1)),index);
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
 end
