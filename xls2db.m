@@ -86,7 +86,7 @@ for i = 1:colnum
     end
     % Check if column name is a number, convert to string
     if iscellstr(raw(1,i))
-        column = char(raw(1,i));
+        column = strtrim(char(raw(1,i)));
     else
         column = sprintf('%d',cell2mat(raw(1,i)));
     end
