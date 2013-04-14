@@ -283,10 +283,15 @@ delete(hObject);
 % --- Save the state of the GUI.
 function saveState(hObject, handles)
 % handles   structure with handles and user data (see GUIDATA)
+
+wait_bar = 0;
+h = waitbar(wait_bar,'Saving State...'); % progress bar
+
 state.file = get(handles.inputFile, 'string'); % get the full name
 state.generalRadiobutton = get(handles.generalRadiobutton, 'value');
 state.specificRadiobutton = get(handles.specificRadiobutton, 'value');
 state.specificTextfield = get(handles.specificTextfield, 'string');
+waitbar(0.5,h); %update progress
 if(state.specificRadiobutton == 1)
   state.columnNameindex = get(handles.columnNamePopup, 'value');
 end
@@ -295,6 +300,8 @@ state.OrderResultsindex = get(handles.OrderResultsPopUp, 'value');
 
 
 save('state.mat', 'state'); % save to state.mat
+waitbar(1,h,'Save State Done!'); %we're done
+close(h);
 % Update handles structure
 guidata(hObject, handles);
 
@@ -303,6 +310,8 @@ guidata(hObject, handles);
 function loadState(hObject, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
+wait_bar = 0;
+h = waitbar(wait_bar,'Loading Previous State...'); % progress bar
 prevstate = 'state.mat';
 
 if exist(prevstate, 'file')
@@ -317,6 +326,7 @@ if exist(prevstate, 'file')
     set(handles.NumResultsPopUp,'value', state.NumResultsindex);
     set(handles.OrderResultsPopUp,'value', state.OrderResultsindex);
     
+    waitbar(0.33,h); %update
     % IF no file in saved state, disable run button
     if strcmp(handles.inputFile,'PATH_TO_FILE')
         set(handles.cmd_runTool,'Enable','off'); %disable runTool button
@@ -331,7 +341,7 @@ if exist(prevstate, 'file')
         set(handles.OrderResultsText,'Enable','on');
         set(handles.OrderResultsPopUp,'Enable','on');
     end
-    
+    waitbar(0.66,h); %update
     
     % IF SPECIFIC - RUN GETCOLUMNS
     if(get(handles.specificRadiobutton, 'Value') == 1)  
@@ -343,6 +353,8 @@ if exist(prevstate, 'file')
       set(handles.columnNamePopup,'value', state.columnNameindex);
     end
     delete(prevstate)
+    waitbar(1,h,'Previous State Loaded');
+    close(h);
 end
 % Update handles structure
 guidata(hObject, handles);
