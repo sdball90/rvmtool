@@ -23,10 +23,6 @@ function plotr( rownum, column_names, sort, num_results, specific )
 colnum = length(column_names);
 dbid = sqliteopen('test.db');
 if specific==0
-    t = linspace(0,2*pi,rownum+1);
-    x = (rownum+1)*cos(t);
-    y = (rownum+1)*sin(t);
-    xy = [x' y'];
     for i = 2:colnum
         column = char(column_names(i));
         % Grab data to plot for the column
@@ -77,28 +73,83 @@ if specific==0
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % Simple Node Plot
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        A = zeros(rownum+1,rownum+1);
+        t = linspace(0,2*pi,ticks+2);
+        big_x = (rownum)*cos(t);
+        big_y = (rownum)*sin(t);
+        big_xy = [big_x' big_y'];
+        xy = zeros(rownum,2);
+        A = zeros(rownum,rownum);
         figure;
         hold on;
-        axis([-rownum-2 rownum+2 -rownum-2 rownum+2]);
-        for j=1:rownum
-            %node = sprintf('$\\textcircled{%d}$',j);
-            %text(xy(j,1),xy(j,2),node, 'Interpreter', 'latex');
-            text(xy(j,1),xy(j,2),mat2str(j),'EdgeColor','black');
-        end
-        if (num_results<0 || num_results>ticks)
-            loop=ticks;
-        else
-            loop=num_results;
-        end
-        for j=1:loop
+        for j=1:ticks
             node = str2num(char(graph_rows(j))); %#ok<ST2NM>
+            num_nodes=1;
+            center = big_xy(j,:);
+            if center(1)>=0
+                if center(2)>=0
+                    t = linspace(pi/4,2*pi+pi/4,length(node)+1);
+                else
+                    t = linspace(-pi/4,2*pi-pi/4,length(node)+1);
+                end
+            else
+                if center(2)>=0
+                    t = linspace(3*pi/4,2*pi+3*pi/4,length(node)+1);
+                else
+                    t = linspace(-3*pi/4,2*pi-3*pi/4,length(node)+1);
+                end
+            end
+            radius = pi*rownum/(ticks+5);
+            x = radius*cos(t)+center(1);
+            y = radius*sin(t)+center(2);
             for k=1:length(node)
                 for l=1:length(node)
                     if k~=l
                         A(node(k),node(l))=1;
                     end
                 end
+                if ~xy(node(k),1) && ~xy(node(k),2)
+                    xy(node(k),1:2) = [x(num_nodes) y(num_nodes)];
+                    num_nodes = num_nodes+1;
+                end
+            end
+            % Labels for big groups
+            if num_nodes>1
+                if center(1)>=0
+                    % 1st quad
+                    if center(2)>=0
+                        text(max(x),max(y),char(graph_labels(j)),...
+                            'FontWeight','bold',...
+                            'HorizontalAlignment','left',...
+                            'VerticalAlignment','bottom');
+                    % 4th quad
+                    else
+                        text(max(x),min(y),char(graph_labels(j)),...
+                            'FontWeight','bold',...
+                            'HorizontalAlignment','left',...
+                            'VerticalAlignment','top');
+                    end
+                else
+                    % 2nd quad
+                    if center(2)>=0
+                        text(min(x),max(y),char(graph_labels(j)),...
+                            'FontWeight','bold',...
+                            'HorizontalAlignment','right',...
+                            'VerticalAlignment','bottom');
+                    % 3rd quad
+                    else
+                        text(min(x),min(y),char(graph_labels(j)),...
+                            'FontWeight','bold',...
+                            'HorizontalAlignment','right',...
+                            'VerticalAlignment','top');
+                    end
+                end
+            end
+        end
+        ax = rownum*(1+pi/ticks);
+        axis([-ax ax -ax ax]);
+        for j=1:rownum
+            if xy(j,1) || xy(j,2)
+                text(xy(j,1),xy(j,2),mat2str(j),'EdgeColor','black');
             end
         end
         gplot(A,xy,'-');
