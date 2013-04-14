@@ -238,7 +238,7 @@ if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
         set(handles.statusField,'String','Invalid search string.'); %write to status field
     else
         set(handles.statusField,'String','RFIND successful.'); %write to status field
-        plotr(colnamedd,ordresult,numresult,1);
+        plotr(rownum,colnamedd,ordresult,numresult,1);
         error = txtdump(colnamedd,1);
         if error == true
             set(handles.statusField,'string','TXTDUMP: Couldn''t open output file.');
@@ -250,7 +250,7 @@ else
         set(handles.statusField,'string','Error in RFIND.');
     else
         set(handles.statusField,'String','RFIND successful.'); %write to status field
-        plotr(column_names,ordresult,numresult,0);
+        plotr(rownum,column_names,ordresult,numresult,0);
         error = txtdump(column_names,0);
         if error == true
             set(handles.statusField,'string','TXTDUMP: Couldn''t open output file.');

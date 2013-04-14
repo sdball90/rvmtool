@@ -46,7 +46,7 @@ if (~isempty(tables))
         sqlitecmd(dbid,cmd);
     end
 end
-
+clear tables;
 % Read XLS file to call array RAW and get size
 try
     waitbar(.1, h, 'Reading Excel File:');
@@ -147,3 +147,4 @@ sqlitecmd(dbid,'commit');
 
 sqliteclose(dbid);
 delete(h); % close progress bar
+clear raw;
