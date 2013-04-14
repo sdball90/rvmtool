@@ -73,17 +73,22 @@ if specific==0
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
         % Simple Node Plot
         %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % Big circle
         t = linspace(0,2*pi,ticks+2);
         big_x = (rownum)*cos(t);
         big_y = (rownum)*sin(t);
         big_xy = [big_x' big_y'];
+        % Cordinates and connection matrix for nodes
         xy = zeros(rownum,2);
         A = zeros(rownum,rownum);
         figure;
         hold on;
+        % Loop over non-zero relationships
         for j=1:ticks
-            node = str2num(char(graph_rows(j))); %#ok<ST2NM>
             num_nodes=1;
+            % Matrix of rows value was found
+            node = str2num(char(graph_rows(j))); %#ok<ST2NM>
+            % Center of the smaller circle
             center = big_xy(j,:);
             if center(1)>=0
                 if center(2)>=0
@@ -101,11 +106,11 @@ if specific==0
             radius = pi*rownum/(ticks+5);
             x = radius*cos(t)+center(1);
             y = radius*sin(t)+center(2);
+            
+            % Populate connection matrix
             for k=1:length(node)
-                for l=1:length(node)
-                    if k~=l
-                        A(node(k),node(l))=1;
-                    end
+                for l=k+1:length(node)
+                    A(node(k),node(l))=1;
                 end
                 if ~xy(node(k),1) && ~xy(node(k),2)
                     xy(node(k),1:2) = [x(num_nodes) y(num_nodes)];
@@ -145,6 +150,7 @@ if specific==0
                 end
             end
         end
+        % Set axis and plot nodes
         ax = rownum*(1+pi/ticks);
         axis([-ax ax -ax ax]);
         for j=1:rownum
@@ -155,6 +161,7 @@ if specific==0
         gplot(A,xy,'-');
         title(column);
         clear A;
+        
         % Create the figure and plot the values
         if (ticks > num_results && num_results > 0)
             if sort==0
