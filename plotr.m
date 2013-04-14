@@ -1,10 +1,11 @@
-function plotr( column_names, sort, num_results, specific )
+function plotr( rownum, column_names, sort, num_results, specific )
 % PLOTR Creates figures to give a graphical representation of the
 % relationships in the database
 %
 % HISTORY
 % 28 February 2013  Dennis Magee    Original Code
 %  3 April    2013  Dennis Magee    Don't plot single hits, plot specific searches
+% 14 April    2013  Dennis Magee    Added simple node plots for each column
 %
 % INPUTS
 %   COLUMN_NAMES - Array containing the names of the columns
@@ -22,15 +23,19 @@ function plotr( column_names, sort, num_results, specific )
 colnum = length(column_names);
 dbid = sqliteopen('test.db');
 if specific==0
+    t = linspace(0,2*pi,rownum+1);
+    x = (rownum+1)*cos(t);
+    y = (rownum+1)*sin(t);
+    xy = [x' y'];
     for i = 2:colnum
-        title = char(column_names(i));
+        column = char(column_names(i));
         % Grab data to plot for the column
         if ( sort == 0 )
-            cmd = sprintf('select column_value,"%s" from "%s" order by "%s"',...
-                title,title,title);
+            cmd = sprintf('select column_value,"%s",rownum from "%s" order by "%s"',...
+                column,column,column);
         else
-            cmd = sprintf('select column_value,"%s" from "%s" order by "%s" desc',...
-                title,title,title);
+            cmd = sprintf('select column_value,"%s",rownum from "%s" order by "%s" desc',...
+                column,column,column);
         end
         result = sqlitecmd(dbid,cmd);
         % Nothing to plot if result is empty
@@ -51,6 +56,7 @@ if specific==0
         end
         % Set the values and change to number array
         values = cell2mat(result(:,2));
+        rows = result(:,3);
         ticks = length(find(values~=1));
         if ticks==0
             continue;
@@ -58,25 +64,57 @@ if specific==0
         % Remove single hits from graphs
         graph_values = zeros(1,ticks);
         graph_labels = cell(1,ticks);
+        graph_rows = cell(1,ticks);
         k=1;
         for j=1:length(values)
             if values(j)~=1
                 graph_values(k) = values(j);
                 graph_labels(k) = labels(j);
+                graph_rows(k) = rows(j);
                 k = k+1;
             end
         end
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % Simple Node Plot
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        A = zeros(rownum+1,rownum+1);
+        figure;
+        hold on;
+        axis([-rownum-2 rownum+2 -rownum-2 rownum+2]);
+        for j=1:rownum
+            %node = sprintf('$\\textcircled{%d}$',j);
+            %text(xy(j,1),xy(j,2),node, 'Interpreter', 'latex');
+            text(xy(j,1),xy(j,2),mat2str(j),'EdgeColor','black');
+        end
+        if (num_results<0 || num_results>ticks)
+            loop=ticks;
+        else
+            loop=num_results;
+        end
+        for j=1:loop
+            node = str2num(char(graph_rows(j))); %#ok<ST2NM>
+            for k=1:length(node)
+                for l=1:length(node)
+                    if k~=l
+                        A(node(k),node(l))=1;
+                    end
+                end
+            end
+        end
+        gplot(A,xy,'-');
+        title(column);
+        clear A;
         % Create the figure and plot the values
         if (ticks > num_results && num_results > 0)
             if sort==0
                 bar_graph(graph_values(end-num_results+1:end),...
-                    graph_labels(end-num_results+1:end),num_results,title);
+                    graph_labels(end-num_results+1:end),num_results,column);
             else
                 bar_graph(graph_values(1:num_results),...
-                    graph_labels(1:num_results),num_results,title);
+                    graph_labels(1:num_results),num_results,column);
             end
         else
-            bar_graph(graph_values,graph_labels,ticks,title);
+            bar_graph(graph_values,graph_labels,ticks,column);
         end
     end
 else
