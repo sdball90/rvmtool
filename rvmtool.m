@@ -70,7 +70,7 @@ function varargout = rvmtool(varargin)
 
 % Edit the above text to modify the response to help rvmtool
 
-% Last Modified by GUIDE v2.5 28-Mar-2013 19:52:56
+% Last Modified by GUIDE v2.5 14-Apr-2013 14:09:15
 
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
@@ -238,7 +238,7 @@ if(get(handles.specificRadiobutton, 'Value') == 1) %check for if specific
         set(handles.statusField,'String','Invalid search string.'); %write to status field
     else
         set(handles.statusField,'String','RFIND successful.'); %write to status field
-        plotr(colnamedd,ordresult,numresult,1);
+        plotr(rownum,colnamedd,ordresult,numresult,1);
         error = txtdump(colnamedd,1);
         if error == true
             set(handles.statusField,'string','TXTDUMP: Couldn''t open output file.');
@@ -250,7 +250,7 @@ else
         set(handles.statusField,'string','Error in RFIND.');
     else
         set(handles.statusField,'String','RFIND successful.'); %write to status field
-        plotr(column_names,ordresult,numresult,0);
+        plotr(rownum,column_names,ordresult,numresult,0);
         error = txtdump(column_names,0);
         if error == true
             set(handles.statusField,'string','TXTDUMP: Couldn''t open output file.');
@@ -283,10 +283,15 @@ delete(hObject);
 % --- Save the state of the GUI.
 function saveState(hObject, handles)
 % handles   structure with handles and user data (see GUIDATA)
+
+wait_bar = 0;
+h = waitbar(wait_bar,'Saving State...'); % progress bar
+
 state.file = get(handles.inputFile, 'string'); % get the full name
 state.generalRadiobutton = get(handles.generalRadiobutton, 'value');
 state.specificRadiobutton = get(handles.specificRadiobutton, 'value');
 state.specificTextfield = get(handles.specificTextfield, 'string');
+waitbar(0.5,h); %update progress
 if(state.specificRadiobutton == 1)
   state.columnNameindex = get(handles.columnNamePopup, 'value');
 end
@@ -295,6 +300,8 @@ state.OrderResultsindex = get(handles.OrderResultsPopUp, 'value');
 
 
 save('state.mat', 'state'); % save to state.mat
+waitbar(1,h,'Save State Done!'); %we're done
+close(h);
 % Update handles structure
 guidata(hObject, handles);
 
@@ -303,6 +310,8 @@ guidata(hObject, handles);
 function loadState(hObject, handles)
 % handles    structure with handles and user data (see GUIDATA)
 
+wait_bar = 0;
+h = waitbar(wait_bar,'Loading Previous State...'); % progress bar
 prevstate = 'state.mat';
 
 if exist(prevstate, 'file')
@@ -317,6 +326,7 @@ if exist(prevstate, 'file')
     set(handles.NumResultsPopUp,'value', state.NumResultsindex);
     set(handles.OrderResultsPopUp,'value', state.OrderResultsindex);
     
+    waitbar(0.33,h); %update
     % IF no file in saved state, disable run button
     if strcmp(handles.inputFile,'PATH_TO_FILE')
         set(handles.cmd_runTool,'Enable','off'); %disable runTool button
@@ -331,7 +341,7 @@ if exist(prevstate, 'file')
         set(handles.OrderResultsText,'Enable','on');
         set(handles.OrderResultsPopUp,'Enable','on');
     end
-    
+    waitbar(0.66,h); %update
     
     % IF SPECIFIC - RUN GETCOLUMNS
     if(get(handles.specificRadiobutton, 'Value') == 1)  
@@ -343,6 +353,8 @@ if exist(prevstate, 'file')
       set(handles.columnNamePopup,'value', state.columnNameindex);
     end
     delete(prevstate)
+    waitbar(1,h,'Previous State Loaded');
+    close(h);
 end
 % Update handles structure
 guidata(hObject, handles);
@@ -501,3 +513,18 @@ function OrderResultsPopUp_CreateFcn(hObject, eventdata, handles)
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
+
+
+% --- Executes on button press in cmd_closefigures.
+function cmd_closefigures_Callback(hObject, eventdata, handles)
+% hObject    handle to cmd_closefigures (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+fig_h = permute( findobj( 0, 'Type', 'Figure' ), [2,1] );
+    for fh = fig_h
+        uih = findobj( fh, 'Type', 'uicontrol' );
+        if isempty( uih )
+            delete( fh );
+        end
+    end
