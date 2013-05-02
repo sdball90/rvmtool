@@ -1,30 +1,42 @@
+%% PLOTR
+% *PLOTR* Creates figures to give a graphical representation of the
+%  relationships in the database
+%
+%% HISTORY
+%  28 February 2013  Dennis Magee    Original Code
+%   3 April    2013  Dennis Magee    Don't plot single hits, plot specific searches
+%  14 April    2013  Dennis Magee    Added simple node plots for each column
+%
+%% PLOTR( ROWNUM, COLUMN_NAMES, SORT, NUM_RESULTS, SPECIFIC )
+% * INPUTS
+%
+% *COLUMN_NAMES* - Array containing the names of the columns
+%
+% *SORT* - 1 for accending results 0 for decending results
+%
+% *NUM_RESULTS* - Integer value for max number of results to plot
+%
+% *SPECIFIC* - 1 for specific search, 0 for general
+%
+%% METHOD
+% * Open Database
+% * Get results from database
+% * Cut labels to 40 characters
+% * Plot the results
+% * Close Databese
+%
 function plotr( rownum, column_names, sort, num_results, specific )
-% PLOTR Creates figures to give a graphical representation of the
-% relationships in the database
-%
-% HISTORY
-% 28 February 2013  Dennis Magee    Original Code
-%  3 April    2013  Dennis Magee    Don't plot single hits, plot specific searches
-% 14 April    2013  Dennis Magee    Added simple node plots for each column
-%
-% INPUTS
-%   COLUMN_NAMES - Array containing the names of the columns
-%   SORT - 1 for accending results 0 for decending results
-%   NUM_RESULTS - Integer value for max number of results to plot
-%   SPECIFIC - 1 for specific search, 0 for general
-%
-% METHOD
-%   Open Database
-%   Get results from database
-%   Cut labels to 40 characters
-%   Plot the results
-%   Close Databese
-%
+%%%
+% Open Database
 colnum = length(column_names);
 dbid = sqliteopen('test.db');
+
 if specific==0
     for i = 2:colnum
+        %%%
+        % Get the column
         column = char(column_names(i));
+        %%%
         % Grab data to plot for the column
         if ( sort == 0 )
             cmd = sprintf('select column_value,"%s",rownum from "%s" order by "%s"',...
@@ -34,10 +46,12 @@ if specific==0
                 column,column,column);
         end
         result = sqlitecmd(dbid,cmd);
+        %%%
         % Nothing to plot if result is empty
         if isempty(result)
             continue;
         end
+        %%%
         % Set the labels and cut the text to 40 characters each
         labels = result(:,1);
         for j = 1:length(labels)
@@ -50,6 +64,7 @@ if specific==0
                 labels(j) = cellstr(mat2str(cell2mat(labels(j))));
             end
         end
+        %%%
         % Set the values and change to number array
         values = cell2mat(result(:,2));
         rows = result(:,3);
@@ -57,6 +72,7 @@ if specific==0
         if ticks==0
             continue;
         end
+        %%%
         % Remove single hits from graphs
         graph_values = zeros(1,ticks);
         graph_labels = cell(1,ticks);
@@ -70,24 +86,30 @@ if specific==0
                 k = k+1;
             end
         end
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-        % Simple Node Plot
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        
+%% Simple Node Plot
+% A simple way to plot the findings in a nodal map
+
+        %%
         % Big circle
         t = linspace(0,2*pi,ticks+2);
         big_x = (rownum)*cos(t);
         big_y = (rownum)*sin(t);
         big_xy = [big_x' big_y'];
+        %%
         % Cordinates and connection matrix for nodes
         xy = zeros(rownum,2);
         A = zeros(rownum,rownum);
         figure;
         hold on;
+        %%
         % Loop over non-zero relationships
         for j=1:ticks
             num_nodes=1;
+            %%%
             % Matrix of rows value was found
             node = str2num(char(graph_rows(j))); %#ok<ST2NM>
+            %%
             % Center of the smaller circle
             center = big_xy(j,:);
             if center(1)>=0
@@ -106,7 +128,7 @@ if specific==0
             radius = pi*rownum/(ticks+5);
             x = radius*cos(t)+center(1);
             y = radius*sin(t)+center(2);
-            
+            %%
             % Populate connection matrix
             for k=1:length(node)
                 for l=k+1:length(node)
@@ -117,15 +139,18 @@ if specific==0
                     num_nodes = num_nodes+1;
                 end
             end
+            %%
             % Labels for big groups
             if num_nodes>1
                 if center(1)>=0
+                    %%%
                     % 1st quad
                     if center(2)>=0
                         text(max(x),max(y),char(graph_labels(j)),...
                             'FontWeight','bold',...
                             'HorizontalAlignment','left',...
                             'VerticalAlignment','bottom');
+                    %%%
                     % 4th quad
                     else
                         text(max(x),min(y),char(graph_labels(j)),...
@@ -134,12 +159,14 @@ if specific==0
                             'VerticalAlignment','top');
                     end
                 else
+                    %%%
                     % 2nd quad
                     if center(2)>=0
                         text(min(x),max(y),char(graph_labels(j)),...
                             'FontWeight','bold',...
                             'HorizontalAlignment','right',...
                             'VerticalAlignment','bottom');
+                    %%%
                     % 3rd quad
                     else
                         text(min(x),min(y),char(graph_labels(j)),...
@@ -150,6 +177,7 @@ if specific==0
                 end
             end
         end
+        %%
         % Set axis and plot nodes
         ax = rownum*(1+pi/ticks);
         axis([-ax ax -ax ax]);
@@ -162,6 +190,7 @@ if specific==0
         title(column);
         clear A;
         
+        %%
         % Create the figure and plot the values
         if (ticks > num_results && num_results > 0)
             if sort==0
@@ -183,7 +212,8 @@ else
     end
 end
 sqliteclose(dbid);
-
+%% bar_graph
+% Simple function to create the bar graphs for display
 function bar_graph(values,labels,ticks,plot_title)
 figure;
 barh(values);
