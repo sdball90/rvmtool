@@ -1,42 +1,44 @@
+%% XLS2DB 
+% Takes a XLS spreadsheet and inputs data into sqlite database
+%
+%% HISTORY:
+%  19 November 2012  Dennis Magee    Original code
+%  29 November 2012  Dennis Magee    Revised to use mksqlite
+%  18 December 2012  Dennis Magee    Fixed storing numbers in database
+%  29 December 2012  Phillip Shaw    Added progress bar
+%  24 February 2013  Dennis Magee    Added error check when opening excel file
+%   3 April    2013  Dennis Magee    Add Specific_Search table
+%  11 April    2013  Dennis Magee    Fix empty column issue
+%
+%% [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
+%
+% * INPUT:
+%
+% *FILE* is a string with the path to the xls file
+%
+% * OUTPUT:
+%
+% *ROWNUM* is an integer value of the number of rows in the database
+%
+% *COLUMN_NAMES* is a cell array containing the names of the columns
+%
+% *ERROR* is an integer value specifying a possible error
+%  1 if there is an error, 0 if no error
+%
+%% METHOD:
+% * Open database file and drop previous table
+% * Read spreadsheet into raw cell array
+% * Create database table with column names from first row of array
+% * Insert rows of array into database
+% * Close database file
 function [rownum,column_names,error] = xls2db(file)
-%------------------------------------------------------------------------------
-% XLS2DB takes a XLS spreadsheet and inputs data into sqlite database
-%
-% HISTORY:
-% 19 November 2012  Dennis Magee    Original code
-% 29 November 2012  Dennis Magee    Revised to use mksqlite
-% 18 December 2012  Dennis Magee    Fixed storing numbers in database
-% 29 December 2012  Phillip Shaw    Added progress bar
-% 24 February 2013  Dennis Magee    Added error check when opening excel file
-%  3 April    2013  Dennis Magee    Add Specific_Search table
-% 11 April    2013  Dennis Magee    Fix empty column issue
-%
-% [ROWNUM,COLUMN_NAMES,ERROR] = XLS2DB(FILE)
-%
-% INPUT:
-%	FILE is a string with the path to the xls file
-%
-% OUTPUT:
-%   ROWNUM is an integer value of the number of rows in the database
-%
-%   COLUMN_NAMES is a cell array containing the names of the columns
-%
-%	ERROR is an integer value specifying a possible error
-%		1 if there is an error, 0 if no error
-%
-% METHOD:
-%	Open database file and drop previous table
-%   Read spreadsheet into raw cell array
-%	Create database table with column names from first row of array
-%	Insert rows of array into database
-%	Close database file
-%------------------------------------------------------------------------------
 rownum = 0;
 column_names = '';
 error = false;
 
 h = waitbar(0,'Please wait...'); % progress bar
 
+%% 
 % Open database file and drop current table
 dbid = sqliteopen('test.db');
 tables = sqlitecmd(dbid,'show tables');
@@ -47,6 +49,8 @@ if (~isempty(tables))
     end
 end
 clear tables;
+
+%% 
 % Read XLS file to call array RAW and get size
 try
     waitbar(.1, h, 'Reading Excel File:');
@@ -63,13 +67,16 @@ end
 
 [rownum,colnum] = size(raw);
 
+%%
 % Save the names of the columns in a cell array
 column_names = cell([1,colnum+1]);
 column_names(1,1) = cellstr('tblid');
 
+%%
 % Create table with columns
 index = '';
 for i = 1:colnum
+    %%
     % Check if column name is an empty string
     if isnan(cell2mat(raw(1,i)))
         error = true;
@@ -84,30 +91,33 @@ for i = 1:colnum
             return;
         end
     end
+    %%
     % Check if column name is a number, convert to string
     if iscellstr(raw(1,i))
         column = strtrim(char(raw(1,i)));
     else
         column = sprintf('%d',cell2mat(raw(1,i)));
     end
+    %%
     % Add column name to the list of column names
     index = sprintf('%s,''%s''',index,column);
     column_names(1,i+1) = cellstr(sprintf('%s',column));
 end
 
+%% 
 % Create the primary table
 cmd = sprintf('create table t(tblid integer primary key%s)',index);
 [~,status] = sqlitecmd(dbid,cmd);
 error = or(error,status);
 
+%% 
 % Read data from cell array into database
 sqlitecmd(dbid,'begin transaction');
 
 for i = 2:rownum
     input = sprintf('%d',i);
     for j = 1:colnum
-
-	    % Determine if data cell is empty, string, or number
+        % Determine if data cell is empty, string, or number
         if (isnan(cell2mat(raw(i,j)))==1)
             data = '';
         	input = sprintf('%s,''%s''',input,data);
@@ -122,6 +132,8 @@ for i = 2:rownum
         	input = sprintf('%s,%s',input,data);
         end    
     end
+    %%
+    % Insert into table parsed rows
     cmd = sprintf('insert into t (tblid%s) values (%s)',index,input);
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
@@ -132,7 +144,8 @@ for i = 2:rownum
     end
 end
 sqlitecmd(dbid,'commit');
-
+%%
+% Create tables for each column name to store found relationships
 sqlitecmd(dbid,'begin transaction');
 for i = 1:colnum
     cmd = sprintf('create table "%s"(tblid integer primary key,column_value,rownum%s)',...
@@ -140,6 +153,8 @@ for i = 1:colnum
     [~,status] = sqlitecmd(dbid,cmd);
     error = or(error,status);
 end
+%%
+% Create table to store found Specific searches
 cmd = 'create table Specific_Search (search_value,rownum,counts)';
 [~,status] = sqlitecmd(dbid,cmd);
 error = or(error,status);
