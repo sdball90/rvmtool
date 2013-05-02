@@ -1,52 +1,58 @@
-function varargout = rvmtool(varargin)
-%--------------------------------------------------------------------------
-% rvmtool
+%% rvmtool
 %
 % This is the graphical user interface code that allows the 
 % user to control the associated program files of the tool,
 % allowing the user to import the data from the spreadsheet and
 % run the code that will plot the found relationships.
 %
-% HISTORY:
-% 28 November 2012  Phillip Shaw       Original Code
-%  7 February 2013  Zachary Kaberlein  Added more options to GUI
-% 25 February 2013  Dennis Magee       Edit to FilterSet
-% 11 March    2013  Phillip Shaw       Reiterate GUI control preference
-% 17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
-% 22 March    2013  Zachary Kaberlein  Added search/filter options
-% 28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
-% 3  April    2013  Phillip Shaw       Implement specific search GUI
-% 5  April    2013  Phillip Shaw       Finished correct save state
+%% HISTORY
+%  28 November 2012  Phillip Shaw       Original Code
+%   7 February 2013  Zachary Kaberlein  Added more options to GUI
+%  25 February 2013  Dennis Magee       Edit to FilterSet
+%  11 March    2013  Phillip Shaw       Reiterate GUI control preference
+%  17 March    2013  Dennis Magee       Fixed run tool bug with no file in saved state
+%  22 March    2013  Zachary Kaberlein  Added search/filter options
+%  28 March    2013  Phillip Shaw       Added vars to grab dropdown contents
+%  3  April    2013  Phillip Shaw       Implement specific search GUI
+%  5  April    2013  Phillip Shaw       Finished correct save state
 
-% INPUTS:
-% varargin are any input arguments
+%% VARARGOUT = RVMTOOL( VARARGIN )
+% * INPUTS:
 %
-% OUTPUTS:
-% varargout are any output arguments
+% *varargin* are any input arguments
 %
-% USAGE:
+% * OUTPUTS:
+%
+% *varargout* are any output arguments
+%
+%% USAGE
 % rvmtool
 % 
-% CALLED MODULES:
-% xls2db
-% rfind
-% plotr
+%% CALLED MODULES
+% * xls2db
+% * rfind
+% * plotr
 %
-% DESIGN:
-%   initialize GUI
-%   disable RUNTOOL button
-%   disable RADIO buttons, SPECIFIC text field, COLUMN_NAME dropdown
-%   IF prev exists, LOAD STATE
-%   ELSEIF user selects spreadsheet
+%% DESIGN
+% * initialize GUI
+% * disable RUNTOOL button
+% * disable RADIO buttons, SPECIFIC text field, COLUMN_NAME dropdown
+% * _IF_ prev exists, LOAD STATE
+% * _ELSEIF_ user selects spreadsheet
+%
 %       enable RUNTOOL button
-%   IF user presses RUNTOOL button
+%
+% * _IF_ user presses RUNTOOL button
+%
 %       import spreadsheet into database
 %       find relationships
 %       plot relationships in new figures
-%   END
+%
+% * _END_
 %   
 % 
-%--------------------------------------------------------------------------
+function varargout = rvmtool(varargin)
+%%
 % RVMTOOL MATLAB code for rvmtool.fig
 %      RVMTOOL, by itself, creates a new RVMTOOL or raises the existing
 %      singleton*.
@@ -67,11 +73,11 @@ function varargout = rvmtool(varargin)
 %      instance to run (singleton)".
 %
 % See also: GUIDE, GUIDATA, GUIHANDLES
-
+%
 % Edit the above text to modify the response to help rvmtool
-
+%
 % Last Modified by GUIDE v2.5 14-Apr-2013 14:09:15
-
+%
 % Begin initialization code - DO NOT EDIT
 gui_Singleton = 1;
 gui_State = struct('gui_Name',       mfilename, ...
@@ -91,20 +97,30 @@ else
 end
 % End initialization code - DO NOT EDIT
 
-
-% --- Executes just before rvmtool is made visible.
-function rvmtool_OpeningFcn(hObject, eventdata, handles, varargin)
+%% rvmtool_OpeningFcn
 % This function has no output args, see OutputFcn.
-% hObject    handle to figure
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-% varargin   command line arguments to rvmtool (see VARARGIN)
+%
+% * INPUTS
+%
+% *hObject*    handle to figure
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% *varargin*   command line arguments to rvmtool (see VARARGIN)
+%
+%  --- Executes just before rvmtool is made visible.
+function rvmtool_OpeningFcn(hObject, eventdata, handles, varargin)
 
+%%
 % Choose default command line output for rvmtool
 handles.output = hObject;
+%%
 % disable the runTool button
 set(handles.cmd_runTool,'Enable','off');
 
+%%
 %Set specific text field and listbox to disabled
 set(handles.specificTextfield,'Enable','off');
 set(handles.columnNamePopup,'Enable','off');
@@ -115,32 +131,47 @@ set(handles.NumResultsPopUp,'Enable','off');
 set(handles.OrderResultsText,'Enable','off');
 set(handles.OrderResultsPopUp,'Enable','off');
 
+%%
 % load the prev state of GUI
 loadState(hObject, handles);
 
+%%
 % Update handles structure
 guidata(hObject, handles);
-
+%%
 % UIWAIT makes rvmtool wait for user response (see UIRESUME)
 % uiwait(handles.figure1);
 
-% --- Outputs from this function are returned to the command line.
+%% rvmtool_OutputFcn
+%  Outputs from this function are returned to the command line.
+%
+% * INPUTS
+%
+% *hObject*    handle to figure
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * OUTPUTS
+%
+% *varargout*  cell array for returning output args (see VARARGOUT);
 function varargout = rvmtool_OutputFcn(hObject, eventdata, handles) 
-% varargout  cell array for returning output args (see VARARGOUT);
-% hObject    handle to figure
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
 % Get default command line output from handles structure
 varargout{1} = handles.output;
 
-
+%% cmd_getFile_Calback
+%
+% * INPUTS
+%
+% *hObject*    handle to cmd_getFile (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
 % --- Executes on button press in cmd_getFile.
 function cmd_getFile_Callback(hObject, eventdata, handles)
-% hObject    handle to cmd_getFile (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
 set(handles.statusField,'String',''); %empty the status text box
 set(handles.generalRadiobutton,'value',1);
 set(handles.specificRadiobutton,'value',0);
@@ -176,12 +207,18 @@ end
 
 guidata(hObject, handles);
 
-
+%% cmd_runTool_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to cmd_runTool (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
 % --- Executes on button press in cmd_runTool.
 function cmd_runTool_Callback(hObject, eventdata, handles)
-% hObject    handle to cmd_runTool (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
 set(handles.cmd_runTool,'Enable','off'); %disable runTool button
 set(handles.cmd_getFile,'Enable','off'); %disable browse button
@@ -190,7 +227,7 @@ tic % start time
 set(handles.statusField,'String','Importing Data.'); %write to status field
 file = get(handles.inputFile,'string');
 [rownum,column_names,error] = xls2db(file); %run db script
-
+%%
 %UPDATE: remove status field for waitbar
 if error == true
     set(handles.statusField,'String','Error importing data.'); %write to status field
@@ -200,7 +237,7 @@ if error == true
 else
     set(handles.statusField,'String','XLS2DB successful.'); %write to status field
 end
-
+%%
 % Get the number of results from GUI
 contents = cellstr(get(handles.NumResultsPopUp,'String'));
 numresult = contents{get(handles.NumResultsPopUp,'Value')}; %get how many results we want
@@ -216,7 +253,7 @@ switch numresult
     case 'All Results'
         numresult = -1;
 end
-
+%%
 % Get order preference from GUI
 contents = cellstr(get(handles.OrderResultsPopUp,'String'));
 ordresult = contents{get(handles.OrderResultsPopUp,'Value')}; %get order of results
@@ -268,21 +305,31 @@ set(handles.cmd_getFile,'Enable','on'); %enable browse button
 %
 guidata(hObject,handles); %update handles structure
 
-
+%% figure1_CloseRequestFcn
+%
+% * INPUTS
+%
+% *hObject*    handle to figure1 (see GCBO)
+%
+% *e8ventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
 % --- Executes when user attempts to close figure1.
 function figure1_CloseRequestFcn(hObject, eventdata, handles)
-% hObject    handle to figure1 (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
 saveState(hObject, handles); % call to saveState function
 % Hint: delete(hObject) closes the figure
 delete(hObject);
 
-
+%% saveState
+%
+% * INPUTS
+%
+% *handles*   structure with handles and user data (see GUIDATA)
+%
 % --- Save the state of the GUI.
 function saveState(hObject, handles)
-% handles   structure with handles and user data (see GUIDATA)
 
 wait_bar = 0;
 h = waitbar(wait_bar,'Saving State...'); % progress bar
@@ -305,11 +352,14 @@ close(h);
 % Update handles structure
 guidata(hObject, handles);
 
-
+%% loadState
+%
+% * INPUTS
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
 % --- Load the prev state of the GUI.
 function loadState(hObject, handles)
-% handles    structure with handles and user data (see GUIDATA)
-
 wait_bar = 0;
 h = waitbar(wait_bar,'Loading Previous State...'); % progress bar
 prevstate = 'state.mat';
@@ -327,6 +377,7 @@ if exist(prevstate, 'file')
     set(handles.OrderResultsPopUp,'value', state.OrderResultsindex);
     
     waitbar(0.33,h); %update
+    %%
     % IF no file in saved state, disable run button
     if strcmp(handles.inputFile,'PATH_TO_FILE')
         set(handles.cmd_runTool,'Enable','off'); %disable runTool button
@@ -343,6 +394,7 @@ if exist(prevstate, 'file')
     end
     waitbar(0.66,h); %update
     
+    %%
     % IF SPECIFIC - RUN GETCOLUMNS
     if(get(handles.specificRadiobutton, 'Value') == 1)  
       set(handles.specificTextfield,'Enable','on');
@@ -359,45 +411,71 @@ end
 % Update handles structure
 guidata(hObject, handles);
 
-function specificTextfield_Callback(hObject, eventdata, handles)
-% hObject    handle to specificTextfield (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: get(hObject,'String') returns contents of specificTextfield as text
+%% specificTextfield_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to specificTextfield (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * Hints: get(hObject,'String') returns contents of specificTextfield as text
 %        str2double(get(hObject,'String')) returns contents of specificTextfield as a double
+function specificTextfield_Callback(hObject, eventdata, handles)
 
-
-% --- Executes on selection change in columnNamePopup.
-function columnNamePopup_Callback(hObject, eventdata, handles)
-% hObject    handle to columnNamePopup (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hints: contents = cellstr(get(hObject,'String')) returns columnNamePopup contents as cell array
+%% columnNamePopup_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to columnNamePopup (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * Hints: contents = cellstr(get(hObject,'String')) returns columnNamePopup contents as cell array
 %        contents{get(hObject,'Value')} returns selected item from
 %        columnNamePopup
+%
+% --- Executes on selection change in columnNamePopup.
+function columnNamePopup_Callback(hObject, eventdata, handles)
 
+%% columnNamePopup_CreateFcn
+%
+% * INPUTS
+%
+% *hObject*    handle to columnNamePopup (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    empty - handles not created until after all CreateFcns called
+%
+% * Hint: listbox controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+%
 % --- Executes during object creation, after setting all properties.
 function columnNamePopup_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to columnNamePopup (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: listbox controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
 
+%% generalRadiobutton_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to generalRadiobutton (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * Hint: get(hObject,'Value') returns toggle state of generalRadiobutton
+%  get(hObject, 'Value');
+%
 % --- Executes on button press in generalRadiobutton.
 function generalRadiobutton_Callback(hObject, eventdata, handles)
-% hObject    handle to generalRadiobutton (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of generalRadiobutton
-% get(hObject, 'Value');
 %If general radio button selected deselect specific radio button and make
 %contents not visible.
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
@@ -410,27 +488,35 @@ if(get(hObject, 'Value') == get(hObject, 'Max'))
     set(handles.OrderResultsPopUp,'Enable','on');
 end
 
-
+%% specificRadiobutton_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to specificRadiobutton (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * Hint: get(hObject,'Value') returns toggle state of specificRadiobutton
+% get(hObject, 'Value');
+%
 % --- Executes on button press in specificRadiobutton.
 function specificRadiobutton_Callback(hObject, eventdata, handles)
-% hObject    handle to specificRadiobutton (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
-
-% Hint: get(hObject,'Value') returns toggle state of specificRadiobutton
-% get(hObject, 'Value');
+%%
 %Make specificTextfield and columnNamePopup visible
 set(handles.specificTextfield,'Enable','on');
 set(handles.columnNamePopup,'Enable','on');
-
+%%
 %Enable all other search options
 set(handles.NumResultsText,'Enable','on');
 set(handles.NumResultsPopUp,'Enable','on');
 set(handles.OrderResultsText,'Enable','on');
 set(handles.OrderResultsPopUp,'Enable','on');
 
-%If specific radio button selected deselect general radio button and call
-%getColumnnames to get column names and populate popup menu
+%%
+% If specific radio button selected deselect general radio button and call
+% getColumnnames to get column names and populate popup menu
 if(get(hObject, 'Value') == get(hObject, 'Max')) 
     set(handles.generalRadiobutton, 'Value', 0);
     file = get(handles.inputFile,'String');
@@ -440,15 +526,29 @@ if(get(hObject, 'Value') == get(hObject, 'Max'))
 end
 guidata(hObject, handles);
 
+%% getColumnnames
+%
+% * INPUTS
+%
+% *file*  the xls file to get column names from
+%
+% * OUTPUTS
+%
+% *column_names*  The column names parsed from the xls
+%
+% *error*  True if an error occured
+%
 function [column_names,error] = getColumnnames(file)
 column_names = '';
 error = false;
 h = waitbar(0,'Please wait...'); % Progress bar
+%%
 % Read XLS file to call array RAW and get size
 try
     waitbar(.1, h, 'Reading Excel File:');
     [~,~,raw] = xlsread(file);
 catch MException
+    %%
     % If there is a fault close the function
     disp(MException.message);
     error = true;
@@ -457,7 +557,7 @@ catch MException
     return
 end
 [~,colnum] = size(raw);
-
+%%
 % Save the names of the columns in a cell array
 column_names = cell(1,colnum);
 
@@ -468,58 +568,88 @@ end
 waitbar(1, h, 'Complete');
 delete(h);
 
-
+%% NumResultsPopUp_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to NumResultsPopUp (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * Hints: contents = cellstr(get(hObject,'String')) returns NumResultsPopUp contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from NumResultsPopUp
+%
 % --- Executes on selection change in NumResultsPopUp.
 function NumResultsPopUp_Callback(hObject, eventdata, handles)
-% hObject    handle to NumResultsPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns NumResultsPopUp contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from NumResultsPopUp
-
-
+%% NumResultsPopUp
+%
+% * INPUTS
+%
+% *hObject*    handle to NumResultsPopUp (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    empty - handles not created until after all CreateFcns called
+%
+% * Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
 % --- Executes during object creation, after setting all properties.
 function NumResultsPopUp_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to NumResultsPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
 
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
 
-
+%% OrderResultsPopUp
+%
+% * INPUTS
+%
+% *hObject*    handle to OrderResultsPopUp (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
+% * Hints: contents = cellstr(get(hObject,'String')) returns OrderResultsPopUp contents as cell array
+%        contents{get(hObject,'Value')} returns selected item from OrderResultsPopUp
+%
 % --- Executes on selection change in OrderResultsPopUp.
 function OrderResultsPopUp_Callback(hObject, eventdata, handles)
-% hObject    handle to OrderResultsPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
-% Hints: contents = cellstr(get(hObject,'String')) returns OrderResultsPopUp contents as cell array
-%        contents{get(hObject,'Value')} returns selected item from OrderResultsPopUp
-
-
+%% OrderResultsPopUp_CreateFcn
+%
+% * INPUTS
+%
+% *hObject*    handle to OrderResultsPopUp (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    empty - handles not created until after all CreateFcns called
+%
+% * Hint: popupmenu controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+%
 % --- Executes during object creation, after setting all properties.
 function OrderResultsPopUp_CreateFcn(hObject, eventdata, handles)
-% hObject    handle to OrderResultsPopUp (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    empty - handles not created until after all CreateFcns called
-
-% Hint: popupmenu controls usually have a white background on Windows.
-%       See ISPC and COMPUTER.
 if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
     set(hObject,'BackgroundColor','white');
 end
 
-
+%% cmd_closefigures_Callback
+%
+% * INPUTS
+%
+% *hObject*    handle to cmd_closefigures (see GCBO)
+%
+% *eventdata*  reserved - to be defined in a future version of MATLAB
+%
+% *handles*    structure with handles and user data (see GUIDATA)
+%
 % --- Executes on button press in cmd_closefigures.
 function cmd_closefigures_Callback(hObject, eventdata, handles)
-% hObject    handle to cmd_closefigures (see GCBO)
-% eventdata  reserved - to be defined in a future version of MATLAB
-% handles    structure with handles and user data (see GUIDATA)
 
 fig_h = permute( findobj( 0, 'Type', 'Figure' ), [2,1] );
     for fh = fig_h
